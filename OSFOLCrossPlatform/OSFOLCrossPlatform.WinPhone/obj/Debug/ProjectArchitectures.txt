@@ -1,0 +1,2 @@
+C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform.WinPhone\OSFOLCrossPlatform.WinPhone.csproj;neutral
+C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform.csproj;neutral

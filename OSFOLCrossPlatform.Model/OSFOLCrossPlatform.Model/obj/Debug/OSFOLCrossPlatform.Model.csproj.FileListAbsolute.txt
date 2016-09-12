@@ -1,0 +1,5 @@
+C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform.Model\OSFOLCrossPlatform.Model\bin\Debug\OSFOLCrossPlatform.Model.dll
+C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform.Model\OSFOLCrossPlatform.Model\bin\Debug\OSFOLCrossPlatform.Model.pdb
+C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform.Model\OSFOLCrossPlatform.Model\obj\Debug\OSFOLCrossPlatform.Model.csprojResolveAssemblyReference.cache
+C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform.Model\OSFOLCrossPlatform.Model\obj\Debug\OSFOLCrossPlatform.Model.dll
+C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform.Model\OSFOLCrossPlatform.Model\obj\Debug\OSFOLCrossPlatform.Model.pdb

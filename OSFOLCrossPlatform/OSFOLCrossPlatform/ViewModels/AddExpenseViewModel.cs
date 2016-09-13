@@ -1,15 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
-using OSFOLCrossPlatform.Infrastructure;
+using OSFOLCrossPlatform.View;
 using OSFOLCrossPlatform.Model;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using Xamarin.Forms;
 
 namespace OSFOLCrossPlatform.ViewModels
 {
-    public class AddExpenseViewModel : ObservableObject
+    public class AddExpenseViewModel : INotifyPropertyChanged
     {
+
         IList<Customers> _customer;
         IList<Opportunity> _opportunity;
-        Expense _expense;
+        ExpenseModel _expense;
+
+        public ExpenseModel ExpenseModel
+        {
+            get { return _expense; }
+            set
+            {
+                _expense = value;
+                RaisePropertyChanged();
+            }
+        }
         
         public IList<Customers> Customers
         {
@@ -30,33 +44,17 @@ namespace OSFOLCrossPlatform.ViewModels
             }
         }
 
-        public Expense Expense
-        {
-            get { return _expense; }
-            set
-            {
-                _expense = value;
-                RaisePropertyChanged();
-            }
-        }
+
 
         public AddExpenseViewModel()
         {
-            var expense = new Expense();
+            ExpenseModel = new ExpenseModel();
             // expense.Customer = "Please choose customer";
-            expense.Opportunity = "Sales Opportunity";
-            expense.ExpenseID = 100;
-            expense.ModifiedDT = DateTime.Now;
+            ExpenseModel.Opportunity = "Sales Opportunity";
+            ExpenseModel.ExpenseID = 100;
+            ExpenseModel.ModifiedDT = DateTime.Now;
 
-            this.Expense = expense;
-
-            //this.Customer = Customers;
-
-            //this.Customers = new List<Customers>();
-            //this.Customers.Add(new Customer { ID = 1, Name = "Rexam" });
-            //this.Customers.Add(new Customer { ID = 2, Name = "Linpac" });
-            //this.Customers.Add(new Customer { ID = 3, Name = "Crown" });
-            //this.Customers.Add(new Customer { ID = 4, Name = "Benteler" });
+            
 
             this.Opportunity = new List<Opportunity>();
             this.Opportunity.Add(new Opportunity { ID = 1, SalesOpportunity = "Lighthouse Office" });
@@ -65,6 +63,14 @@ namespace OSFOLCrossPlatform.ViewModels
             this.Opportunity.Add(new Opportunity { ID = 4, SalesOpportunity = "Change Requests" });
             
         }
-        
+
+        // Method auto-created from inheriting INotifyPropertyChanged
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void RaisePropertyChanged([CallerMemberName] String propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
     }
 }

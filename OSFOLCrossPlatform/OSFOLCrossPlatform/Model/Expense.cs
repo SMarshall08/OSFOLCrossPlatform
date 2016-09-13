@@ -5,7 +5,7 @@ using SQLite;
 
 namespace OSFOLCrossPlatform.Model
 {
-    public class Expense : ObservableObject
+    public class ExpenseModel : ObservableObject
     {
         DateTime _modifiedDT;
         String _customer;
@@ -13,7 +13,7 @@ namespace OSFOLCrossPlatform.Model
         int _expenseID;
         int _loginID;
 
-        [PrimaryKey, AutoIncrement]
+        [PrimaryKey, AutoIncrement, Unique]
         public int ExpenseID
         {
             get { return _expenseID; }
@@ -23,48 +23,19 @@ namespace OSFOLCrossPlatform.Model
                 RaisePropertyChanged();
             }
         }
-        public int LoginID
+        public int LoginID {get; set;}
+
+        public DateTime ModifiedDT { get; set; }
+
+        public String Customer { get; set; }
+
+        public String Opportunity { get; set; }
+
+
+        public ExpenseModel()
         {
-            get { return _loginID; }
-            set
-            {
-                _loginID = value;
-                RaisePropertyChanged();
-            }
+
         }
-
-        public DateTime ModifiedDT
-        {
-            get { return _modifiedDT; }
-            set
-            {
-                _modifiedDT = value;
-                RaisePropertyChanged();
-            }
-        }
-
-        public String Customer
-        {
-            get { return _customer; }
-            set
-            {
-                _customer = value;
-                RaisePropertyChanged();
-            }
-        }
-
-        public String Opportunity
-        {
-            get { return _opportunity; }
-            set
-            {
-                _opportunity = value;
-                RaisePropertyChanged();
-            }
-        }
-
-
-        public Expense() { }
 
 
     }

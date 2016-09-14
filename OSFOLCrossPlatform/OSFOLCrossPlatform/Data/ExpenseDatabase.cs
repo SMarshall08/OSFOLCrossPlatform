@@ -37,20 +37,20 @@ namespace OSFOLCrossPlatform.Data
             }
         }
 
-        public IEnumerable<Expense> GetLogin()
+        public IEnumerable<ExpenseModel> GetLogin()
         {
             lock (locker)
             {
                 //return (from i in database.Table<Login>() select i).ToList();
-                return database.Query<Expense>("SELECT * FROM [Login] WHERE IsRetired = 0 ORDER BY Name ASC");
+                return database.Query<ExpenseModel>("SELECT * FROM [Login] WHERE IsRetired = 0 ORDER BY Name ASC");
             }
         }
 
-        public IEnumerable<Expense> GetExpenseItems()
+        public IEnumerable<ExpenseModel> GetExpenseItems()
         {
             lock (locker)
             {
-                return database.Query<Expense>("SELECT * FROM [Expense]");
+                return database.Query<ExpenseModel>("SELECT * FROM [Expense]");
             }
         }
 
@@ -62,7 +62,7 @@ namespace OSFOLCrossPlatform.Data
             }
         }
 
-        public int SaveItem(Expense item)
+        public int SaveItem(ExpenseModel item)
         {
             lock (locker)
             {
@@ -81,7 +81,7 @@ namespace OSFOLCrossPlatform.Data
         {
             lock (locker)
             {
-                return database.Delete<Expense>(id);
+                return database.Delete<ExpenseModel>(id);
             }
         }
     }

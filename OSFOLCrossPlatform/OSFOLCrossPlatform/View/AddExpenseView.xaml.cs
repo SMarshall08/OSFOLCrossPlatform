@@ -12,7 +12,7 @@ namespace OSFOLCrossPlatform.View
         public AddExpense()
         {
             InitializeComponent();
-            this.BindingContext = new AddExpenseViewModel();
+            BindingContext = new AddExpenseViewModel();
         }
 
         // On button click logout
@@ -33,16 +33,15 @@ namespace OSFOLCrossPlatform.View
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            customerListView.ItemsSource = App.Database.GetCustomers(); 
+            customerListView.ItemsSource = App.Database.GetCustomers();
         }
 
-        void customerListItemSelected(object sender, SelectedItemChangedEventArgs e)
+    void customerListItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            
             var customer = (Customers)e.SelectedItem;
 
-            ((App)App.Current).ResumeAtExpenseId = customer.CustomerID;
-            Debug.WriteLine("setting ResumeAtExpenseId = " + customer.CustomerID);
+            //((App)App.Current).ResumeAtExpenseId = customer.CustomerID;
+            Debug.WriteLine("setting customer ID = " + customer.CustomerID);
 
         }
     }

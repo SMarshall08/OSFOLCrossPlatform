@@ -37,7 +37,7 @@
           <ColumnDefinition Width="85" />
           <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <Label Text="Date" />
+        <Label Text="Date"/>
         <DatePicker  Grid.Column="1"
                      VerticalOptions="CenterAndExpand" 
                      Date="{x:Static sys:DateTime.Now}">
@@ -65,13 +65,13 @@
         </Grid.ColumnDefinitions>
         <Label Text="Customers" />
         <Label Grid.Column="1"
-               Text="Please Select a Customer"/>
+               x:Name="CustomerLabel"/>
         <controls:BindablePicker Grid.Column="1"
                                  x:Name="customerListView"
                                  DisplayMemberPath="Customer"
                                  SelectedValuePath="CustomerID"
                                  ItemsSource="{Binding Path=Customers}"
-                                 SelectedValue="{Binding Path=Customers, Mode=TwoWay}" />
+                                 SelectedValue="{Binding Path=Customers.CustomerID, Mode=TwoWay}" />
       </Grid>
       <Grid>
         <Grid.ColumnDefinitions>
@@ -80,11 +80,14 @@
         </Grid.ColumnDefinitions>
         <Label Text="Sales Opportunity" />
         <controls:BindablePicker Grid.Column="1"
+                                 x:Name="SalesOpportunity"
                                  DisplayMemberPath="SalesOpportunity"
                                  SelectedValuePath="ID"
                                  ItemsSource="{Binding Path=Opportunity}"
-                                 SelectedValue="{Binding Path=Expense.Opportunity, Mode=TwoWay}" />
+                                 SelectedValue="{Binding Path=Opportunity.ID, Mode=TwoWay}" />
       </Grid>
+      
+      
       
     </StackLayout>
 </ContentPage>

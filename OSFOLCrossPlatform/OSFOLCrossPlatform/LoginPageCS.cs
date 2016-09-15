@@ -43,9 +43,9 @@ namespace OSFOLCrossPlatform
 
         async void OnLoginButtonClicked(object sender, EventArgs e)
         {
-            var user = new User
+            var user = new Login
             {
-                Username = usernameEntry.Text,
+                UserName = usernameEntry.Text,
                 Password = passwordEntry.Text
             };
 
@@ -62,9 +62,9 @@ namespace OSFOLCrossPlatform
             }
         }
 
-        bool AreCredentialsCorrect(User user)
+        bool AreCredentialsCorrect(Login user)
         {
-            return user.Username == Constants.Username && user.Password == Constants.Password;
+            return user.UserName == user.UserName && user.Password == user.Password;
         }
     }
 }

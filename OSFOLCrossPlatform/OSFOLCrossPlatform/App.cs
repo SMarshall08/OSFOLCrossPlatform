@@ -29,7 +29,7 @@ namespace OSFOLCrossPlatform
         {
             if (!IsUserLoggedIn)
             {
-                MainPage = new NavigationPage(new MainPage());// NEED TO CHaGE to Loginpage
+                MainPage = new NavigationPage(new LoginPage());// NEED TO CHaGE to Loginpage
             }
             else
             {

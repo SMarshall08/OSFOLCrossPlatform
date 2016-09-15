@@ -3,11 +3,11 @@ using System.Linq;
 using Xamarin.Forms;
 using OSFOLCrossPlatform.Model;
 using SQLite;
-
+using System;
 
 namespace OSFOLCrossPlatform.Data
 {
-    public class ExpenseDatabase
+    public class ExpenseDatabase : IDisposable
     {
         static object locker = new object();
 
@@ -23,8 +23,6 @@ namespace OSFOLCrossPlatform.Data
         public ExpenseDatabase()
         {
             database = DependencyService.Get<ISQLite> ().GetConnection ();
-            // create the tables
-            // database.CreateTable<Expense>();mar
         }
 
 
@@ -37,12 +35,18 @@ namespace OSFOLCrossPlatform.Data
             }
         }
 
-        public IEnumerable<ExpenseModel> GetLogin()
+        // Gets all Logins and populates into a list ordered by name 
+        public List<Login> ListofLogins()
+        {
+            return database.Table<Login>().OrderBy(x => x.FirstName).ToList();
+        }
+
+        // Get Logins that equal to username param passed in
+        public Login GetLogin(string username)
         {
             lock (locker)
             {
-                //return (from i in database.Table<Login>() select i).ToList();
-                return database.Query<ExpenseModel>("SELECT * FROM [Login] WHERE IsRetired = 0 ORDER BY Name ASC");
+                return database.Table<Login>().FirstOrDefault(x => x.UserName == username);
             }
         }
 
@@ -51,14 +55,6 @@ namespace OSFOLCrossPlatform.Data
             lock (locker)
             {
                 return database.Query<ExpenseModel>("SELECT * FROM [Expense]");
-            }
-        }
-
-        public Customers GetCustomer(int id)
-        {
-            lock (locker)
-            {
-                return database.Table<Customers>().FirstOrDefault(x => x.CustomerID == id);
             }
         }
 
@@ -83,6 +79,11 @@ namespace OSFOLCrossPlatform.Data
             {
                 return database.Delete<ExpenseModel>(id);
             }
+        }
+
+        public void Dispose()
+        {
+            database.Dispose();
         }
     }
 }

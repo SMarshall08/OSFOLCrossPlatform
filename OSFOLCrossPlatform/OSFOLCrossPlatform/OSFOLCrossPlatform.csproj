@@ -38,7 +38,7 @@
     <Compile Include="Infrastructure\ObservableObject.cs" />
     <Compile Include="ViewModels\AddExpenseViewModel.cs" />
     <Compile Include="Model\BuildExpense.cs" />
-    <Compile Include="Model\Expense.cs" />
+    <Compile Include="Model\ExpenseModel.cs" />
     <Compile Include="ISQLite.cs" />
     <Compile Include="ITextToSpeech.cs" />
     <Compile Include="View\AddExpenseView.xaml.cs">
@@ -64,7 +64,7 @@
       <DependentUpon>Report.xaml</DependentUpon>
     </Compile>
     <Compile Include="ReportCS.cs" />
-    <Compile Include="Model\User.cs" />
+    <Compile Include="Model\Login.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">

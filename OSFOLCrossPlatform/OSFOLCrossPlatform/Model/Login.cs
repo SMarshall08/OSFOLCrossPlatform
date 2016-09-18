@@ -5,6 +5,7 @@ namespace OSFOLCrossPlatform
 {
     public class Login
     {
+
         public Login(int id)
         {
             LoginID = id;

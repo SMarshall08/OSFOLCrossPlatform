@@ -2,8 +2,10 @@
 using System;
 using Xamarin.Forms;
 using OSFOLCrossPlatform.Data;
+using OSFOLCrossPlatform.Model;
+using OSFOLCrossPlatform.Views;
 
-namespace OSFOLCrossPlatform
+namespace OSFOLCrossPlatform.Views
 {
     public partial class LoginPage : ContentPage
     {
@@ -12,12 +14,18 @@ namespace OSFOLCrossPlatform
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Async method to check if user credentials are correct and valid in order to be logged in
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         async void OnLoginButtonClicked(object sender, EventArgs e)
         {
             using (var data = new ExpenseDatabase())
             {
                 Login _user = data.GetLogin(this.usernameEntry.Text);
 
+                // If _user returned null error message will be shown
                 if(_user == null)
                 {
                     messageLabel.Text = "Login failed";
@@ -25,8 +33,11 @@ namespace OSFOLCrossPlatform
                 }
 
                 var isValid = AreCredentialsCorrect(_user);
+
+                // If true continue
                 if (isValid)
                 {
+                    
                     var user = new Login
                     {
                         LoginID  = _user.LoginID,
@@ -37,7 +48,8 @@ namespace OSFOLCrossPlatform
                     };
 
                     App.IsUserLoggedIn = true;
-                    Navigation.InsertPageBefore(new MainPage(), this);
+
+                    Navigation.InsertPageBefore(new MainPage(user.LoginID), this);
                     await Navigation.PopAsync();
                 }
                 else {

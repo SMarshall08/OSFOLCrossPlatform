@@ -8,17 +8,17 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace OSFOLCrossPlatform {
+namespace OSFOLCrossPlatform.View {
     using System;
     using Xamarin.Forms;
     using Xamarin.Forms.Xaml;
     
     
-    public partial class EditExpense : global::Xamarin.Forms.ContentPage {
+    public partial class CaptureExpensePage : global::Xamarin.Forms.ContentPage {
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private void InitializeComponent() {
-            this.LoadFromXaml(typeof(EditExpense));
+            this.LoadFromXaml(typeof(CaptureExpensePage));
         }
     }
 }

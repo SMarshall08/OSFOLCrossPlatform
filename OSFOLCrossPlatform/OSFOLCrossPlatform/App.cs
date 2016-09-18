@@ -2,6 +2,7 @@
 using System;
 using System.Diagnostics;
 using OSFOLCrossPlatform.Data;
+using OSFOLCrossPlatform.Views;
 
 namespace OSFOLCrossPlatform
 {

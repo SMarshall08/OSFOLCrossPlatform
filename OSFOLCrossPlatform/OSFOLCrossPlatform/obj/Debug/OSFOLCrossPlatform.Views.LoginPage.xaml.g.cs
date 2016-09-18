@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace OSFOLCrossPlatform {
+namespace OSFOLCrossPlatform.Views {
     using System;
     using Xamarin.Forms;
     using Xamarin.Forms.Xaml;

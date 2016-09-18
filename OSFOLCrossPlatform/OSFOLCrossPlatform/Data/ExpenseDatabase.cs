@@ -35,6 +35,15 @@ namespace OSFOLCrossPlatform.Data
             }
         }
 
+        public IEnumerable<SalesOpportunity> GetOpportunities()
+        {
+            lock (locker)
+            {
+                //return (from i in database.Table<Customer>() select i).ToList();
+                return database.Query<SalesOpportunity>("SELECT * FROM [SalesOpportunity] ORDER BY Opportunity ASC");
+            }
+        }
+
         // Gets all Logins and populates into a list ordered by name 
         public List<Login> ListofLogins()
         {
@@ -50,25 +59,35 @@ namespace OSFOLCrossPlatform.Data
             }
         }
 
-        public IEnumerable<ExpenseModel> GetExpenseItems()
+        public Expense GetExpenseItems(int loginID)
         {
             lock (locker)
             {
-                return database.Query<ExpenseModel>("SELECT * FROM [Expense]");
+                return database.Table<Expense>().FirstOrDefault(x => x.LoginID == loginID);
             }
         }
 
-        public int SaveItem(ExpenseModel item)
+        public IEnumerable<Expense> GetAllExpensesData_OldToNew(int loginID)
         {
             lock (locker)
             {
-                if (item.ExpenseID != 0)
+                return (from i in database.Table<Expense>()
+                        select i).ToList().Where(x => x.ExpenseID > 0 && x.LoginID == loginID);
+            }
+        }
+
+        public int SaveExpense(Expense expense)
+        {
+            lock (locker)
+            {
+                if (expense.ExpenseID != 0)
                 {
-                    database.Update(item);
-                    return item.ExpenseID;
+                    database.Update(expense);
+                    return expense.ExpenseID;
                 }
                 else {
-                    return database.Insert(item);
+                    database.Insert(expense);
+                    return expense.ExpenseID;
                 }
             }
         }
@@ -77,7 +96,7 @@ namespace OSFOLCrossPlatform.Data
         {
             lock (locker)
             {
-                return database.Delete<ExpenseModel>(id);
+                return database.Delete<Expense>(id);
             }
         }
 

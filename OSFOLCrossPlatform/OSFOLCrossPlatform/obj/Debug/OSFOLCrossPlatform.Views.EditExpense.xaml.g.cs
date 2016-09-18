@@ -8,17 +8,17 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace OSFOLCrossPlatform {
+namespace OSFOLCrossPlatform.Views {
     using System;
     using Xamarin.Forms;
     using Xamarin.Forms.Xaml;
     
     
-    public partial class Report : global::Xamarin.Forms.ContentPage {
+    public partial class EditExpense : global::Xamarin.Forms.ContentPage {
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private void InitializeComponent() {
-            this.LoadFromXaml(typeof(Report));
+            this.LoadFromXaml(typeof(EditExpense));
         }
     }
 }

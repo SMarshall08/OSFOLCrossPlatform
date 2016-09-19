@@ -59,13 +59,13 @@ namespace OSFOLCrossPlatform.Data
             }
         }
 
-        public Expense GetExpenseItems(int loginID)
-        {
-            lock (locker)
-            {
-                return database.Table<Expense>().FirstOrDefault(x => x.LoginID == loginID);
-            }
-        }
+        //public Expense GetExpenseItems(int loginID)
+        //{
+        //    lock (locker)
+        //    {
+        //        return database.Table<Expense>().FirstOrDefault(x => x.LoginID == loginID);
+        //    }
+        //}
 
         public IEnumerable<Expense> GetAllExpensesData_OldToNew(int loginID)
         {
@@ -99,6 +99,7 @@ namespace OSFOLCrossPlatform.Data
                 return database.Delete<Expense>(id);
             }
         }
+
 
         public void Dispose()
         {

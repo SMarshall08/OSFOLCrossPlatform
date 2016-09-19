@@ -9,6 +9,9 @@ namespace OSFOLCrossPlatform.Views
     public partial class AddExpense : ContentPage
     {
         int _loginID;
+        int _customerID;
+        int _opportunityID;
+
         public AddExpense(int loginID)
         {
             InitializeComponent();
@@ -41,6 +44,7 @@ namespace OSFOLCrossPlatform.Views
         void customerListItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             var customer = (Customers)e.SelectedItem;
+            _customerID = customer.CustomerID;
 
             //((App)App.Current).ResumeAtExpenseId = customer.CustomerID;
             Debug.WriteLine("setting customer ID = " + customer.CustomerID);
@@ -49,6 +53,7 @@ namespace OSFOLCrossPlatform.Views
         void opportunityListItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             var opportunity = (SalesOpportunity)e.SelectedItem;
+            _opportunityID = opportunity.SalesOpportunityID;
 
             //((App)App.Current).ResumeAtExpenseId = customer.CustomerID;
             Debug.WriteLine("setting sales opportunity ID = " + opportunity.SalesOpportunityID);

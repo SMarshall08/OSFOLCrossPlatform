@@ -273,9 +273,7 @@ namespace OSFOLCrossPlatform.ViewModels
                     PaidDT = DateTime.Now
                 }));
 
-
             });
-
         }
     }
 }

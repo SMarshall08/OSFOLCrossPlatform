@@ -45,7 +45,13 @@ C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform
 C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform.Droid\obj\Debug\res\drawable-xhdpi\lighthouseicon.png
 C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform.Droid\obj\Debug\res\drawable-xxhdpi\lighthouseicon.png
 C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform.Droid\obj\Debug\res\drawable-xxxhdpi\lighthouseicon.png
+C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform.Droid\obj\Debug\res\drawable-hdpi\add.png
+C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform.Droid\obj\Debug\res\drawable-mdpi\add.png
+C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform.Droid\obj\Debug\res\drawable-xhdpi\add.png
+C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform.Droid\obj\Debug\res\drawable-xxhdpi\add.png
+C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform.Droid\obj\Debug\res\drawable-xxxhdpi\add.png
 C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform.Droid\obj\Debug\R.cs.flag
 C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform.Droid\obj\Debug\uploadflags.txt
+C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform.Droid\bin\Debug\OSFOLCrossPlatform.dll.mdb
 C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform.Droid\obj\Debug\OSFOLCrossPlatform.Droid.dll.mdb
 C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform.Droid\bin\Debug\OSFOLCrossPlatform.Droid.dll.mdb

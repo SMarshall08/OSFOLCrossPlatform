@@ -10,6 +10,7 @@
     <StackLayout>
       <Label Text="Main app content goes here" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
       <Button Text="Add Expense" Clicked="OnAddExpenseButtonClicked" />
+      <Button Text="Add Quick Expense" Clicked="OnAddQuickExpenseButtonClicked" />
       <Button Text="View Edit Expense" Clicked="OnEditExpenseButtonClicked" />
       <Button Text="Report" Clicked="OnReportButtonClicked" />
     </StackLayout>

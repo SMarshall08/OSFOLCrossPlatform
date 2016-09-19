@@ -1,5 +1,6 @@
 ﻿using System;
 using Xamarin.Forms;
+using OSFOLCrossPlatform.Views;
 
 namespace OSFOLCrossPlatform
 {

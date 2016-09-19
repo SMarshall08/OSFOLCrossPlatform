@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace OSFOLCrossPlatform.View {
+namespace OSFOLCrossPlatform.Views {
     using System;
     using Xamarin.Forms;
     using Xamarin.Forms.Xaml;
@@ -17,20 +17,24 @@ namespace OSFOLCrossPlatform.View {
     public partial class AddExpense : global::Xamarin.Forms.ContentPage {
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.DatePicker ExpenseDatePicker;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private global::Xamarin.Forms.Label CustomerLabel;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private global::OSFOLCrossPlatform.Controls.BindablePicker customerListView;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
-        private global::OSFOLCrossPlatform.Controls.BindablePicker SalesOpportunity;
+        private global::OSFOLCrossPlatform.Controls.BindablePicker opportunityListView;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private void InitializeComponent() {
             this.LoadFromXaml(typeof(AddExpense));
+            ExpenseDatePicker = this.FindByName<global::Xamarin.Forms.DatePicker>("ExpenseDatePicker");
             CustomerLabel = this.FindByName<global::Xamarin.Forms.Label>("CustomerLabel");
             customerListView = this.FindByName<global::OSFOLCrossPlatform.Controls.BindablePicker>("customerListView");
-            SalesOpportunity = this.FindByName<global::OSFOLCrossPlatform.Controls.BindablePicker>("SalesOpportunity");
+            opportunityListView = this.FindByName<global::OSFOLCrossPlatform.Controls.BindablePicker>("opportunityListView");
         }
     }
 }

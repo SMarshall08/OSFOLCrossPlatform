@@ -7,7 +7,7 @@ namespace OSFOLCrossPlatform.Model
     {
         public Customers() { }
 
-        [PrimaryKey, AutoIncrement]
+        [PrimaryKey, Unique]
         public int CustomerID { get; set; }
         public int rfBusinessOwnerID { get; set; }
         public string Customer { get; set; }
@@ -21,10 +21,18 @@ namespace OSFOLCrossPlatform.Model
         public int RevisionNo { get; set; }        
     }
 
-    public class Opportunity
+    public class SalesOpportunity
     {
-        public int ID { get; set; }
-        public string SalesOpportunity { get; set; }
-        public Opportunity() { }
+        public SalesOpportunity() { }
+
+        [PrimaryKey,Unique]
+        public int SalesOpportunityID { get; set; }
+        public int rfBusinessOwnerID { get; set; }
+        public int PersonnelOwnerID { get; set; }
+        public int CustomerID { get; set; }
+        public string Opportunity { get; set; }
+        public string BusinessOwnercurrency { get; set; }
+        public DateTime ModifiedDT { get; set; }
+
     }
 }

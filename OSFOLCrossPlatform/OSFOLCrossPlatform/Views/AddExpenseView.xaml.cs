@@ -1,18 +1,19 @@
-﻿using OSFOLCrossPlatform.View;
-using OSFOLCrossPlatform.Model;
+﻿using OSFOLCrossPlatform.Model;
 using System;
 using Xamarin.Forms;
 using System.Diagnostics;
 using OSFOLCrossPlatform.ViewModels;
 
-namespace OSFOLCrossPlatform.View
+namespace OSFOLCrossPlatform.Views
 {
     public partial class AddExpense : ContentPage
     {
-        public AddExpense()
+        int _loginID;
+        public AddExpense(int loginID)
         {
             InitializeComponent();
-            BindingContext = new AddExpenseViewModel();
+            _loginID = loginID;
+            BindingContext = new AddExpenseViewModel(_loginID);
         }
 
         // On button click logout
@@ -34,15 +35,23 @@ namespace OSFOLCrossPlatform.View
         {
             base.OnAppearing();
             customerListView.ItemsSource = App.Database.GetCustomers();
+            opportunityListView.ItemsSource = App.Database.GetOpportunities();
         }
 
-    void customerListItemSelected(object sender, SelectedItemChangedEventArgs e)
+        void customerListItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             var customer = (Customers)e.SelectedItem;
 
             //((App)App.Current).ResumeAtExpenseId = customer.CustomerID;
             Debug.WriteLine("setting customer ID = " + customer.CustomerID);
+        }
 
+        void opportunityListItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            var opportunity = (SalesOpportunity)e.SelectedItem;
+
+            //((App)App.Current).ResumeAtExpenseId = customer.CustomerID;
+            Debug.WriteLine("setting sales opportunity ID = " + opportunity.SalesOpportunityID);
         }
     }
 }

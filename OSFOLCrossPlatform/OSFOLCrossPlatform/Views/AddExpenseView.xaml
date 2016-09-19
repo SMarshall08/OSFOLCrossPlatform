@@ -1,13 +1,15 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="OSFOLCrossPlatform.View.AddExpense"
+             x:Class="OSFOLCrossPlatform.Views.AddExpense"
              xmlns:controls="clr-namespace:OSFOLCrossPlatform.Controls;assembly=OSFOLCrossPlatform"
              xmlns:sys="clr-namespace:System;assembly=mscorlib"
              Title="Add Expense">
   <ContentPage.ToolbarItems>
-    <ToolbarItem Text="Home"   Clicked="OnHomeButtonClicked" />
-    <ToolbarItem Text="Logout" Clicked="OnLogoutButtonClicked" />
+    <!--<ToolbarItem Text="Home"   Clicked="OnHomeButtonClicked" />-->
+    <ToolbarItem Text="Logout" Clicked="OnLogoutButtonClicked"/>
+    <ToolbarItem Text="Home"   Clicked="OnHomeButtonClicked"/>
+    <ToolbarItem Text="Add"    Command="{Binding Path=SaveButtonTapped}"/>
   </ContentPage.ToolbarItems>
   <ContentPage.Resources>
     <ResourceDictionary>
@@ -40,12 +42,13 @@
         <Label Text="Date"/>
         <DatePicker  Grid.Column="1"
                      VerticalOptions="CenterAndExpand" 
-                     Date="{x:Static sys:DateTime.Now}">
+                     Date="{x:Static sys:DateTime.Now}"
+                     x:Name="ExpenseDatePicker">
           <DatePicker.Format>dd-MM-yyyy</DatePicker.Format>
           <DatePicker.MinimumDate>
             <sys:DateTime x:FactoryMethod="Parse">
               <x:Arguments>
-                <x:String>Jan 1 2017</x:String>
+                <x:String>Jan 1 2016</x:String>
               </x:Arguments>
             </sys:DateTime>
           </DatePicker.MinimumDate>
@@ -80,15 +83,12 @@
         </Grid.ColumnDefinitions>
         <Label Text="Sales Opportunity" />
         <controls:BindablePicker Grid.Column="1"
-                                 x:Name="SalesOpportunity"
-                                 DisplayMemberPath="SalesOpportunity"
-                                 SelectedValuePath="ID"
-                                 ItemsSource="{Binding Path=Opportunity}"
-                                 SelectedValue="{Binding Path=Opportunity.ID, Mode=TwoWay}" />
-      </Grid>
-      
-      
-      
+                                 x:Name="opportunityListView"
+                                 DisplayMemberPath="Opportunity"
+                                 SelectedValuePath="SalesOpportunityID"
+                                 ItemsSource="{Binding Path=SalesOpportunity}"
+                                 SelectedValue="{Binding Path=SalesOpportunity.SalesOpportunityID, Mode=TwoWay}" />
+      </Grid>        
     </StackLayout>
 </ContentPage>
 

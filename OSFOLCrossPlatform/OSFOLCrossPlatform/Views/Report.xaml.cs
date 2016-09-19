@@ -1,7 +1,7 @@
 ﻿using System;
 using Xamarin.Forms;
 
-namespace OSFOLCrossPlatform
+namespace OSFOLCrossPlatform.Views
 {
     public partial class Report : ContentPage
     {

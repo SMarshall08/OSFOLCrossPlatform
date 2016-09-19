@@ -35,36 +35,40 @@
   <ItemGroup>
     <Compile Include="Controls\BindablePicker.cs" />
     <Compile Include="Data\ExpenseDatabase.cs" />
+    <Compile Include="ExpensePhotoPreview.cs" />
     <Compile Include="Infrastructure\ObservableObject.cs" />
+    <Compile Include="Model\IImage.cs" />
     <Compile Include="ViewModels\AddExpenseViewModel.cs" />
     <Compile Include="Model\BuildExpense.cs" />
-    <Compile Include="Model\Expense.cs" />
+    <Compile Include="Model\ExpenseModel.cs" />
     <Compile Include="ISQLite.cs" />
     <Compile Include="ITextToSpeech.cs" />
-    <Compile Include="View\AddExpenseView.xaml.cs">
+    <Compile Include="ViewModels\ExpensesViewModel.cs" />
+    <Compile Include="Views\AddExpenseView.xaml.cs">
       <DependentUpon>AddExpenseView.xaml</DependentUpon>
     </Compile>
     <Compile Include="AddExpenseCS.cs" />
     <Compile Include="App.cs" />
-    <Compile Include="Infrastructure\Constants.cs" />
-    <Compile Include="View\EditExpense.xaml.cs">
+    <Compile Include="Views\AddquickExpenseView.xaml.cs">
+      <DependentUpon>AddquickExpenseView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EditExpense.xaml.cs">
       <DependentUpon>EditExpense.xaml</DependentUpon>
     </Compile>
     <Compile Include="EditExpenseCS.cs" />
-    <Compile Include="View\LoginPage.xaml.cs">
+    <Compile Include="Views\ExpensesViewCell.cs" />
+    <Compile Include="Views\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="LoginPageCS.cs" />
-    <Compile Include="View\MainPage.xaml.cs">
+    <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MainPageCS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="View\Report.xaml.cs">
+    <Compile Include="Views\Report.xaml.cs">
       <DependentUpon>Report.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ReportCS.cs" />
-    <Compile Include="Model\User.cs" />
+    <Compile Include="ExpensesPage.cs" />
+    <Compile Include="Model\Login.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -104,36 +108,41 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="View\LoginPage.xaml">
+    <EmbeddedResource Include="Views\LoginPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="View\MainPage.xaml">
+    <EmbeddedResource Include="Views\MainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="View\AddExpenseView.xaml">
+    <EmbeddedResource Include="Views\AddExpenseView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="View\EditExpense.xaml">
+    <EmbeddedResource Include="Views\EditExpense.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="View\Report.xaml">
+    <EmbeddedResource Include="Views\Report.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Views\AddquickExpenseView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.2.3.0.107\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.3.0.107\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

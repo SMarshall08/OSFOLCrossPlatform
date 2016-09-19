@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="OSFOLCrossPlatform.Droid">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="OSFOLCrossPlatform.Droid" android:installLocation="auto" android:versionCode="1" android:versionName="1.0">
   <!--suppress UsesMinSdkAttributes-->
   <uses-sdk android:minSdkVersion="19" />
+  <uses-permission android:name="android.permission.CAMERA" />
   <uses-permission android:name="android.permission.INTERNET" />
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+  <uses-permission android:name="android.permission.RECORD_AUDIO" />
   <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
   <application android:name="mono.android.app.Application" android:allowBackup="true" android:label="OSFOLCrossPlatform.Droid" android:icon="@drawable/lighthouseicon" android:debuggable="true">
     <activity android:icon="@drawable/lighthouseicon" android:label="OSFOL" android:theme="@android:style/Theme.Holo.Light" android:name="md56c9b6899f46359f363c6d6ceba6e333a.MainActivity">

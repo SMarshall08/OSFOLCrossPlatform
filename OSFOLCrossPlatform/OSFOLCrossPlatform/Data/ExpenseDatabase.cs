@@ -3,11 +3,11 @@ using System.Linq;
 using Xamarin.Forms;
 using OSFOLCrossPlatform.Model;
 using SQLite;
-
+using System;
 
 namespace OSFOLCrossPlatform.Data
 {
-    public class ExpenseDatabase
+    public class ExpenseDatabase : IDisposable
     {
         static object locker = new object();
 
@@ -23,8 +23,6 @@ namespace OSFOLCrossPlatform.Data
         public ExpenseDatabase()
         {
             database = DependencyService.Get<ISQLite> ().GetConnection ();
-            // create the tables
-            // database.CreateTable<Expense>();mar
         }
 
 
@@ -37,42 +35,59 @@ namespace OSFOLCrossPlatform.Data
             }
         }
 
-        public IEnumerable<ExpenseModel> GetLogin()
+        public IEnumerable<SalesOpportunity> GetOpportunities()
         {
             lock (locker)
             {
-                //return (from i in database.Table<Login>() select i).ToList();
-                return database.Query<ExpenseModel>("SELECT * FROM [Login] WHERE IsRetired = 0 ORDER BY Name ASC");
+                //return (from i in database.Table<Customer>() select i).ToList();
+                return database.Query<SalesOpportunity>("SELECT * FROM [SalesOpportunity] ORDER BY Opportunity ASC");
             }
         }
 
-        public IEnumerable<ExpenseModel> GetExpenseItems()
+        // Gets all Logins and populates into a list ordered by name 
+        public List<Login> ListofLogins()
+        {
+            return database.Table<Login>().OrderBy(x => x.FirstName).ToList();
+        }
+
+        // Get Logins that equal to username param passed in
+        public Login GetLogin(string username)
         {
             lock (locker)
             {
-                return database.Query<ExpenseModel>("SELECT * FROM [Expense]");
+                return database.Table<Login>().FirstOrDefault(x => x.UserName == username);
             }
         }
 
-        public Customers GetCustomer(int id)
+        public Expense GetExpenseItems(int loginID)
         {
             lock (locker)
             {
-                return database.Table<Customers>().FirstOrDefault(x => x.CustomerID == id);
+                return database.Table<Expense>().FirstOrDefault(x => x.LoginID == loginID);
             }
         }
 
-        public int SaveItem(ExpenseModel item)
+        public IEnumerable<Expense> GetAllExpensesData_OldToNew(int loginID)
         {
             lock (locker)
             {
-                if (item.ExpenseID != 0)
+                return (from i in database.Table<Expense>()
+                        select i).ToList().Where(x => x.ExpenseID > 0 && x.LoginID == loginID);
+            }
+        }
+
+        public int SaveExpense(Expense expense)
+        {
+            lock (locker)
+            {
+                if (expense.ExpenseID != 0)
                 {
-                    database.Update(item);
-                    return item.ExpenseID;
+                    database.Update(expense);
+                    return expense.ExpenseID;
                 }
                 else {
-                    return database.Insert(item);
+                    database.Insert(expense);
+                    return expense.ExpenseID;
                 }
             }
         }
@@ -81,8 +96,13 @@ namespace OSFOLCrossPlatform.Data
         {
             lock (locker)
             {
-                return database.Delete<ExpenseModel>(id);
+                return database.Delete<Expense>(id);
             }
+        }
+
+        public void Dispose()
+        {
+            database.Dispose();
         }
     }
 }

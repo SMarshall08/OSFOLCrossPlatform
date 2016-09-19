@@ -1,7 +1,7 @@
 ﻿using System;
 using Xamarin.Forms;
 using OSFOLCrossPlatform.Model;
-using OSFOLCrossPlatform.View;
+using OSFOLCrossPlatform.Views;
 using System.Diagnostics;
 
 namespace OSFOLCrossPlatform

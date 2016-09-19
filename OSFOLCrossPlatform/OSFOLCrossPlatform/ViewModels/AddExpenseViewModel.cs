@@ -16,8 +16,8 @@ namespace OSFOLCrossPlatform.ViewModels
         ExpenseDatabase database;
 
         Expense _expense;
+
         int _opportunityID;
-        SalesOpportunity opportunityID;
         DateTime _modifiedDT;
         int _rfDayPeriodID;
         string _locationfrom;
@@ -41,8 +41,7 @@ namespace OSFOLCrossPlatform.ViewModels
 
         #region ExpenseModel Get & Set
         public Expense Expense {get; set;}
-        public SalesOpportunity SaleOpportunity { get; set; }
-        public Customers Customer { get; set; }
+
 
         public int SaleOpportunityID
         {
@@ -254,11 +253,11 @@ namespace OSFOLCrossPlatform.ViewModels
                 Task.Run(() => App.Database.SaveExpense(new Expense
                 {
                     LoginID = loginID,
-                    SaleOpportunityID = SaleOpportunity.SalesOpportunityID,
+                    SaleOpportunityID = SaleOpportunityID,
                     rfDayPeriodID = 0,
                     Locationfrom = null,
                     LocationTo = "London",
-                    CustomerID = Customer.CustomerID,
+                    CustomerID = CustomerID,
                     ExpenseDetails = "Expense Test",
                     ContactID = 0,
                     Currency = "£",

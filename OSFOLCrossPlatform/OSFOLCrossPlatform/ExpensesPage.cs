@@ -7,6 +7,7 @@ namespace OSFOLCrossPlatform
 {
     public class ExpensesPage : ContentPage
     {
+        int _loginID;
         ListView _listView;
         ExpensesViewModel _expensesViewModel;
         ToolbarItem _addButtonToolBar;
@@ -15,7 +16,8 @@ namespace OSFOLCrossPlatform
 
         public ExpensesPage(int loginID)
         {
-            _expensesViewModel = new ExpensesViewModel(loginID);
+            _loginID = loginID;
+            _expensesViewModel = new ExpensesViewModel(_loginID);
             BindingContext = _expensesViewModel;
 
             #region Create the ListView
@@ -28,7 +30,7 @@ namespace OSFOLCrossPlatform
             _listView.IsPullToRefreshEnabled = true;
             _listView.Refreshing += (async (sender, e) =>
             {
-                await _expensesViewModel.RefreshExpensesDataAsync(loginID);
+                await _expensesViewModel.RefreshExpensesDataAsync(_loginID);
                 _listView.EndRefresh();
             });
 
@@ -55,7 +57,7 @@ namespace OSFOLCrossPlatform
 
             #region Create Searchbar
             var searchBar = new SearchBar();
-            searchBar.TextChanged += (sender, e) => _expensesViewModel.FilterExpenses(searchBar.Text,loginID);
+            searchBar.TextChanged += (sender, e) => _expensesViewModel.FilterExpenses(searchBar.Text,_loginID);
             #endregion
 
             #region Create Stack
@@ -90,7 +92,7 @@ namespace OSFOLCrossPlatform
 
         void HandleAddButtonClicked(object sender, EventArgs e)
         {
-            Navigation.PushModalAsync(new NavigationPage(new AddExpense()));
+            Navigation.PushModalAsync(new NavigationPage(new AddExpense(_loginID)));
         }
 
         // On button click logout

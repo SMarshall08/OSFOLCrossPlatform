@@ -8,16 +8,12 @@ namespace OSFOLCrossPlatform.Views
 {
     public partial class AddExpense : ContentPage
     {
-        public AddExpense()
-        {
-            InitializeComponent();
-            BindingContext = new AddExpenseViewModel();
-        }
-
+        int _loginID;
         public AddExpense(int loginID)
         {
             InitializeComponent();
-            BindingContext = new AddExpenseViewModel(loginID);
+            _loginID = loginID;
+            BindingContext = new AddExpenseViewModel(_loginID);
         }
 
         // On button click logout
@@ -40,7 +36,6 @@ namespace OSFOLCrossPlatform.Views
             base.OnAppearing();
             customerListView.ItemsSource = App.Database.GetCustomers();
             opportunityListView.ItemsSource = App.Database.GetOpportunities();
-            
         }
 
         void customerListItemSelected(object sender, SelectedItemChangedEventArgs e)

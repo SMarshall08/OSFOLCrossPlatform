@@ -1,7 +1,9 @@
 ﻿using System;
 using OSFOLCrossPlatform.Infrastructure;
+using OSFOLCrossPlatform.ViewModels;
 using SQLite;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace OSFOLCrossPlatform.Model
 {
@@ -17,8 +19,6 @@ namespace OSFOLCrossPlatform.Model
         {
             LoginID = loginID;
         }
-
-        public Expense() { }
 
         [PrimaryKey, AutoIncrement, Unique]
         public int ExpenseID          { get; set; }
@@ -41,7 +41,12 @@ namespace OSFOLCrossPlatform.Model
         public DateTime ModifiedDT    { get; set; }
         public int rfBusinessOwner    { get; set; }
         public DateTime PaidDT        { get; set; }
-      
+
+        //public static IList<Expense> All { set; get; }
+
+        public Expense()
+        {
+        }
 
     }
 }

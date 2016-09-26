@@ -34,10 +34,18 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Controls\BindablePicker.cs" />
+    <Compile Include="Controls\DefaultControls\DefaultButton.cs" />
+    <Compile Include="Controls\DefaultControls\DefaultEntry.cs" />
+    <Compile Include="Controls\DefaultControls\DefaultLabel.cs" />
+    <Compile Include="Controls\DefaultControls\ItalicLabel.cs" />
     <Compile Include="Data\ExpenseDatabase.cs" />
     <Compile Include="ExpensePhotoPreview.cs" />
     <Compile Include="Infrastructure\ObservableObject.cs" />
     <Compile Include="Model\IImage.cs" />
+    <Compile Include="Pages\Base\BaseContentPage.cs" />
+    <Compile Include="Pages\LoginPageTest.cs" />
+    <Compile Include="Styles\StyleManager.cs" />
+    <Compile Include="ViewModels\AddExpenseSetViewModel.cs" />
     <Compile Include="ViewModels\AddExpenseViewModel.cs" />
     <Compile Include="Model\BuildExpense.cs" />
     <Compile Include="Model\ExpenseModel.cs" />

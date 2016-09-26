@@ -92,6 +92,22 @@ namespace OSFOLCrossPlatform.Data
             }
         }
 
+        public int SaveExpenseSet(ExpenseSet expenseSet)
+        {
+            lock (locker)
+            {
+                if (expenseSet.ExpenseSetID != 0)
+                {
+                    database.Update(expenseSet);
+                    return expenseSet.ExpenseSetID;
+                }
+                else {
+                    database.Insert(expenseSet);
+                    return expenseSet.ExpenseSetID;
+                }
+            }
+        }
+
         public int DeleteItem(int id)
         {
             lock (locker)

@@ -1,8 +1,20 @@
 ﻿using System;
 using SQLite;
+using Xamarin.Forms;
 
 namespace OSFOLCrossPlatform.Model
 {
+    public class ExpenseSet
+    {
+        public ExpenseSet() { }
+
+        [PrimaryKey,Unique]
+        public int ExpenseSetID { get; set; }
+        public string ExpenseSetName { get; set; }
+        public Image ExpenseImage { get; set; }
+        public DateTime FromDT { get; set; }
+        public DateTime ToDT { get; set; }
+    }
     public class Customers
     {
         public Customers() { }

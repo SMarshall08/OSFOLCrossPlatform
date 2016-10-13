@@ -15,33 +15,31 @@ namespace OSFOLCrossPlatform.ViewModels
     {
         ExpenseDatabase database;
 
-        Expense _expense;
-
         int _opportunityID;
         DateTime _modifiedDT;
         int _rfDayPeriodID;
         string _locationfrom;
         string _locationTo;
-        int _customerID;
         string _expenseDetails;
         int _contactID;
         string _currency;
         decimal _exchangeRate;
         int _expenseAmountCur;
         int _expenseAmount;
-        int _rfExpensetypeID;
         int _rfExpenseMethodID;
         bool _isRechargeable;
-        string _vendor;
         int _rfBusinessOwner;
         DateTime _paidDT;
 
-        public event EventHandler SaveError;
-        public event EventHandler SaveToDatabaseCompleted;
+        //public event EventHandler SaveError;
+        //public event EventHandler SaveToDatabaseCompleted;
 
         #region ExpenseModel Get & Set
         public Expense Expense {get; set;}
-
+        public Customers Customers { get; set;}
+        public SalesOpportunity SalesOpportunity { get; set; }
+        public ExpenseType rfExpenseType { get; set; }
+        public rfVendor rfVendor { get; set; }
 
         public int SaleOpportunityID
         {
@@ -153,10 +151,10 @@ namespace OSFOLCrossPlatform.ViewModels
 
         public int rfExpenseTypeID
         {
-            get { return _rfExpensetypeID; }
+            get { return Expense.rfExpensetypeID; }
             set
             {
-                _rfExpensetypeID = value;
+                Expense.rfExpensetypeID = value;
                 RaisePropertyChanged();
             }
         }
@@ -183,10 +181,10 @@ namespace OSFOLCrossPlatform.ViewModels
 
         public string Vendor
         {
-            get { return _vendor; }
+            get { return Expense.Vendor; }
             set
             {
-                _vendor = value;
+                Expense.Vendor = value;
                 RaisePropertyChanged();
             }
         }
@@ -234,8 +232,6 @@ namespace OSFOLCrossPlatform.ViewModels
             database = new ExpenseDatabase();
             Expense = new Expense();
 
-
-
             // save expense 
             SaveButtonTapped = new Command(() =>
             {
@@ -264,10 +260,10 @@ namespace OSFOLCrossPlatform.ViewModels
                     ExchangeRate = 1.2m,
                     ExpenseAmountCur = 11,
                     ExpenseAmount = 15,
-                    rfExpensetypeID = 1,
+                    rfExpensetypeID = rfExpenseTypeID,
                     rfExpenseMethodID = 1,
                     IsRechargeable = true,
-                    Vendor = null,
+                    Vendor = Vendor,
                     ModifiedDT = DateTime.Now,
                     rfBusinessOwner = 1,
                     PaidDT = DateTime.Now

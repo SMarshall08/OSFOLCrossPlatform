@@ -75,6 +75,24 @@ namespace OSFOLCrossPlatform.Views
             };
             #endregion
 
+            #region Create ExpenseType Stack
+            var expenseTypeLabel = new Label
+            {
+                Text = "rfExpenseTypeID",
+                FontAttributes = FontAttributes.Bold
+            };
+            var expenseType = new Label();
+            expenseType.SetBinding(Label.TextProperty, "rfExpenseTypeID");
+
+            var expenseTypeStack = new StackLayout
+            {
+                Children = {
+                    expenseTypeLabel,
+                    expenseType
+                }
+            };
+            #endregion
+
             #region Create MenuItem
             var deleteAction = new MenuItem
             {
@@ -111,7 +129,10 @@ namespace OSFOLCrossPlatform.Views
                     Orientation = StackOrientation.Horizontal,
                     Children = {
                         lighthouseImage,
-                        expenseStack
+                        expenseStack,
+                        customerStack,
+                        opportunityStack,
+                        expenseTypeStack
                     }
                 };
             }

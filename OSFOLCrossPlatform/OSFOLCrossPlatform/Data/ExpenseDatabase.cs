@@ -39,8 +39,26 @@ namespace OSFOLCrossPlatform.Data
         {
             lock (locker)
             {
-                //return (from i in database.Table<Customer>() select i).ToList();
+                //return (from i in database.Table<SalesOpportunity>() select i).ToList();
                 return database.Query<SalesOpportunity>("SELECT * FROM [SalesOpportunity] ORDER BY Opportunity ASC");
+            }
+        }
+
+        public IEnumerable<ExpenseType> GetExpenseTypes()
+        {
+            lock (locker)
+            {
+                //return (from i in database.Table<ExpenseType>() select i).ToList();
+                return database.Query<ExpenseType>("SELECT * FROM [rfExpenseType] ORDER BY rfExpenseType ASC");
+            }
+        }
+
+        public IEnumerable<rfVendor> GetVendor()
+        {
+            lock (locker)
+            {
+                //return (from i in database.Table<rfVendor>() select i).ToList();
+                return database.Query<rfVendor>("SELECT * FROM [rfVendor] ORDER BY Vendor ASC");
             }
         }
 

@@ -47,4 +47,23 @@ namespace OSFOLCrossPlatform.Model
         public DateTime ModifiedDT { get; set; }
 
     }
+
+    public class ExpenseType
+    {
+        public ExpenseType() { }
+
+        [PrimaryKey, Unique]
+        public int rfExpenseTypeID { get; set; }
+        public string rfExpenseType { get; set; }
+        public string Description { get; set; }
+    }
+
+    public class rfVendor
+    {
+        public rfVendor() { }
+
+        [PrimaryKey,Unique]
+        public int VendorID { get; set; }
+        public string Vendor { get; set; }
+    }
 }

@@ -29,12 +29,20 @@ namespace OSFOLCrossPlatform.Views {
         private global::OSFOLCrossPlatform.Controls.BindablePicker opportunityListView;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::OSFOLCrossPlatform.Controls.BindablePicker expenseTypeListView;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::OSFOLCrossPlatform.Controls.BindablePicker vendorListView;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private void InitializeComponent() {
             this.LoadFromXaml(typeof(AddExpense));
             ExpenseDatePicker = this.FindByName<global::Xamarin.Forms.DatePicker>("ExpenseDatePicker");
             CustomerLabel = this.FindByName<global::Xamarin.Forms.Label>("CustomerLabel");
             customerListView = this.FindByName<global::OSFOLCrossPlatform.Controls.BindablePicker>("customerListView");
             opportunityListView = this.FindByName<global::OSFOLCrossPlatform.Controls.BindablePicker>("opportunityListView");
+            expenseTypeListView = this.FindByName<global::OSFOLCrossPlatform.Controls.BindablePicker>("expenseTypeListView");
+            vendorListView = this.FindByName<global::OSFOLCrossPlatform.Controls.BindablePicker>("vendorListView");
         }
     }
 }

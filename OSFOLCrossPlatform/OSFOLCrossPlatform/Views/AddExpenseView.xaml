@@ -4,7 +4,7 @@
              x:Class="OSFOLCrossPlatform.Views.AddExpense"
              xmlns:controls="clr-namespace:OSFOLCrossPlatform.Controls;assembly=OSFOLCrossPlatform"
              xmlns:sys="clr-namespace:System;assembly=mscorlib"
-             Title="Add Expense">
+             Title="General">
   <ContentPage.ToolbarItems>
     <!--<ToolbarItem Text="Home"   Clicked="OnHomeButtonClicked" />-->
     <ToolbarItem Text="Logout" Clicked="OnLogoutButtonClicked"/>
@@ -81,14 +81,41 @@
           <ColumnDefinition Width="85" />
           <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <Label Text="Sales Opportunity" />
+        <Label Text="SalesOpportunity" />
         <controls:BindablePicker Grid.Column="1"
                                  x:Name="opportunityListView"
                                  DisplayMemberPath="Opportunity"
                                  SelectedValuePath="SalesOpportunityID"
                                  ItemsSource="{Binding Path=SalesOpportunity}"
                                  SelectedValue="{Binding Path=SalesOpportunity.SalesOpportunityID, Mode=TwoWay}" />
-      </Grid>        
+      </Grid>
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="85" />
+          <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Label Text="ExpenseType" />
+        <controls:BindablePicker Grid.Column="1"
+                                 x:Name="expenseTypeListView"
+                                 DisplayMemberPath="rfExpenseType"
+                                 SelectedValuePath="rfExpenseTypeID"
+                                 ItemsSource="{Binding Path=rfExpenseType}"
+                                 SelectedValue="{Binding Path=ExpenseType.rfExpenseTypeID, Mode=TwoWay}" />
+      </Grid>
+
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="85" />
+          <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Label Text="Vendor" />
+        <controls:BindablePicker Grid.Column="1"
+                                 x:Name="vendorListView"
+                                 DisplayMemberPath="Vendor"
+                                 SelectedValuePath="VendorID"
+                                 ItemsSource="{Binding Path=Vendor}"
+                                 SelectedValue="{Binding Path=rfVendor.VendorID, Mode=TwoWay}" />
+      </Grid>
     </StackLayout>
 </ContentPage>
 

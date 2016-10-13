@@ -40,6 +40,7 @@
     <Compile Include="Controls\DefaultControls\ItalicLabel.cs" />
     <Compile Include="Data\ExpenseDatabase.cs" />
     <Compile Include="ExpensePhotoPreview.cs" />
+    <Compile Include="Infrastructure\NonNullToBooleanConverter.cs" />
     <Compile Include="Infrastructure\ObservableObject.cs" />
     <Compile Include="Model\IImage.cs" />
     <Compile Include="Pages\Base\BaseContentPage.cs" />
@@ -52,18 +53,24 @@
     <Compile Include="ISQLite.cs" />
     <Compile Include="ITextToSpeech.cs" />
     <Compile Include="ViewModels\ExpensesViewModel.cs" />
+    <Compile Include="Views\AddCostingExpenseView.xaml.cs">
+      <DependentUpon>AddCostingExpenseView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\AddExpenseView.xaml.cs">
       <DependentUpon>AddExpenseView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AddExpenseCS.cs" />
     <Compile Include="App.cs" />
     <Compile Include="Views\AddquickExpenseView.xaml.cs">
       <DependentUpon>AddquickExpenseView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\AddTypeExpenseView.xaml.cs">
+      <DependentUpon>AddTypeExpenseView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\EditExpense.xaml.cs">
       <DependentUpon>EditExpense.xaml</DependentUpon>
     </Compile>
-    <Compile Include="EditExpenseCS.cs" />
+    <Compile Include="Pages\EditExpenseCS.cs" />
+    <Compile Include="Views\ExpenseTabbedPage.cs" />
     <Compile Include="Views\ExpensesViewCell.cs" />
     <Compile Include="Views\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
@@ -72,10 +79,7 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Views\Report.xaml.cs">
-      <DependentUpon>Report.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ExpensesPage.cs" />
+    <Compile Include="Pages\ExpensesPage.cs" />
     <Compile Include="Model\Login.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -140,13 +144,19 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\Report.xaml">
+    <EmbeddedResource Include="Views\AddquickExpenseView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\AddquickExpenseView.xaml">
+    <EmbeddedResource Include="Views\AddTypeExpenseView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\AddCostingExpenseView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

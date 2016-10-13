@@ -21,16 +21,9 @@ C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform
 C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform\obj\Debug\OSFOLCrossPlatform.Views.MainPage.xaml.g.cs
 C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform\obj\Debug\OSFOLCrossPlatform.Views.AddExpenseView.xaml.g.cs
 C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform\obj\Debug\OSFOLCrossPlatform.Views.EditExpense.xaml.g.cs
-C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform\obj\Debug\OSFOLCrossPlatform.Views.Report.xaml.g.cs
 C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform\obj\Debug\OSFOLCrossPlatform.Views.AddquickExpenseView.xaml.g.cs
 C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform\obj\Debug\OSFOLCrossPlatform.dll
 C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform\obj\Debug\OSFOLCrossPlatform.pdb
-C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform\obj\Debug\OSFOLCrossPlatform.dll.mdb
-C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform\bin\Debug\OSFOLCrossPlatform.dll.mdb
-C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform\obj\Debug\OSFOLCrossPlatform.dll.mdb
-C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform\bin\Debug\OSFOLCrossPlatform.dll.mdb
-C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform\obj\Debug\OSFOLCrossPlatform.dll.mdb
-C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform\bin\Debug\OSFOLCrossPlatform.dll.mdb
 C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform\obj\Debug\OSFOLCrossPlatform.dll.mdb
 C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform\bin\Debug\OSFOLCrossPlatform.dll.mdb
 C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform\obj\Debug\OSFOLCrossPlatform.dll.mdb

@@ -35,6 +35,38 @@ namespace OSFOLCrossPlatform.Data
             }
         }
 
+        public Customers GetCustomer(int customerID)
+        {
+            lock (locker)
+            {
+                return database.Table<Customers>().FirstOrDefault(x => x.CustomerID == customerID);
+            }
+        }
+
+        public SalesOpportunity GetOpportunity(int salesOpportunityID)
+        {
+            lock (locker)
+            {
+                return database.Table<SalesOpportunity>().FirstOrDefault(x => x.SalesOpportunityID == salesOpportunityID);
+            }
+        }
+
+        public ExpenseType GetExpenseType(int rfExpenseTypeID)
+        {
+            lock (locker)
+            {
+                return database.Table<ExpenseType>().FirstOrDefault(x => x.rfExpenseTypeID == rfExpenseTypeID);
+            }
+        }
+
+        public ExpenseMethod GetExpenseMethod(int rfExpenseMethodID)
+        {
+            lock (locker)
+            {
+                return database.Table<ExpenseMethod>().FirstOrDefault(x => x.rfExpenseMethodID == rfExpenseMethodID);
+            }
+        }
+
         public IEnumerable<SalesOpportunity> GetOpportunities()
         {
             lock (locker)
@@ -49,7 +81,7 @@ namespace OSFOLCrossPlatform.Data
             lock (locker)
             {
                 //return (from i in database.Table<ExpenseType>() select i).ToList();
-                return database.Query<ExpenseType>("SELECT * FROM [rfExpenseType] ORDER BY rfExpenseType ASC");
+                return database.Query<ExpenseType>("SELECT * FROM [ExpenseType] ORDER BY rfExpenseType ASC");
             }
         }
 
@@ -77,13 +109,21 @@ namespace OSFOLCrossPlatform.Data
             }
         }
 
-        //public Expense GetExpenseItems(int loginID)
-        //{
-        //    lock (locker)
-        //    {
-        //        return database.Table<Expense>().FirstOrDefault(x => x.LoginID == loginID);
-        //    }
-        //}
+        public Expense GetExpenseItems(Expense expense)
+        {
+            lock (locker)
+            {
+                return database.Table<Expense>().FirstOrDefault(x => x.ExpenseID == expense.ExpenseID && x.LoginID == expense.LoginID);
+            }
+        }
+
+        public Expense GetExpenses(int expenseID)
+        {
+            lock (locker)
+            {
+                return database.Table<Expense>().FirstOrDefault(x => x.ExpenseID == expenseID);
+            }
+        }
 
         public IEnumerable<Expense> GetAllExpensesData_OldToNew(int loginID)
         {
@@ -93,6 +133,7 @@ namespace OSFOLCrossPlatform.Data
                         select i).ToList().Where(x => x.ExpenseID > 0 && x.LoginID == loginID);
             }
         }
+
 
         public int SaveExpense(Expense expense)
         {

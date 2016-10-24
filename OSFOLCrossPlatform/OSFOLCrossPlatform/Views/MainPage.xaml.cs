@@ -33,13 +33,6 @@ namespace OSFOLCrossPlatform
             await Navigation.PopAsync();
         }
 
-        // On Button click navigate to View/Edit expenses page
-        async void OnEditExpenseButtonClicked(object sender, EventArgs e)
-        {
-            Navigation.InsertPageBefore(new EditExpense(), this);
-            await Navigation.PopAsync();
-        }
-
         // On Button click navigate to view report page
         async void OnReportButtonClicked(object sender, EventArgs e)
         {

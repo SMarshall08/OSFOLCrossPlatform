@@ -39,20 +39,22 @@
     <Compile Include="Controls\DefaultControls\DefaultLabel.cs" />
     <Compile Include="Controls\DefaultControls\ItalicLabel.cs" />
     <Compile Include="Data\ExpenseDatabase.cs" />
-    <Compile Include="ExpensePhotoPreview.cs" />
+    <Compile Include="Helper\ServiceContainer.cs" />
+    <Compile Include="Infrastructure\ExpenseService.cs" />
     <Compile Include="Infrastructure\NonNullToBooleanConverter.cs" />
     <Compile Include="Infrastructure\ObservableObject.cs" />
-    <Compile Include="Model\IImage.cs" />
     <Compile Include="Pages\Base\BaseContentPage.cs" />
     <Compile Include="Pages\LoginPageTest.cs" />
     <Compile Include="Styles\StyleManager.cs" />
     <Compile Include="ViewModels\AddExpenseSetViewModel.cs" />
     <Compile Include="ViewModels\AddExpenseViewModel.cs" />
-    <Compile Include="Model\BuildExpense.cs" />
-    <Compile Include="Model\ExpenseModel.cs" />
+    <Compile Include="Model\ExpenseSet.cs" />
+    <Compile Include="Model\Expense.cs" />
     <Compile Include="ISQLite.cs" />
     <Compile Include="ITextToSpeech.cs" />
+    <Compile Include="ViewModels\ExpenseInnerView.cs" />
     <Compile Include="ViewModels\ExpensesViewModel.cs" />
+    <Compile Include="ViewModels\ExpenseViewModel.cs" />
     <Compile Include="Views\AddCostingExpenseView.xaml.cs">
       <DependentUpon>AddCostingExpenseView.xaml</DependentUpon>
     </Compile>
@@ -66,11 +68,8 @@
     <Compile Include="Views\AddTypeExpenseView.xaml.cs">
       <DependentUpon>AddTypeExpenseView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\EditExpense.xaml.cs">
-      <DependentUpon>EditExpense.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\EditExpenseCS.cs" />
-    <Compile Include="Views\ExpenseTabbedPage.cs" />
+    <Compile Include="Pages\ViewExpenseCS.cs" />
+    <Compile Include="Pages\ExpenseTabbedPage.cs" />
     <Compile Include="Views\ExpensesViewCell.cs" />
     <Compile Include="Views\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
@@ -133,12 +132,6 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\AddExpenseView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Views\EditExpense.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>

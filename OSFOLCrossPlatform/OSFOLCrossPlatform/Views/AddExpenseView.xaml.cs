@@ -14,13 +14,15 @@ namespace OSFOLCrossPlatform.Views
         int _rfExpenseTypeID;
         int _vendorID;
 
+        AddExpenseViewModel viewModel;
+
         public AddExpense(int loginID)
         {
             InitializeComponent();
             _loginID = loginID;
 
-            var expense = new AddExpenseViewModel(_loginID);
-            BindingContext = expense;
+            viewModel = new AddExpenseViewModel(_loginID);
+            BindingContext = viewModel;
         }
 
         #region Toolbar button click events
@@ -32,11 +34,13 @@ namespace OSFOLCrossPlatform.Views
             await Navigation.PopAsync();
         }
 
+
         // On button click go back to main page
         async void OnHomeButtonClicked(object sender, EventArgs e)
         {
-            Navigation.InsertPageBefore(new MainPage(), this);
-            await Navigation.PopAsync();
+            await Navigation.PushAsync(new MainPage(_loginID));
+            //Navigation.InsertPageBefore(new MainPage(), this);
+            //await Navigation.PopAsync();
         }
         #endregion
 

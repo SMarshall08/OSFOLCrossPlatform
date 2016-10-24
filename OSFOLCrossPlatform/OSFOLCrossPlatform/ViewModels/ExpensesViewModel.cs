@@ -14,6 +14,7 @@ namespace OSFOLCrossPlatform.ViewModels
         IEnumerable<Expense> _allExpensesData;
         Login _loginID;
 
+
         public ExpensesViewModel(int loginID)
         {
             RefreshExpensesDataAsync(loginID);

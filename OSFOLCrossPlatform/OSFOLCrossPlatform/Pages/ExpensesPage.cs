@@ -44,6 +44,7 @@ namespace OSFOLCrossPlatform.Pages
             {
                 var expense = e.SelectedItem as Expense;
                 _expenseID = expense.ExpenseID;
+                Navigation.PushAsync(new ViewExpenseCS(expense));
             };
 
             _listView.SetBinding(ListView.ItemsSourceProperty, "AllExpensesData");

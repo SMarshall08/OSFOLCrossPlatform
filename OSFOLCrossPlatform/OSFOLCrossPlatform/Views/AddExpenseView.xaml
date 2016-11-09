@@ -73,7 +73,7 @@
                                  x:Name="customerListView"
                                  DisplayMemberPath="Customer"
                                  SelectedValuePath="CustomerID"
-                                 ItemsSource="{Binding Path=Customers}"
+
                                  SelectedValue="{Binding Path=Customers.CustomerID, Mode=TwoWay}" />
       </Grid>
       <Grid>
@@ -86,7 +86,6 @@
                                  x:Name="opportunityListView"
                                  DisplayMemberPath="Opportunity"
                                  SelectedValuePath="SalesOpportunityID"
-                                 ItemsSource="{Binding Path=SalesOpportunity}"
                                  SelectedValue="{Binding Path=SalesOpportunity.SalesOpportunityID, Mode=TwoWay}" />
       </Grid>
       <Grid>
@@ -99,7 +98,6 @@
                                  x:Name="expenseTypeListView"
                                  DisplayMemberPath="rfExpenseType"
                                  SelectedValuePath="rfExpenseTypeID"
-                                 ItemsSource="{Binding Path=rfExpenseType}"
                                  SelectedValue="{Binding Path=ExpenseType.rfExpenseTypeID, Mode=TwoWay}" />
       </Grid>
 
@@ -113,9 +111,9 @@
                                  x:Name="vendorListView"
                                  DisplayMemberPath="Vendor"
                                  SelectedValuePath="VendorID"
-                                 ItemsSource="{Binding Path=Vendor}"
                                  SelectedValue="{Binding Path=rfVendor.VendorID, Mode=TwoWay}" />
       </Grid>
+
     </StackLayout>
 </ContentPage>
 

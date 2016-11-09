@@ -9,10 +9,6 @@ namespace OSFOLCrossPlatform.Views
     public partial class AddExpense : ContentPage
     {
         int _loginID;
-        int _customerID;
-        int _opportunityID;
-        int _rfExpenseTypeID;
-        int _vendorID;
 
         AddExpenseViewModel viewModel;
 
@@ -23,6 +19,13 @@ namespace OSFOLCrossPlatform.Views
 
             viewModel = new AddExpenseViewModel(_loginID);
             BindingContext = viewModel;
+        }
+
+        // Method to gather the expensesummary selected from the review expense page
+        public AddExpense(ExpenseSummary editExpense)
+        {
+            InitializeComponent();
+
         }
 
         #region Toolbar button click events
@@ -51,42 +54,8 @@ namespace OSFOLCrossPlatform.Views
             customerListView.ItemsSource = App.Database.GetCustomers();
             opportunityListView.ItemsSource = App.Database.GetOpportunities();
             expenseTypeListView.ItemsSource = App.Database.GetExpenseTypes();
-            //vendorListView.ItemsSource = App.Database.GetVendor();
+            vendorListView.ItemsSource = App.Database.GetVendor();
         }
 
-        #region List item selected within the general tab
-        void customerListItemSelected(object sender, SelectedItemChangedEventArgs e)
-        {
-            var customer = (Customers)e.SelectedItem;
-            _customerID = customer.CustomerID;
-
-            //((App)App.Current).ResumeAtExpenseId = customer.CustomerID;
-            Debug.WriteLine("setting customer ID = " + customer.CustomerID);
-        }
-
-        void opportunityListItemSelected(object sender, SelectedItemChangedEventArgs e)
-        {
-            var opportunity = (SalesOpportunity)e.SelectedItem;
-            _opportunityID = opportunity.SalesOpportunityID;
-
-            Debug.WriteLine("setting sales opportunity ID = " + opportunity.SalesOpportunityID);
-        }
-
-        void expenseTypeListItemSelected(object sender, SelectedItemChangedEventArgs e)
-        {
-            var expenseType = (ExpenseType)e.SelectedItem;
-            _rfExpenseTypeID = expenseType.rfExpenseTypeID;
-
-            Debug.WriteLine("setting expense Type ID = " + expenseType.rfExpenseTypeID);
-        }
-
-        void vendorListItemSelected(object sender, SelectedItemChangedEventArgs e)
-        {
-            var vendor = (rfVendor)e.SelectedItem;
-            _vendorID = vendor.VendorID;
-
-            Debug.WriteLine("setting Vendor ID = " + vendor.VendorID);
-        }
-        #endregion
     }
 }

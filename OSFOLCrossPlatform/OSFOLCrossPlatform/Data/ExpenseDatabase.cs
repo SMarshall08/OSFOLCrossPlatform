@@ -117,11 +117,12 @@ namespace OSFOLCrossPlatform.Data
             }
         }
 
-        public Expense GetExpenses(int expenseID)
+        public ExpenseSummary GetExpenses(int expenseID)
         {
             lock (locker)
             {
-                return database.Table<Expense>().FirstOrDefault(x => x.ExpenseID == expenseID);
+                return database.Table<ExpenseSummary>().
+                    FirstOrDefault(x => x.ExpenseID == expenseID);
             }
         }
 

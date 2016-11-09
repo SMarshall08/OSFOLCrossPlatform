@@ -15,6 +15,29 @@ namespace OSFOLCrossPlatform.Model
         public DateTime FromDT { get; set; }
         public DateTime ToDT { get; set; }
     }
+
+    public class ExpenseSummary 
+    {
+        public ExpenseSummary() { }
+
+        public int ExpenseID { get; set; }
+        public int LoginID { get; set; }
+        public DateTime CreatedDT { get; set; }
+        public string Customer { get; set; }
+        public string Contact { get; set; }
+        public string Opportunity { get; set; }
+        public string LocationFrom { get; set; }
+        public string LocationTo { get; set; }
+        public string rfExpenseType { get; set; }
+        public string rfExpenseMethod { get; set; }
+        public string ExpenseDetails { get; set; }
+        public string Vendor { get; set; }
+        public string Currency { get; set; }
+        public decimal ExchangeRate { get; set; }
+        public int ExpenseAmountCur { get; set; }
+        public int ExpenseAmount { get; set; }
+    }
+
     public class Customers
     {
         public Customers() { }

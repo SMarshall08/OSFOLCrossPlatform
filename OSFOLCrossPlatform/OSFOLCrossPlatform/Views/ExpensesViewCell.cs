@@ -46,7 +46,7 @@ namespace OSFOLCrossPlatform.Views
                 FontAttributes = FontAttributes.Bold
             };
             var customer = new Label();
-            customer.SetBinding(Label.TextProperty, "CustomersID");
+            customer.SetBinding(Label.TextProperty, "CustomerID");
 
             var customerStack = new StackLayout
             {

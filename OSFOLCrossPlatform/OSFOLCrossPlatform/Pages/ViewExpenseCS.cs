@@ -8,18 +8,16 @@ namespace OSFOLCrossPlatform.Pages
 {
     public partial class ViewExpenseCS : ContentPage
     {
-        Expense _selectedExpense;
+        int _selectedExpense;
+        ExpenseSummary summary;
         ExpenseInnerView viewModel;
         int _expenseID;
         int _loginID;
 
-        public ViewExpenseCS(Expense aSelectedExpense)
+        public ViewExpenseCS(int aSelectedExpense)
         {
             
             _selectedExpense = aSelectedExpense;
-
-            _expenseID = aSelectedExpense.ExpenseID;
-            _loginID = aSelectedExpense.LoginID;
 
             // Create new instance of ExpenseViewModel
             viewModel = new ExpenseInnerView();
@@ -54,10 +52,10 @@ namespace OSFOLCrossPlatform.Pages
             {
                 Text = "Customer:"
             };
-            //var expenseCustomerContactLabel = new Label
-            //{
-            //    Text = "Customer Contact:"
-            //};
+            var expenseCustomerContactLabel = new Label
+            {
+                Text = "Customer Contact:"
+            };
             var expenseSalesOppLabel = new Label
             {
                 Text = "Sales Opportunity:"
@@ -110,35 +108,39 @@ namespace OSFOLCrossPlatform.Pages
             {
                 Text = "Amount:"
             };
+            var expenseAmountCurLabel = new Label
+            {
+                Text = "Amount Cur:"
+            };
             #endregion
 
             #region Create Labels for the Expense Data
             var expenseDateData= new Label();
-            expenseDateData.SetBinding(Label.TextProperty, "expenseDateData");
+            expenseDateData.SetBinding(Label.TextProperty, "CreatedDT");
 
             var expenseCustomerData = new Label();
-            expenseCustomerData.SetBinding(Label.TextProperty, "expenseCustomerData");
+            expenseCustomerData.SetBinding(Label.TextProperty, "Customer");
 
-            //var expenseCustomerContactData = new Label();
-            //expenseCustomerContactData.SetBinding(Label.TextProperty, "expenseCustomerContactData");
+            var expenseCustomerContactData = new Label();
+            expenseCustomerContactData.SetBinding(Label.TextProperty, "Contact");
 
             var expenseSalesOppData = new Label();
-            expenseSalesOppData.SetBinding(Label.TextProperty, "expenseSalesOppData");
+            expenseSalesOppData.SetBinding(Label.TextProperty, "Opportunity");
 
             var expenseTypeData = new Label();
-            expenseTypeData.SetBinding(Label.TextProperty, "expenseTypeData");
+            expenseTypeData.SetBinding(Label.TextProperty, "rfExpenseType");
 
             var expenseLocationFromData = new Label();
-            expenseLocationFromData.SetBinding(Label.TextProperty, "expenseLocationFromData");
+            expenseLocationFromData.SetBinding(Label.TextProperty, "LocationFrom");
 
             var expenseLocationToData = new Label();
-            expenseLocationToData.SetBinding(Label.TextProperty, "expenseLocationToData");
+            expenseLocationToData.SetBinding(Label.TextProperty, "LocationTo");
 
             var expenseDetailsData = new Label();
-            expenseDetailsData.SetBinding(Label.TextProperty, "expenseDetailsData");
+            expenseDetailsData.SetBinding(Label.TextProperty, "ExpenseDetails");
 
             var expenseVendorData = new Label();
-            expenseVendorData.SetBinding(Label.TextProperty, "expenseVendorData");
+            expenseVendorData.SetBinding(Label.TextProperty, "Vendor");
 
             //var expenseOtherPresentData = new Label();
             //expenseOtherPresentData.SetBinding(Label.TextProperty, "expenseOtherPresentData");
@@ -147,16 +149,19 @@ namespace OSFOLCrossPlatform.Pages
             //expenseMilesTravelledData.SetBinding(Label.TextProperty, "expenseMilesTravelledData");
 
             var expenseExpenseMethodData = new Label();
-            expenseExpenseMethodData.SetBinding(Label.TextProperty, "expenseExpenseMethodData");
+            expenseExpenseMethodData.SetBinding(Label.TextProperty, "rfExpenseMethod");
 
             var expenseCurrencyData = new Label();
-            expenseCurrencyData.SetBinding(Label.TextProperty, "expenseCurrencyData");
+            expenseCurrencyData.SetBinding(Label.TextProperty, "Currency");
 
             var expenseExchangeRateData = new Label();
-            expenseExchangeRateData.SetBinding(Label.TextProperty, "expenseExchangeRateData");
+            expenseExchangeRateData.SetBinding(Label.TextProperty, "ExchangeRate");
 
             var expenseAmountData = new Label();
-            expenseAmountData.SetBinding(Label.TextProperty, "expenseAmountData");
+            expenseAmountData.SetBinding(Label.TextProperty, "ExpenseAmount");
+
+            var expenseAmountCurData = new Label();
+            expenseAmountCurData.SetBinding(Label.TextProperty, "ExpenseAmountCur");
             #endregion
 
             #region Create & Populate Grid
@@ -164,6 +169,8 @@ namespace OSFOLCrossPlatform.Pages
             {
                 HorizontalOptions = LayoutOptions.Center,
                 RowDefinitions = {
+                    new RowDefinition { Height = new GridLength(1, GridUnitType.Star) },
+                    new RowDefinition { Height = new GridLength(1, GridUnitType.Star) },
                     new RowDefinition { Height = new GridLength(1, GridUnitType.Star) },
                     new RowDefinition { Height = new GridLength(1, GridUnitType.Star) },
                     new RowDefinition { Height = new GridLength(1, GridUnitType.Star) },
@@ -185,29 +192,33 @@ namespace OSFOLCrossPlatform.Pages
 
             dataGrid.Children.Add(expenseDateLabel, 0, 0);
             dataGrid.Children.Add(expenseCustomerLabel, 0, 1);
-            dataGrid.Children.Add(expenseSalesOppLabel, 0, 2);
-            dataGrid.Children.Add(expenseTypeLabel, 0, 3);
-            dataGrid.Children.Add(expenseLocationFromLabel, 0, 4);
-            dataGrid.Children.Add(expenseLocationToLabel, 0, 5);
-            dataGrid.Children.Add(expenseDetailsLabel, 0, 6);
-            dataGrid.Children.Add(expenseVendorLabel, 0, 7);
-            dataGrid.Children.Add(expenseExpenseMethodLabel, 0, 8);
-            dataGrid.Children.Add(expenseCurrencyLabel, 0, 9);
-            dataGrid.Children.Add(expenseExchangeRateLabel, 0, 10);
-            dataGrid.Children.Add(expenseAmountLabel, 0, 11);
+            dataGrid.Children.Add(expenseCustomerContactLabel, 0, 2);
+            dataGrid.Children.Add(expenseSalesOppLabel, 0, 3);
+            dataGrid.Children.Add(expenseTypeLabel, 0, 4);
+            dataGrid.Children.Add(expenseLocationFromLabel, 0, 5);
+            dataGrid.Children.Add(expenseLocationToLabel, 0, 6);
+            dataGrid.Children.Add(expenseDetailsLabel, 0, 7);
+            dataGrid.Children.Add(expenseVendorLabel, 0, 8);
+            dataGrid.Children.Add(expenseExpenseMethodLabel, 0, 9);
+            dataGrid.Children.Add(expenseCurrencyLabel, 0, 10);
+            dataGrid.Children.Add(expenseExchangeRateLabel, 0, 11);
+            dataGrid.Children.Add(expenseAmountLabel, 0, 12);
+            dataGrid.Children.Add(expenseAmountCurLabel, 0, 13);
 
-            dataGrid.Children.Add(expenseDateData, 0, 0);
-            dataGrid.Children.Add(expenseCustomerData, 0, 1);
-            dataGrid.Children.Add(expenseSalesOppData, 0, 2);
-            dataGrid.Children.Add(expenseTypeData, 0, 3);
-            dataGrid.Children.Add(expenseLocationFromData, 0, 4);
-            dataGrid.Children.Add(expenseLocationToData, 0, 5);
-            dataGrid.Children.Add(expenseDetailsData, 0, 6);
-            dataGrid.Children.Add(expenseVendorData, 0, 7);
-            dataGrid.Children.Add(expenseExpenseMethodData, 0, 8);
-            dataGrid.Children.Add(expenseCurrencyData, 0, 9);
-            dataGrid.Children.Add(expenseExchangeRateData, 0, 10);
-            dataGrid.Children.Add(expenseAmountData, 0, 11);
+            dataGrid.Children.Add(expenseDateData, 1, 0);
+            dataGrid.Children.Add(expenseCustomerData, 1, 1);
+            dataGrid.Children.Add(expenseCustomerContactData, 1, 2);
+            dataGrid.Children.Add(expenseSalesOppData, 1, 3);
+            dataGrid.Children.Add(expenseTypeData, 1, 4);
+            dataGrid.Children.Add(expenseLocationFromData, 1, 5);
+            dataGrid.Children.Add(expenseLocationToData, 1, 6);
+            dataGrid.Children.Add(expenseDetailsData, 1, 7);
+            dataGrid.Children.Add(expenseVendorData, 1, 8);
+            dataGrid.Children.Add(expenseExpenseMethodData, 1, 9);
+            dataGrid.Children.Add(expenseCurrencyData, 1, 10);
+            dataGrid.Children.Add(expenseExchangeRateData, 1, 11);
+            dataGrid.Children.Add(expenseAmountData, 1, 12);
+            dataGrid.Children.Add(expenseAmountCurData, 1, 12);
             #endregion
 
             var expenseScrollView = new ScrollView

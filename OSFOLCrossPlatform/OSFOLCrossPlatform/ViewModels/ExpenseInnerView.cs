@@ -15,163 +15,175 @@ namespace OSFOLCrossPlatform.ViewModels
         int _loginID;
         int _expenseID;
 
-        Expense viewExpense;
-        DateTime _expenseDateData;
-        string _expenseCustomerData;
-        string _expenseSalesOppData;
-        string _expenseTypeData;
-        string _expenseLocationFromData;
-        string _expenseLocationToData;
-        string _expenseDetailsData;
-        string _expenseVendorData;
-        string _expenseExpenseMethodData;
-        string _expenseCurrencyData;
-        decimal _expenseExchangeRateData;
-        int _expenseAmountData;
+        ExpenseSummary viewExpense;
 
-        public DateTime expenseDateData
+        DateTime _CreatedDT;
+        string _Customer;
+        string _Opportunity;
+        string _rfExpenseType;
+        string _LocationFrom;
+        string _LocationTo;
+        string _ExpenseDetails;
+        string _Vendor;
+        string _rfExpenseMethod;
+        string _Currency;
+        string _FirstName; // Customer contact
+        string _LastName; // Customer Contact
+        string _Contact;
+        decimal _ExchangeRate;
+        int _ExpenseAmountCur;
+        int _ExpenseAmount;
+
+
+        public DateTime CreatedDT
         {
-            get { return _expenseDateData; }
+            get { return _CreatedDT; }
             set
             {
-                SetProperty<DateTime>(ref _expenseDateData, value);
+                SetProperty<DateTime>(ref _CreatedDT, value);
             }
         }
 
-        public string expenseCustomerData
+        public string Customer
         {
-            get { return _expenseCustomerData; }
+            get { return _Customer; }
             set
             {
-                SetProperty<string>(ref _expenseCustomerData, value);
+                SetProperty<string>(ref _Customer, value);
             }
         }
 
-        public string expenseSalesOppData
+        public string Contact
         {
-            get { return _expenseSalesOppData; }
+            get
+            {
+                _Contact = _FirstName + _LastName;
+                return _Contact;
+            }
             set
             {
-                SetProperty<string>(ref _expenseSalesOppData, value);
+                SetProperty<string>(ref _Contact, value);
+            }
+        }
+        public string Opportunity
+        {
+            get { return _Opportunity; }
+            set
+            {
+                SetProperty<string>(ref _Opportunity, value);
             }
         }
 
-        public string expenseTypeData
+        public string rfExpenseType
         {
-            get { return _expenseTypeData; }
+            get { return _rfExpenseType; }
             set
             {
-                SetProperty<string>(ref _expenseTypeData, value);
+                SetProperty<string>(ref _rfExpenseType, value);
             }
         }
 
-        public string expenseLocationFromData
+        public string LocationFrom
         {
-            get { return _expenseLocationFromData; }
+            get { return _LocationFrom; }
             set
             {
-                SetProperty<string>(ref _expenseLocationFromData, value);
+                SetProperty<string>(ref _LocationFrom, value);
             }
         }
 
-        public string expenseLocationToData
+        public string LocationTo
         {
-            get { return _expenseLocationToData; }
+            get { return _LocationTo; }
             set
             {
-                SetProperty<string>(ref _expenseLocationToData, value);
+                SetProperty<string>(ref _LocationTo, value);
             }
         }
 
-        public string expenseDetailsData
+        public string ExpenseDetails
         {
-            get { return _expenseDetailsData; }
+            get { return _ExpenseDetails; }
             set
             {
-                SetProperty<string>(ref _expenseDetailsData, value);
+                SetProperty<string>(ref _ExpenseDetails, value);
             }
         }
 
-        public string expenseVendorData
+        public string Vendor
         {
-            get { return _expenseVendorData; }
+            get { return _Vendor; }
             set
             {
-                SetProperty<string>(ref _expenseVendorData, value);
+                SetProperty<string>(ref _Vendor, value);
             }
         }
 
-        public string expenseExpenseMethodData
+        public string rfExpenseMethod
         {
-            get { return _expenseExpenseMethodData; }
+            get { return _rfExpenseMethod; }
             set
             {
-                SetProperty<string>(ref _expenseExpenseMethodData, value);
+                SetProperty<string>(ref _rfExpenseMethod, value);
             }
         }
 
-        public string expenseCurrencyData
+        public string Currency
         {
-            get { return _expenseCurrencyData; }
+            get { return _Currency; }
             set
             {
-                SetProperty<string>(ref _expenseCurrencyData, value);
-            }
-        }
-
-
-        public decimal expenseExchangeRateData
-        {
-            get { return _expenseExchangeRateData; }
-            set
-            {
-                SetProperty<decimal>(ref _expenseExchangeRateData, value);
+                SetProperty<string>(ref _Currency, value);
             }
         }
 
 
-        public int expenseAmountData
+        public decimal ExchangeRate
         {
-            get { return _expenseAmountData; }
+            get { return _ExchangeRate; }
             set
             {
-                SetProperty<int>(ref _expenseAmountData, value);
+                SetProperty<decimal>(ref _ExchangeRate, value);
             }
         }
 
-        public void ExpenseInnverView(Expense aSelectedExpense)
+
+        public int ExpenseAmountCur
         {
-            _loginID = aSelectedExpense.LoginID;
-            _expenseID = aSelectedExpense.ExpenseID;
-
-            viewExpense = App.Database.GetExpenses(_expenseID);
-
-            int customerID = viewExpense.CustomerID;
-            Customers customer = App.Database.GetCustomer(customerID);
-
-            int salesOppID = viewExpense.SaleOpportunityID;
-            SalesOpportunity salesOpp = App.Database.GetOpportunity(salesOppID);
-
-            int expensetypeID = viewExpense.rfExpenseTypeID;
-            ExpenseType expenseType = App.Database.GetExpenseType(expensetypeID);
-
-            int expenseMethodID = viewExpense.rfExpenseMethodID;
-            ExpenseMethod expenseMethod = App.Database.GetExpenseMethod(expenseMethodID);
+            get { return _ExpenseAmountCur; }
+            set
+            {
+                SetProperty<int>(ref _ExpenseAmountCur, value);
+            }
+        }
+        public int ExpenseAmount
+        {
+            get { return _ExpenseAmount; }
+            set
+            {
+                SetProperty<int>(ref _ExpenseAmount, value);
+            }
+        }
 
 
-            expenseDateData = viewExpense.ModifiedDT;
-            expenseCustomerData = customer.Customer;
-            expenseSalesOppData = salesOpp.Opportunity;
-            expenseTypeData = expenseType.rfExpenseType;
-            expenseLocationFromData = viewExpense.Locationfrom;
-            expenseLocationToData = viewExpense.LocationTo;
-            expenseDetailsData = viewExpense.ExpenseDetails;
-            expenseVendorData = viewExpense.Vendor;
-            expenseExpenseMethodData = expenseMethod.rfExpenseMetod;
-            expenseCurrencyData = viewExpense.Currency;
-            expenseExchangeRateData = viewExpense.ExchangeRate;
-            expenseAmountData = viewExpense.ExpenseAmount;
+        public void ExpenseInnverView(int aSelectedExpense)
+        {
+            viewExpense = App.Database.GetExpenses(aSelectedExpense);
+
+            CreatedDT = viewExpense.CreatedDT;
+            Customer = viewExpense.Customer;
+            Contact = viewExpense.Contact;
+            Opportunity = viewExpense.Opportunity;
+            LocationFrom = viewExpense.LocationFrom;
+            LocationTo = viewExpense.LocationTo;
+            rfExpenseType = viewExpense.rfExpenseType;
+            rfExpenseMethod = viewExpense.rfExpenseMethod;
+            Vendor = viewExpense.Vendor;
+            Currency = viewExpense.Currency;
+            ExchangeRate = viewExpense.ExchangeRate;
+            ExpenseAmountCur = viewExpense.ExpenseAmountCur;
+            ExpenseAmount = viewExpense.ExpenseAmount;
 
         }
-    }
+    }   
 }

@@ -64,7 +64,7 @@ namespace OSFOLCrossPlatform.ViewModels
             else {
                 AllExpensesData = AllExpensesData.Where(x =>
                     x.CustomerID.ToString().ToLower().Contains(filter.ToLower()) ||
-                     x.SaleOpportunityID.ToString().ToLower().Contains(filter.ToLower()) 
+                     x.SalesOpportunityID.ToString().ToLower().Contains(filter.ToLower()) 
                  );
             }
         }

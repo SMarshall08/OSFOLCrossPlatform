@@ -9,7 +9,7 @@ namespace OSFOLCrossPlatform.Infrastructure
 {
     public interface ExpenseService
     {
-        Task<Expense> GetExpense(int expenseID);
+        Task<ExpenseSummary> GetExpense(int expenseID);
         Task<IEnumerable<Expense>> GetExpenses();
         Task<Expense> SaveExpense(Expense expense);
         Task<int> DeleteExpense(int expenseID);

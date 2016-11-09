@@ -19,32 +19,32 @@ namespace OSFOLCrossPlatform.Model
             ModifiedDT = DateTime.Now;
         }
 
-        public Expense ( int salesOpportunityID, string locationFrom, string locationTo, int customerID, string expenseDetails,
-            int contactID, string currency, decimal exchangeRate, int expenseAmountCur, int expenseAmount, int rfexpenseTypeID, int rfexpenseMethodID,
-            bool isrechargeable, string vendor, DateTime modifiedDT, int rfbusinessOwner)
-        {
-            SaleOpportunityID = salesOpportunityID;
-            Locationfrom = locationFrom;
-            LocationTo = locationTo;
-            CustomerID = customerID;
-            ExpenseDetails = expenseDetails;
-            ContactID = contactID;
-            Currency = currency;
-            ExchangeRate = exchangeRate;
-            ExpenseAmountCur = expenseAmountCur;
-            ExpenseAmount = expenseAmount;
-            rfExpenseTypeID = rfexpenseTypeID;
-            rfExpenseMethodID = rfexpenseMethodID;
-            IsRechargeable = isrechargeable;
-            Vendor = vendor;
-            ModifiedDT = modifiedDT;
-            rfBusinessOwner = rfbusinessOwner;
-        }
+        //public Expense ( int salesOpportunityID, string locationFrom, string locationTo, int customerID, string expenseDetails,
+        //    int contactID, string currency, decimal exchangeRate, int expenseAmountCur, int expenseAmount, int rfexpenseTypeID, int rfexpenseMethodID,
+        //    bool isrechargeable, string vendor, DateTime modifiedDT, DateTime createdDT, int rfbusinessOwner)
+        //{
+        //    SalesOpportunityID = salesOpportunityID;
+        //    Locationfrom = locationFrom;
+        //    LocationTo = locationTo;
+        //    CustomerID = customerID;
+        //    ExpenseDetails = expenseDetails;
+        //    ContactID = contactID;
+        //    Currency = currency;
+        //    ExchangeRate = exchangeRate;
+        //    ExpenseAmountCur = expenseAmountCur;
+        //    ExpenseAmount = expenseAmount;
+        //    rfExpenseTypeID = rfexpenseTypeID;
+        //    rfExpenseMethodID = rfexpenseMethodID;
+        //    IsRechargeable = isrechargeable;
+        //    Vendor = vendor;
+        //    ModifiedDT = modifiedDT;
+        //    rfBusinessOwner = rfbusinessOwner;
+        //}
 
 
         [PrimaryKey, AutoIncrement, Unique]
         public int ExpenseID             { get; set; }
-        public int SaleOpportunityID     { get; set; }
+        public int SalesOpportunityID     { get; set; }
         public int LoginID               { get; set; }
         public int MonthReportIdentifier { get; set; }
         public string Locationfrom       { get; set; }
@@ -61,6 +61,7 @@ namespace OSFOLCrossPlatform.Model
         public bool IsRechargeable       { get; set; }
         public string Vendor             { get; set; }
         public DateTime ModifiedDT       { get; set; }
+        public DateTime CreatedDT        { get; set; }
         public int rfBusinessOwner       { get; set; }
 
         //public static IList<Expense> All { set; get; }

@@ -51,19 +51,12 @@ namespace OSFOLCrossPlatform.Data
             }
         }
 
-        public ExpenseType GetExpenseType(int rfExpenseTypeID)
+        public IEnumerable<ExpenseMethod> GetExpenseMethods()
         {
             lock (locker)
             {
-                return database.Table<ExpenseType>().FirstOrDefault(x => x.rfExpenseTypeID == rfExpenseTypeID);
-            }
-        }
-
-        public ExpenseMethod GetExpenseMethod(int rfExpenseMethodID)
-        {
-            lock (locker)
-            {
-                return database.Table<ExpenseMethod>().FirstOrDefault(x => x.rfExpenseMethodID == rfExpenseMethodID);
+                //return (from i in database.Table<ExpenseMethod>() select i).ToList();
+                return database.Query<ExpenseMethod>("SELECT * FROM [ExpenseMethod] ORDER BY rfExpenseMethod ASC");
             }
         }
 
@@ -91,6 +84,24 @@ namespace OSFOLCrossPlatform.Data
             {
                 //return (from i in database.Table<rfVendor>() select i).ToList();
                 return database.Query<rfVendor>("SELECT * FROM [rfVendor] ORDER BY Vendor ASC");
+            }
+        }
+
+        public IEnumerable<Contact> GetContact()
+        {
+            lock (locker)
+            {
+                //return (from i in database.Table<Contact>() select i).ToList();
+                return database.Query<Contact>("SELECT * FROM [Contact] ORDER BY FirstName ASC");
+            }
+        }
+
+        public IEnumerable<Currency> GetCurrency()
+        {
+            lock (locker)
+            {
+                //return (from i in database.Table<Contact>() select i).ToList();
+                return database.Query<Currency>("SELECT * FROM [Currency] ORDER BY rfCurrencyID ASC");
             }
         }
 

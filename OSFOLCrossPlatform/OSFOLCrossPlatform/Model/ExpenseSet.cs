@@ -87,7 +87,7 @@ namespace OSFOLCrossPlatform.Model
 
         [PrimaryKey, Unique]
         public int rfExpenseMethodID { get; set; }
-        public string rfExpenseMetod { get; set; }
+        public string rfExpenseMethod { get; set; }
     }
 
     public class rfVendor
@@ -97,5 +97,34 @@ namespace OSFOLCrossPlatform.Model
         [PrimaryKey,Unique]
         public int VendorID { get; set; }
         public string Vendor { get; set; }
+    }
+
+    public class Contact
+    {
+        public Contact() { }
+
+        [PrimaryKey,Unique]
+        public int ContactID { get; set; }
+        public int CustomerID { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Email { get; set; }
+        public string Telephone { get; set; }
+        public string MobilePhone { get; set; }
+        public string JobTitle { get; set; }
+        public string Department { get; set; }
+        public bool IsRetired { get; set; }
+        public DateTime CreatedDT { get; set; }
+        public DateTime ModifiedDT { get; set; }
+    }
+
+    public class Currency
+    {
+        public Currency() { }
+
+        [PrimaryKey,Unique]
+        public int rfCurrencyID { get; set; }
+        public string rfCurrency { get; set; }
+        public string Description { get; set; }
     }
 }

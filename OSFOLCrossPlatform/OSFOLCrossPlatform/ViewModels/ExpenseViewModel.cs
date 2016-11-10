@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using OSFOLCrossPlatform.Infrastructure;
-using OSFOLCrossPlatform.Helper;
 using OSFOLCrossPlatform.Model;
+using OSFOLCrossPlatform.Helper;
 
 namespace OSFOLCrossPlatform.ViewModels
 {

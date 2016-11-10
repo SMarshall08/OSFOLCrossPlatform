@@ -35,10 +35,6 @@ namespace OSFOLCrossPlatform.ViewModels
         string _currency;
         string _Vendor;
 
-        string _customer;
-        string _opportunity;
-        string _expenseType;
-
         int _loginID;
 
         int _monthIdentifier;
@@ -63,11 +59,6 @@ namespace OSFOLCrossPlatform.ViewModels
 
         #region ExpenseModel Get & Set
         public Expense Expense {get; set;}
-
-        //public Customers Customer { get; set;}
-        //public SalesOpportunity SalesOpportunity { get; set; }
-        //public ExpenseType rfExpenseType { get; set; }
-        //public rfVendor rfVendor { get; set; }
 
         public int ExpenseID
         {
@@ -325,7 +316,7 @@ namespace OSFOLCrossPlatform.ViewModels
                     ExpenseAmountCur = 11,
                     ExpenseAmount = 15,
                     rfExpenseTypeID = _rfExpenseTypeID,
-                    rfExpenseMethodID = 1,
+                    rfExpenseMethodID = _rfExpenseMethodID,
                     IsRechargeable = true,
                     Vendor = _Vendor,
                     ModifiedDT = _modifiedDT,

@@ -73,7 +73,6 @@
                                  x:Name="customerListView"
                                  DisplayMemberPath="Customer"
                                  SelectedValuePath="CustomerID"
-
                                  SelectedValue="{Binding Path=Customers.CustomerID, Mode=TwoWay}" />
       </Grid>
       <Grid>
@@ -88,18 +87,6 @@
                                  SelectedValuePath="SalesOpportunityID"
                                  SelectedValue="{Binding Path=SalesOpportunity.SalesOpportunityID, Mode=TwoWay}" />
       </Grid>
-      <Grid>
-        <Grid.ColumnDefinitions>
-          <ColumnDefinition Width="85" />
-          <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
-        <Label Text="ExpenseType" />
-        <controls:BindablePicker Grid.Column="1"
-                                 x:Name="expenseTypeListView"
-                                 DisplayMemberPath="rfExpenseType"
-                                 SelectedValuePath="rfExpenseTypeID"
-                                 SelectedValue="{Binding Path=ExpenseType.rfExpenseTypeID, Mode=TwoWay}" />
-      </Grid>
 
       <Grid>
         <Grid.ColumnDefinitions>
@@ -112,6 +99,115 @@
                                  DisplayMemberPath="Vendor"
                                  SelectedValuePath="VendorID"
                                  SelectedValue="{Binding Path=rfVendor.VendorID, Mode=TwoWay}" />
+      </Grid>
+
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="85" />
+          <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Label Text="Location From" />
+         <Entry Grid.Column="1"
+                x:Name="locationFromEntry" 
+                Placeholder="Location From" />
+      </Grid>
+      
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="85" />
+          <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Label Text="Location To" />
+         <Entry Grid.Column="1"
+                x:Name="locationToEntry" 
+                Placeholder="Location To" />
+      </Grid>
+      
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="85" />
+          <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Label Text="Expense Details" />
+         <Entry Grid.Column="1"
+                x:Name="expenseDetailsEntry" 
+                Placeholder="Details" />
+      </Grid>
+      
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="85" />
+          <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Label Text="Contact" />
+        <controls:BindablePicker Grid.Column="1"
+                                 x:Name="contactListView"
+                                 DisplayMemberPath="FirstName"
+                                 SelectedValuePath="ContactID"
+                                 SelectedValue="{Binding Path=Contact.ContactID, Mode=TwoWay}" />
+      </Grid>
+      
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="85" />
+          <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Label Text="Expense Type" />
+        <controls:BindablePicker Grid.Column="1"
+                                 x:Name="expenseTypeListView"
+                                 DisplayMemberPath="rfExpenseType"
+                                 SelectedValuePath="rfExpenseTypeID"
+                                 SelectedValue="{Binding Path=ExpenseType.rfExpenseTypeID, Mode=TwoWay}" />
+      </Grid>
+      
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="85" />
+          <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Label Text="Expense Method" />
+        <controls:BindablePicker Grid.Column="1"
+                                 x:Name="expenseMethodListView"
+                                 DisplayMemberPath="rfExpenseMethod"
+                                 SelectedValuePath="rfExpenseMethodID"
+                                 SelectedValue="{Binding Path=ExpenseMethod.rfExpenseMethodID, Mode=TwoWay}" />
+      </Grid>
+      
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="85" />
+          <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Label Text="Currency" />
+        <controls:BindablePicker Grid.Column="1"
+                                 x:Name="currencyListView"
+                                 DisplayMemberPath="rfCurrency"
+                                 SelectedValuePath="rfCurrencyID"
+                                 SelectedValue="{Binding Path=Currency.rfCurrencyID, Mode=TwoWay}" />
+      </Grid>
+    
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="85" />
+          <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Label Text="Expense Amount" />
+         <Entry Grid.Column="1"
+                x:Name="expenseAmountEntry" 
+                Placeholder="Amount"
+                Text="{Binding ExpenseAmount}"
+                Keyboard="Numeric"/>
+      </Grid>
+    
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="85" />
+          <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Label Text="Is Rechargeable?" />
+         <Switch Grid.Column="1"
+                x:Name="isRechargeableSwitch"
+                IsToggled="{Binding isRechargeable}"/>
       </Grid>
 
     </StackLayout>

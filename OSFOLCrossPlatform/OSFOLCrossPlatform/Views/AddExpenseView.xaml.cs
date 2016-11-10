@@ -42,8 +42,6 @@ namespace OSFOLCrossPlatform.Views
         async void OnHomeButtonClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new MainPage(_loginID));
-            //Navigation.InsertPageBefore(new MainPage(), this);
-            //await Navigation.PopAsync();
         }
         #endregion
 
@@ -55,6 +53,11 @@ namespace OSFOLCrossPlatform.Views
             opportunityListView.ItemsSource = App.Database.GetOpportunities();
             expenseTypeListView.ItemsSource = App.Database.GetExpenseTypes();
             vendorListView.ItemsSource = App.Database.GetVendor();
+            contactListView.ItemsSource = App.Database.GetContact();
+            expenseMethodListView.ItemsSource = App.Database.GetExpenseMethods();
+            currencyListView.ItemsSource = App.Database.GetCurrency();
+
+
         }
 
     }

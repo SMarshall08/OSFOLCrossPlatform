@@ -29,10 +29,34 @@ namespace OSFOLCrossPlatform.Views {
         private global::OSFOLCrossPlatform.Controls.BindablePicker opportunityListView;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::OSFOLCrossPlatform.Controls.BindablePicker vendorListView;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.Entry locationFromEntry;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.Entry locationToEntry;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.Entry expenseDetailsEntry;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::OSFOLCrossPlatform.Controls.BindablePicker contactListView;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private global::OSFOLCrossPlatform.Controls.BindablePicker expenseTypeListView;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
-        private global::OSFOLCrossPlatform.Controls.BindablePicker vendorListView;
+        private global::OSFOLCrossPlatform.Controls.BindablePicker expenseMethodListView;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::OSFOLCrossPlatform.Controls.BindablePicker currencyListView;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.Entry expenseAmountEntry;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.Switch isRechargeableSwitch;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private void InitializeComponent() {
@@ -41,8 +65,16 @@ namespace OSFOLCrossPlatform.Views {
             CustomerLabel = this.FindByName<global::Xamarin.Forms.Label>("CustomerLabel");
             customerListView = this.FindByName<global::OSFOLCrossPlatform.Controls.BindablePicker>("customerListView");
             opportunityListView = this.FindByName<global::OSFOLCrossPlatform.Controls.BindablePicker>("opportunityListView");
-            expenseTypeListView = this.FindByName<global::OSFOLCrossPlatform.Controls.BindablePicker>("expenseTypeListView");
             vendorListView = this.FindByName<global::OSFOLCrossPlatform.Controls.BindablePicker>("vendorListView");
+            locationFromEntry = this.FindByName<global::Xamarin.Forms.Entry>("locationFromEntry");
+            locationToEntry = this.FindByName<global::Xamarin.Forms.Entry>("locationToEntry");
+            expenseDetailsEntry = this.FindByName<global::Xamarin.Forms.Entry>("expenseDetailsEntry");
+            contactListView = this.FindByName<global::OSFOLCrossPlatform.Controls.BindablePicker>("contactListView");
+            expenseTypeListView = this.FindByName<global::OSFOLCrossPlatform.Controls.BindablePicker>("expenseTypeListView");
+            expenseMethodListView = this.FindByName<global::OSFOLCrossPlatform.Controls.BindablePicker>("expenseMethodListView");
+            currencyListView = this.FindByName<global::OSFOLCrossPlatform.Controls.BindablePicker>("currencyListView");
+            expenseAmountEntry = this.FindByName<global::Xamarin.Forms.Entry>("expenseAmountEntry");
+            isRechargeableSwitch = this.FindByName<global::Xamarin.Forms.Switch>("isRechargeableSwitch");
         }
     }
 }

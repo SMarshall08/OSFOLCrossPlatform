@@ -26,11 +26,13 @@ namespace OSFOLCrossPlatform.Pages
             BindingContext = viewModel;
 
             // Create the title
-            var expenseLabel = new Label
+            var expenseLabel = new Button
             {
                 Text = "View Expense",
                 FontAttributes = FontAttributes.Bold
             };
+            //expenseLabel.Clicked += ExpenseLabel_Clicked;
+            
 
             var expenseStack = new StackLayout
             {
@@ -254,6 +256,11 @@ namespace OSFOLCrossPlatform.Pages
             Padding = new Thickness(10, Device.OnPlatform(20, 0, 0), 10, 5);
             Content = expenseListStack;
         }
+
+        //private void ExpenseLabel_Clicked(object sender, EventArgs e)
+        //{
+        //    Navigation.InsertPageBefore(new AddExpense());
+        //}
 
         // On button click logout
         async void OnLogoutButtonClicked(object sender, EventArgs e)

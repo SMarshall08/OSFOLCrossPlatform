@@ -9,6 +9,8 @@ namespace OSFOLCrossPlatform.Views
 {
     public partial class LoginPage : ContentPage
     {
+        public int _loginID;
+
         public LoginPage()
         {
             InitializeComponent();
@@ -21,6 +23,7 @@ namespace OSFOLCrossPlatform.Views
         /// <param name="e"></param>
         async void OnLoginButtonClicked(object sender, EventArgs e)
         {
+
             using (var data = new ExpenseDatabase())
             {
                 Login _user = data.GetLogin(this.usernameEntry.Text);
@@ -37,7 +40,8 @@ namespace OSFOLCrossPlatform.Views
                 // If true continue
                 if (isValid)
                 {
-                    
+                    _loginID = _user.LoginID;
+
                     var user = new Login
                     {
                         LoginID  = _user.LoginID,

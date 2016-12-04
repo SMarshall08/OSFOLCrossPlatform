@@ -8,7 +8,7 @@ namespace OSFOLCrossPlatform.Views
 {
     public partial class AddExpense : ContentPage
     {
-        int _loginID;
+        public int _loginID;
 
         AddExpenseViewModel viewModel;
 
@@ -43,6 +43,11 @@ namespace OSFOLCrossPlatform.Views
         {
             await Navigation.PushAsync(new MainPage(_loginID));
         }
+
+        public void OnSaveButtonClicked (object sender, EventArgs e)
+        {
+            customerListView.DisplayMemberPath = null;
+        }
         #endregion
 
         // Get all data from database on page appearing
@@ -57,7 +62,9 @@ namespace OSFOLCrossPlatform.Views
             expenseMethodListView.ItemsSource = App.Database.GetExpenseMethods();
             currencyListView.ItemsSource = App.Database.GetCurrency();
 
-
+            //viewModel.ExpenseDetails = this.expenseDetailsEntry.Text;
+            //viewModel.LocationFrom = this.locationFromEntry.Text;
+            //viewModel.LocationTo = this.locationToEntry.Text;
         }
 
     }

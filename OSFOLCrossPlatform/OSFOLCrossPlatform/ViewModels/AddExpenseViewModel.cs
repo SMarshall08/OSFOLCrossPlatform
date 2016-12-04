@@ -23,34 +23,35 @@ namespace OSFOLCrossPlatform.ViewModels
         ExpenseDatabase database;
 
         public ICommand SaveButtonTapped { protected set; get; }
+        private ExpenseService expenseService;
 
-        DateTime _modifiedDT;
-        DateTime _createdDT;
+        DateTime _ModifiedDT;
+        DateTime _CreatedDT;
 
         DateTime infinity = new DateTime(2050, 12, 31, 00, 00, 00);
 
-        string _locationfrom;
-        string _locationTo;
-        string _expenseDetails;
-        string _currency;
+        string _LocationFrom;
+        string _LocationTo;
+        string _ExpenseDetails;
+        string _Currency;
         string _Vendor;
 
-        int _loginID;
+        int _LoginID;
 
         int _monthIdentifier;
         int _expenseID;
-        int _contactID;
+        int _ContactID;
         int _CustomerID;
         int _SalesOpportunityID;
         int _rfDayPeriodID;
-        int _expenseAmountCur;
-        int _expenseAmount;
+        int _ExpenseAmountCur;
+        int _ExpenseAmount;
         int _rfExpenseMethodID;
         int _rfExpenseTypeID;
         int _rfBusinessOwner;
 
-        decimal _exchangeRate;
-        bool _isRechargeable;
+        decimal _ExchangeRate;
+        bool _IsRechargeable;
 
         DateTime _paidDT;
 
@@ -58,7 +59,7 @@ namespace OSFOLCrossPlatform.ViewModels
         //public event EventHandler SaveToDatabaseCompleted;
 
         #region ExpenseModel Get & Set
-        public Expense Expense {get; set;}
+        public Expense Expense { get; set; }
 
         public int ExpenseID
         {
@@ -72,10 +73,10 @@ namespace OSFOLCrossPlatform.ViewModels
 
         public int LoginID
         {
-            get { return _loginID; }
+            get { return _LoginID; }
             set
             {
-                _loginID = value;
+                _LoginID = value;
                 RaisePropertyChanged();
             }
         }
@@ -84,7 +85,7 @@ namespace OSFOLCrossPlatform.ViewModels
         {
             get { return _monthIdentifier; }
             set
-            {   
+            {
                 _monthIdentifier = value;
                 RaisePropertyChanged();
             }
@@ -111,20 +112,20 @@ namespace OSFOLCrossPlatform.ViewModels
 
         public string LocationFrom
         {
-            get { return _locationfrom; }
+            get { return _LocationFrom; }
             set
             {
-                _locationfrom = value;
+                _LocationFrom = value;
                 RaisePropertyChanged();
             }
         }
 
         public string LocationTo
         {
-            get { return _locationTo; }
+            get { return _LocationTo; }
             set
             {
-                _locationTo = value;
+                _LocationTo = value;
                 RaisePropertyChanged();
             }
         }
@@ -133,7 +134,7 @@ namespace OSFOLCrossPlatform.ViewModels
         {
             get
             {
-                 return _CustomerID;
+                return _CustomerID;
             }
             set
             {
@@ -144,59 +145,59 @@ namespace OSFOLCrossPlatform.ViewModels
 
         public string ExpenseDetails
         {
-            get { return _expenseDetails; }
+            get { return _ExpenseDetails; }
             set
             {
-                _expenseDetails = value;
-                RaisePropertyChanged();
+                _ExpenseDetails = value;
+                RaisePropertyChanged("ExpenseDetails");
             }
         }
 
         public int ContactID
         {
-            get { return _contactID; }
+            get { return _ContactID; }
             set
             {
-                _contactID = value;
+                _ContactID = value;
                 RaisePropertyChanged();
             }
         }
 
         public string Currency
         {
-            get { return _currency; }
+            get { return _Currency; }
             set
             {
-                _currency = value;
-                RaisePropertyChanged();
+                _Currency = value;
+                RaisePropertyChanged("Currency");
             }
         }
 
         public decimal ExchangeRate
         {
-            get { return _exchangeRate; }
+            get { return _ExchangeRate; }
             set
             {
-                _exchangeRate = value;
+                _ExchangeRate = value;
                 RaisePropertyChanged();
             }
         }
         public int ExpenseAmountCur
         {
-            get { return _expenseAmountCur; }
+            get { return _ExpenseAmountCur; }
             set
             {
-                _expenseAmountCur = value;
+                _ExpenseAmountCur = value;
                 RaisePropertyChanged();
             }
         }
 
         public int ExpenseAmount
         {
-            get { return _expenseAmount; }
+            get { return _ExpenseAmount; }
             set
             {
-                _expenseAmount = value;
+                _ExpenseAmount = value;
                 RaisePropertyChanged();
             }
         }
@@ -226,10 +227,10 @@ namespace OSFOLCrossPlatform.ViewModels
 
         public bool IsRechargeable
         {
-            get { return _isRechargeable; }
+            get { return _IsRechargeable; }
             set
             {
-                _isRechargeable = value;
+                _IsRechargeable = value;
                 RaisePropertyChanged();
             }
         }
@@ -248,11 +249,11 @@ namespace OSFOLCrossPlatform.ViewModels
         {
             get
             {
-                return _modifiedDT;
+                return _ModifiedDT;
             }
             set
             {
-                _modifiedDT = infinity;
+                _ModifiedDT = infinity;
             }
         }
 
@@ -260,11 +261,11 @@ namespace OSFOLCrossPlatform.ViewModels
         {
             get
             {
-                return _createdDT;
+                return _CreatedDT;
             }
             set
             {
-                _createdDT = DateTime.Now;
+                _CreatedDT = DateTime.Now;
             }
         }
 
@@ -280,13 +281,6 @@ namespace OSFOLCrossPlatform.ViewModels
 
         #endregion
 
-
-        public AddExpenseViewModel(int expenseID, int loginID)
-        {
-            Task.Run(() => App.Database.GetExpenseItems(Expense));
-        }
-
-
         /// <summary>
         /// LoginId passed in as param to save expenses to specific users
         /// </summary>
@@ -299,30 +293,32 @@ namespace OSFOLCrossPlatform.ViewModels
             // save expense 
             SaveButtonTapped = new Command(() =>
             {
-                // Task to call database and save expense with values from model 
+                _monthIdentifier = _CreatedDT.Month;
+
                 // Task to call database and save expense with values from model 
                 Task.Run(() => App.Database.SaveExpense(new Expense
                 {
-                    LoginID = loginID,
-                    MonthReportIdentifier = 10,
+                    LoginID = _LoginID,
+                    MonthReportIdentifier = _monthIdentifier,
                     SalesOpportunityID = _SalesOpportunityID,
-                    Locationfrom = "Madrid",
-                    LocationTo = "London",
+                    Locationfrom = _LocationFrom,
+                    LocationTo = _LocationTo,
                     CustomerID = _CustomerID,
-                    ExpenseDetails = "Expense Test",
-                    ContactID = 1,
+                    ExpenseDetails = _ExpenseDetails,
+                    ContactID = _ContactID,
                     Currency = "£",
                     ExchangeRate = 1.2m,
                     ExpenseAmountCur = 11,
-                    ExpenseAmount = 15,
+                    ExpenseAmount = _ExpenseAmount,
                     rfExpenseTypeID = _rfExpenseTypeID,
                     rfExpenseMethodID = _rfExpenseMethodID,
-                    IsRechargeable = true,
-                    Vendor = _Vendor,
-                    ModifiedDT = _modifiedDT,
+                    IsRechargeable = _IsRechargeable,
+                    Vendor = "Esso",
+                    ModifiedDT = _ModifiedDT,
                     CreatedDT = DateTime.Now,
                     rfBusinessOwner = 1
                 }));
+
 
             });
 

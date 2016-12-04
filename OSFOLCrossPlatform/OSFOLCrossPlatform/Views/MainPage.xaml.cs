@@ -7,7 +7,7 @@ namespace OSFOLCrossPlatform
 {
     public partial class MainPage : ContentPage
     {
-        public int loginid;
+        public int _loginid;
         public MainPage()
         {
             InitializeComponent();
@@ -15,14 +15,14 @@ namespace OSFOLCrossPlatform
 
         public MainPage(int loginID)
         {
-            loginid = loginID;
+            _loginid = loginID;
             InitializeComponent();
         }
         
         // On Button click navigate to Add Expense page
         async void OnAddExpenseButtonClicked(object sender, EventArgs e)
         {
-            Navigation.InsertPageBefore(new ExpenseTabbedPage(loginid), this);
+            Navigation.InsertPageBefore(new ExpenseTabbedPage(_loginid), this);
             await Navigation.PopAsync();
         }
 
@@ -36,7 +36,7 @@ namespace OSFOLCrossPlatform
         // On Button click navigate to view report page
         async void OnReportButtonClicked(object sender, EventArgs e)
         {
-            Navigation.InsertPageBefore(new ExpensesPage(loginid), this);
+            Navigation.InsertPageBefore(new ExpensesPage(_loginid), this);
             await Navigation.PopAsync();
         }
 

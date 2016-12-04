@@ -6,8 +6,10 @@ namespace OSFOLCrossPlatform.Pages
 {
     public class ExpenseTabbedPage : TabbedPage
     {
+        public int _loginID;
         public ExpenseTabbedPage(int loginID)
         {
+            _loginID = loginID;
 
             Title = "Add Expense";
 

@@ -9,7 +9,7 @@
     <!--<ToolbarItem Text="Home"   Clicked="OnHomeButtonClicked" />-->
     <ToolbarItem Text="Logout" Clicked="OnLogoutButtonClicked"/>
     <ToolbarItem Text="Home"   Clicked="OnHomeButtonClicked"/>
-    <ToolbarItem Text="Add"    Command="{Binding Path=SaveButtonTapped}"/>
+    <ToolbarItem Text="Save"   Command="{Binding Path=SaveButtonTapped}" Clicked="OnSaveButtonClicked"/>
   </ContentPage.ToolbarItems>
   <ContentPage.Resources>
     <ResourceDictionary>
@@ -80,7 +80,7 @@
           <ColumnDefinition Width="85" />
           <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <Label Text="SalesOpportunity" />
+        <Label Text="Sales Opportunity" />
         <controls:BindablePicker Grid.Column="1"
                                  x:Name="opportunityListView"
                                  DisplayMemberPath="Opportunity"
@@ -109,7 +109,8 @@
         <Label Text="Location From" />
          <Entry Grid.Column="1"
                 x:Name="locationFromEntry" 
-                Placeholder="Location From" />
+                Placeholder="Location From" 
+                Text="{Binding LocationFrom}"/>
       </Grid>
       
       <Grid>
@@ -120,7 +121,8 @@
         <Label Text="Location To" />
          <Entry Grid.Column="1"
                 x:Name="locationToEntry" 
-                Placeholder="Location To" />
+                Placeholder="Location To"
+                Text="{Binding LocationTo}"/>
       </Grid>
       
       <Grid>
@@ -131,7 +133,8 @@
         <Label Text="Expense Details" />
          <Entry Grid.Column="1"
                 x:Name="expenseDetailsEntry" 
-                Placeholder="Details" />
+                Placeholder="Details" 
+                Text="{Binding ExpenseDetails}"/>
       </Grid>
       
       <Grid>
@@ -207,7 +210,7 @@
         <Label Text="Is Rechargeable?" />
          <Switch Grid.Column="1"
                 x:Name="isRechargeableSwitch"
-                IsToggled="{Binding isRechargeable}"/>
+                IsToggled="{Binding IsRechargeable}"/>
       </Grid>
 
     </StackLayout>

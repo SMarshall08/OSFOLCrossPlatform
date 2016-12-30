@@ -4,7 +4,7 @@
              x:Class="OSFOLCrossPlatform.Views.AddExpense"
              xmlns:controls="clr-namespace:OSFOLCrossPlatform.Controls;assembly=OSFOLCrossPlatform"
              xmlns:sys="clr-namespace:System;assembly=mscorlib"
-             Title="General">
+             Title="{Binding Title}">
   <ContentPage.ToolbarItems>
     <!--<ToolbarItem Text="Home"   Clicked="OnHomeButtonClicked" />-->
     <ToolbarItem Text="Logout" Clicked="OnLogoutButtonClicked"/>

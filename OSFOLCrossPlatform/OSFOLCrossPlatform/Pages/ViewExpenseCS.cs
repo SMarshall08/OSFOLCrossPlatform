@@ -31,7 +31,7 @@ namespace OSFOLCrossPlatform.Pages
                 Text = "View Expense",
                 FontAttributes = FontAttributes.Bold
             };
-            //expenseLabel.Clicked += ExpenseLabel_Clicked;
+            expenseLabel.Clicked += ExpenseLabel_Clicked;
             
 
             var expenseStack = new StackLayout
@@ -257,10 +257,14 @@ namespace OSFOLCrossPlatform.Pages
             Content = expenseListStack;
         }
 
-        //private void ExpenseLabel_Clicked(object sender, EventArgs e)
-        //{
-        //    Navigation.InsertPageBefore(new AddExpense());
-        //}
+        async void ExpenseLabel_Clicked(object sender, EventArgs e)
+        {
+            var expense = new ExpenseSummary();
+            expense = App.Database.GetExpenses(_selectedExpense);
+            //Navigation.InsertPageBefore(new AddExpense(expense),this);
+            Navigation.InsertPageBefore(new AddExpense(_selectedExpense), this);
+            await Navigation.PopAsync();
+        }
 
         // On button click logout
         async void OnLogoutButtonClicked(object sender, EventArgs e)

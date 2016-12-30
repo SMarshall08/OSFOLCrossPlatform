@@ -128,6 +128,15 @@ namespace OSFOLCrossPlatform.Data
             }
         }
 
+        public Expense GetEditExpense (int expenseID)
+        {
+            lock (locker)
+            {
+                return database.Table<Expense>().
+                    FirstOrDefault(x => x.ExpenseID == expenseID);
+            }
+        }
+
         public ExpenseSummary GetExpenses(int expenseID)
         {
             lock (locker)

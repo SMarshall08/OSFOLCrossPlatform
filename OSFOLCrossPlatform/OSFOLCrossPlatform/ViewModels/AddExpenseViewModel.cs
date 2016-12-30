@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using OSFOLCrossPlatform.Infrastructure;
 using OSFOLCrossPlatform.Model;
 using OSFOLCrossPlatform.Data;
+using OSFOLCrossPlatform.Helper;
 using OSFOLCrossPlatform.Views;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
@@ -33,8 +34,7 @@ namespace OSFOLCrossPlatform.ViewModels
         string _LocationFrom;
         string _LocationTo;
         string _ExpenseDetails;
-        string _Currency;
-        string _Vendor;
+
 
         int _LoginID;
 
@@ -49,6 +49,8 @@ namespace OSFOLCrossPlatform.ViewModels
         int _rfExpenseMethodID;
         int _rfExpenseTypeID;
         int _rfBusinessOwner;
+        int _rfCurrencyID;
+        int _VendorID;
 
         decimal _ExchangeRate;
         bool _IsRechargeable;
@@ -163,12 +165,12 @@ namespace OSFOLCrossPlatform.ViewModels
             }
         }
 
-        public string Currency
+        public int rfCurrencyID
         {
-            get { return _Currency; }
+            get { return _rfCurrencyID; }
             set
             {
-                _Currency = value;
+                _rfCurrencyID = value;
                 RaisePropertyChanged("Currency");
             }
         }
@@ -235,12 +237,12 @@ namespace OSFOLCrossPlatform.ViewModels
             }
         }
 
-        public string Vendor
+        public int VendorID
         {
-            get { return _Vendor; }
+            get { return _VendorID; }
             set
             {
-                _Vendor = value;
+                _VendorID = value;
                 RaisePropertyChanged();
             }
         }
@@ -281,6 +283,38 @@ namespace OSFOLCrossPlatform.ViewModels
 
         #endregion
 
+        public AddExpenseViewModel(Expense editExpense)
+        {
+            database = new ExpenseDatabase();
+            var expense = editExpense;
+
+            LoginID = expense.LoginID;
+            MonthReportIdentifier = expense.MonthReportIdentifier;
+            SalesOpportunityID = expense.SalesOpportunityID;
+            LocationFrom = expense.Locationfrom;
+            LocationTo = expense.LocationTo;
+            CustomerID = expense.CustomerID;
+            ExpenseDetails = expense.ExpenseDetails;
+            ContactID = expense.ContactID;
+            rfCurrencyID = expense.rfCurrencyID;
+            ExchangeRate = expense.ExchangeRate;
+            ExpenseAmountCur = expense.ExpenseAmountCur;
+            ExpenseAmount = expense.ExpenseAmount;
+            rfExpenseTypeID = expense.rfExpenseTypeID;
+            rfExpenseMethodID = expense.rfExpenseMethodID;
+            IsRechargeable = expense.IsRechargeable;
+            VendorID = expense.VendorID;
+            ModifiedDT = DateTime.Now;
+            CreatedDT = expense.CreatedDT;
+            rfBusinessOwner = expense.rfBusinessOwner;
+
+
+            SaveButtonTapped = new Command(() =>
+            {
+                Task.Run(() => App.Database.SaveExpense(expense));
+            });
+        }
+
         /// <summary>
         /// LoginId passed in as param to save expenses to specific users
         /// </summary>
@@ -289,6 +323,8 @@ namespace OSFOLCrossPlatform.ViewModels
         {
             database = new ExpenseDatabase();
             var Expense = new Expense();
+
+
 
             // save expense 
             SaveButtonTapped = new Command(() =>
@@ -306,14 +342,14 @@ namespace OSFOLCrossPlatform.ViewModels
                     CustomerID = _CustomerID,
                     ExpenseDetails = _ExpenseDetails,
                     ContactID = _ContactID,
-                    Currency = "£",
+                    rfCurrencyID = _rfCurrencyID,
                     ExchangeRate = 1.2m,
                     ExpenseAmountCur = 11,
                     ExpenseAmount = _ExpenseAmount,
                     rfExpenseTypeID = _rfExpenseTypeID,
                     rfExpenseMethodID = _rfExpenseMethodID,
                     IsRechargeable = _IsRechargeable,
-                    Vendor = "Esso",
+                    VendorID = _VendorID,
                     ModifiedDT = _ModifiedDT,
                     CreatedDT = DateTime.Now,
                     rfBusinessOwner = 1

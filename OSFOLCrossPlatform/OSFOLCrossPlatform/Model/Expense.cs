@@ -44,7 +44,7 @@ namespace OSFOLCrossPlatform.Model
 
         [PrimaryKey, AutoIncrement, Unique]
         public int ExpenseID             { get; set; }
-        public int SalesOpportunityID     { get; set; }
+        public int SalesOpportunityID    { get; set; }
         public int LoginID               { get; set; }
         public int MonthReportIdentifier { get; set; }
         public string Locationfrom       { get; set; }
@@ -52,14 +52,14 @@ namespace OSFOLCrossPlatform.Model
         public int CustomerID            { get; set; }
         public string ExpenseDetails     { get; set; }
         public int ContactID             { get; set; }
-        public string Currency           { get; set; }
+        public int rfCurrencyID          { get; set; }
         public decimal ExchangeRate      { get; set; }
         public int ExpenseAmountCur      { get; set; }
         public int ExpenseAmount         { get; set; }
         public int rfExpenseTypeID       { get; set; }
         public int rfExpenseMethodID     { get; set; }
         public bool IsRechargeable       { get; set; }
-        public string Vendor             { get; set; }
+        public int VendorID              { get; set; }
         public DateTime ModifiedDT       { get; set; }
         public DateTime CreatedDT        { get; set; }
         public int rfBusinessOwner       { get; set; }

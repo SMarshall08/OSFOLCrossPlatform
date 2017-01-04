@@ -42,7 +42,7 @@
         <Label Text="Date"/>
         <DatePicker  Grid.Column="1"
                      VerticalOptions="CenterAndExpand" 
-                     Date="{x:Static sys:DateTime.Now}"
+                     Date="{Binding CreatedDT}"
                      x:Name="ExpenseDatePicker">
           <DatePicker.Format>dd-MM-yyyy</DatePicker.Format>
           <DatePicker.MinimumDate>

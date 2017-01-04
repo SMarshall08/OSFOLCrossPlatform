@@ -22,7 +22,7 @@ namespace OSFOLCrossPlatform
         // On Button click navigate to Add Expense page
         async void OnAddExpenseButtonClicked(object sender, EventArgs e)
         {
-            Navigation.InsertPageBefore(new ExpenseTabbedPage(_loginid), this);
+            Navigation.InsertPageBefore(new AddExpense(_loginid), this);
             await Navigation.PopAsync();
         }
 

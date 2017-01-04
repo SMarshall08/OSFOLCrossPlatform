@@ -8,16 +8,13 @@ namespace OSFOLCrossPlatform.Pages
 {
     public partial class ViewExpenseCS : ContentPage
     {
-        int _selectedExpense;
-        ExpenseSummary summary;
+        int _selectedExpenseId;
         ExpenseInnerView viewModel;
-        int _expenseID;
-        int _loginID;
 
-        public ViewExpenseCS(int aSelectedExpense)
+        public ViewExpenseCS(int aSelectedExpenseId)
         {
             
-            _selectedExpense = aSelectedExpense;
+            _selectedExpenseId = aSelectedExpenseId;
 
             // Create new instance of ExpenseViewModel
             viewModel = new ExpenseInnerView();
@@ -28,8 +25,8 @@ namespace OSFOLCrossPlatform.Pages
             // Create the title
             var expenseLabel = new Button
             {
-                Text = "View Expense",
-                FontAttributes = FontAttributes.Bold
+                Text            = "View Expense",
+                FontAttributes  = FontAttributes.Bold
             };
             expenseLabel.Clicked += ExpenseLabel_Clicked;
             
@@ -37,11 +34,11 @@ namespace OSFOLCrossPlatform.Pages
             var expenseStack = new StackLayout
             {
                 Orientation = StackOrientation.Horizontal,
-                Children = {
-                    expenseLabel
-                },
-                HorizontalOptions = LayoutOptions.CenterAndExpand,
-                VerticalOptions = LayoutOptions.CenterAndExpand
+                Children    = {
+                                expenseLabel
+                              },
+                HorizontalOptions   = LayoutOptions.CenterAndExpand,
+                VerticalOptions     = LayoutOptions.CenterAndExpand
             };
 
             #region Create Expense Labels
@@ -220,7 +217,7 @@ namespace OSFOLCrossPlatform.Pages
             dataGrid.Children.Add(expenseCurrencyData, 1, 10);
             dataGrid.Children.Add(expenseExchangeRateData, 1, 11);
             dataGrid.Children.Add(expenseAmountData, 1, 12);
-            dataGrid.Children.Add(expenseAmountCurData, 1, 12);
+            dataGrid.Children.Add(expenseAmountCurData, 1, 13);
             #endregion
 
             var expenseScrollView = new ScrollView
@@ -259,10 +256,8 @@ namespace OSFOLCrossPlatform.Pages
 
         async void ExpenseLabel_Clicked(object sender, EventArgs e)
         {
-            var expense = new ExpenseSummary();
-            expense = App.Database.GetExpenses(_selectedExpense);
-            //Navigation.InsertPageBefore(new AddExpense(expense),this);
-            Navigation.InsertPageBefore(new AddExpense(_selectedExpense), this);
+            ExpenseSummary expense = App.Database.GetExpenses(_selectedExpenseId);
+            Navigation.InsertPageBefore(new AddExpense(expense), this);
             await Navigation.PopAsync();
         }
 
@@ -284,7 +279,7 @@ namespace OSFOLCrossPlatform.Pages
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            viewModel.ExpenseInnverView(_selectedExpense);
+            viewModel.ExpenseInnverView(_selectedExpenseId);
             
         }
 

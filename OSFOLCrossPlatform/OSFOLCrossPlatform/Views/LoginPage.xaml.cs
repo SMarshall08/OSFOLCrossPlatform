@@ -26,34 +26,25 @@ namespace OSFOLCrossPlatform.Views
 
             using (var data = new ExpenseDatabase())
             {
-                Login _user = data.GetLogin(this.usernameEntry.Text);
+                Login user = data.GetLogin(this.usernameEntry.Text);
 
                 // If _user returned null error message will be shown
-                if(_user == null)
+                if(user == null)
                 {
                     messageLabel.Text = "Login failed";
                     passwordEntry.Text = string.Empty;
                 }
 
-                var isValid = AreCredentialsCorrect(_user);
+                var isValid = AreCredentialsCorrect(user);
 
                 // If true continue
                 if (isValid)
                 {
-                    _loginID = _user.LoginID;
-
-                    var user = new Login
-                    {
-                        LoginID  = _user.LoginID,
-                        UserName = usernameEntry.Text,
-                        Password = passwordEntry.Text,
-                        FirstName = _user.FirstName,
-                        LastName = _user.LastName
-                    };
+                    _loginID = user.LoginID;
 
                     App.IsUserLoggedIn = true;
 
-                    Navigation.InsertPageBefore(new MainPage(user.LoginID), this);
+                    Navigation.InsertPageBefore(new MainPage(_loginID), this);
                     await Navigation.PopAsync();
                 }
                 else {

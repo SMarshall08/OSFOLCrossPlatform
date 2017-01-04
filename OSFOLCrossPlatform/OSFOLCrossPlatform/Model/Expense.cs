@@ -7,47 +7,31 @@ using System.Collections.ObjectModel;
 
 namespace OSFOLCrossPlatform.Model
 {
-    public class Expense : ObservableObject
+    public class Expense
     {
-        public Expense(int loginID)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Expense"/> class, made for the logged on user. Chain calls the standard constructure 
+        /// </summary>
+        /// <param name="loginID"></param>
+        public Expense(int loginID) :this()
         {
             LoginID = loginID;
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Expense"/> class. Sets the default modified date of the expense to be now
+        /// </summary>
         public Expense()
         {
             ModifiedDT = DateTime.Now;
         }
-
-        //public Expense ( int salesOpportunityID, string locationFrom, string locationTo, int customerID, string expenseDetails,
-        //    int contactID, string currency, decimal exchangeRate, int expenseAmountCur, int expenseAmount, int rfexpenseTypeID, int rfexpenseMethodID,
-        //    bool isrechargeable, string vendor, DateTime modifiedDT, DateTime createdDT, int rfbusinessOwner)
-        //{
-        //    SalesOpportunityID = salesOpportunityID;
-        //    Locationfrom = locationFrom;
-        //    LocationTo = locationTo;
-        //    CustomerID = customerID;
-        //    ExpenseDetails = expenseDetails;
-        //    ContactID = contactID;
-        //    Currency = currency;
-        //    ExchangeRate = exchangeRate;
-        //    ExpenseAmountCur = expenseAmountCur;
-        //    ExpenseAmount = expenseAmount;
-        //    rfExpenseTypeID = rfexpenseTypeID;
-        //    rfExpenseMethodID = rfexpenseMethodID;
-        //    IsRechargeable = isrechargeable;
-        //    Vendor = vendor;
-        //    ModifiedDT = modifiedDT;
-        //    rfBusinessOwner = rfbusinessOwner;
-        //}
-
 
         [PrimaryKey, AutoIncrement, Unique]
         public int ExpenseID             { get; set; }
         public int SalesOpportunityID    { get; set; }
         public int LoginID               { get; set; }
         public int MonthReportIdentifier { get; set; }
-        public string Locationfrom       { get; set; }
+        public string LocationFrom       { get; set; }
         public string LocationTo         { get; set; }
         public int CustomerID            { get; set; }
         public string ExpenseDetails     { get; set; }
@@ -63,9 +47,6 @@ namespace OSFOLCrossPlatform.Model
         public DateTime ModifiedDT       { get; set; }
         public DateTime CreatedDT        { get; set; }
         public int rfBusinessOwner       { get; set; }
-
-        //public static IList<Expense> All { set; get; }
-
 
     }
 }

@@ -10,8 +10,8 @@ namespace OSFOLCrossPlatform.Views
     public partial class AddExpense : ContentPage
     {
         public int _loginID;
-        public int _expenseID;
-        
+        private Expense _expense;
+
 
         AddExpenseViewModel viewModel;
 
@@ -33,36 +33,10 @@ namespace OSFOLCrossPlatform.Views
             
             Title = "Edit Expense";
 
-            _expenseID = editExpense.ExpenseID;
+            _expense = App.Database.GetEditExpense(editExpense.ExpenseID);
 
-            var expense = new Expense();
-
-            expense = App.Database.GetEditExpense(_expenseID);
-
-            customerListView.DisplayMemberPath = editExpense.Customer;
-            opportunityListView.DisplayMemberPath = editExpense.Opportunity;
-            vendorListView.DisplayMemberPath = editExpense.Vendor;
-            locationFromEntry.Text = editExpense.LocationFrom;
-            locationToEntry.Text = editExpense.LocationTo;
-            expenseDetailsEntry.Text = editExpense.ExpenseDetails;
-            contactListView.DisplayMemberPath = editExpense.Contact;
-            expenseTypeListView.DisplayMemberPath = editExpense.rfExpenseType;
-            expenseMethodListView.DisplayMemberPath = editExpense.rfExpenseMethod;
-            currencyListView.DisplayMemberPath = editExpense.Currency;
-            expenseAmountEntry.Text = editExpense.ExpenseAmount.ToString();
-
-            customerListView.SelectedValue = expense.CustomerID;
-            opportunityListView.SelectedValue = expense.SalesOpportunityID;
-            vendorListView.SelectedValue = expense.VendorID;
-            contactListView.SelectedValue = expense.ContactID;
-            expenseTypeListView.SelectedValue = expense.rfExpenseTypeID;
-            expenseMethodListView.SelectedValue = expense.rfExpenseMethodID;
-
-            viewModel = new AddExpenseViewModel(expense);
+            viewModel = new AddExpenseViewModel(_expense);
             BindingContext = viewModel;
-
-
-
         }
 
         #region Toolbar button click events
@@ -99,9 +73,19 @@ namespace OSFOLCrossPlatform.Views
             expenseMethodListView.ItemsSource = App.Database.GetExpenseMethods();
             currencyListView.ItemsSource = App.Database.GetCurrency();
 
-            //viewModel.ExpenseDetails = this.expenseDetailsEntry.Text;
-            //viewModel.LocationFrom = this.locationFromEntry.Text;
-            //viewModel.LocationTo = this.locationToEntry.Text;
+            if (_expense != null)
+            {
+                customerListView.SelectedValue = _expense.CustomerID;
+                opportunityListView.SelectedValue = _expense.SalesOpportunityID;
+                expenseTypeListView.SelectedValue = _expense.rfExpenseTypeID;
+                vendorListView.SelectedValue = _expense.VendorID;
+                contactListView.SelectedValue = _expense.ContactID;
+                expenseMethodListView.SelectedValue = _expense.rfExpenseMethodID;
+                locationFromEntry.Text = _expense.LocationFrom;
+                locationToEntry.Text = _expense.LocationTo;
+                expenseDetailsEntry.Text = _expense.ExpenseDetails;
+                expenseAmountEntry.Text = _expense.ExpenseAmount.ToString();
+            }
         }
 
     }

@@ -24,7 +24,6 @@ namespace OSFOLCrossPlatform.ViewModels
         ExpenseDatabase database;
 
         public ICommand SaveButtonTapped { protected set; get; }
-        private ExpenseService expenseService;
 
         DateTime _ModifiedDT;
         DateTime _CreatedDT;
@@ -54,11 +53,6 @@ namespace OSFOLCrossPlatform.ViewModels
 
         decimal _ExchangeRate;
         bool _IsRechargeable;
-
-        DateTime _paidDT;
-
-        //public event EventHandler SaveError;
-        //public event EventHandler SaveToDatabaseCompleted;
 
         #region ExpenseModel Get & Set
         public Expense Expense { get; set; }
@@ -268,6 +262,7 @@ namespace OSFOLCrossPlatform.ViewModels
             set
             {
                 _CreatedDT = DateTime.Now;
+                RaisePropertyChanged();
             }
         }
 
@@ -283,30 +278,29 @@ namespace OSFOLCrossPlatform.ViewModels
 
         #endregion
 
-        public AddExpenseViewModel(Expense editExpense)
+        public AddExpenseViewModel(Expense expense)
         {
             database = new ExpenseDatabase();
-            var expense = editExpense;
 
-            LoginID = expense.LoginID;
-            MonthReportIdentifier = expense.MonthReportIdentifier;
-            SalesOpportunityID = expense.SalesOpportunityID;
-            LocationFrom = expense.Locationfrom;
-            LocationTo = expense.LocationTo;
-            CustomerID = expense.CustomerID;
-            ExpenseDetails = expense.ExpenseDetails;
-            ContactID = expense.ContactID;
-            rfCurrencyID = expense.rfCurrencyID;
-            ExchangeRate = expense.ExchangeRate;
-            ExpenseAmountCur = expense.ExpenseAmountCur;
-            ExpenseAmount = expense.ExpenseAmount;
-            rfExpenseTypeID = expense.rfExpenseTypeID;
-            rfExpenseMethodID = expense.rfExpenseMethodID;
-            IsRechargeable = expense.IsRechargeable;
-            VendorID = expense.VendorID;
-            ModifiedDT = DateTime.Now;
-            CreatedDT = expense.CreatedDT;
-            rfBusinessOwner = expense.rfBusinessOwner;
+            LoginID                 = expense.LoginID;
+            MonthReportIdentifier   = expense.MonthReportIdentifier;
+            SalesOpportunityID      = expense.SalesOpportunityID;
+            LocationFrom            = expense.LocationFrom;
+            LocationTo              = expense.LocationTo;
+            CustomerID              = expense.CustomerID;
+            ExpenseDetails          = expense.ExpenseDetails;
+            ContactID               = expense.ContactID;
+            rfCurrencyID            = expense.rfCurrencyID;
+            ExchangeRate            = expense.ExchangeRate;
+            ExpenseAmountCur        = expense.ExpenseAmountCur;
+            ExpenseAmount           = expense.ExpenseAmount;
+            rfExpenseTypeID         = expense.rfExpenseTypeID;
+            rfExpenseMethodID       = expense.rfExpenseMethodID;
+            IsRechargeable          = expense.IsRechargeable;
+            VendorID                = expense.VendorID;
+            ModifiedDT              = DateTime.Now;
+            CreatedDT               = expense.CreatedDT;
+            rfBusinessOwner         = expense.rfBusinessOwner;
 
 
             SaveButtonTapped = new Command(() =>
@@ -322,9 +316,8 @@ namespace OSFOLCrossPlatform.ViewModels
         public AddExpenseViewModel(int loginID)
         {
             database = new ExpenseDatabase();
-            var Expense = new Expense();
-
-
+            _CreatedDT = DateTime.Now;
+            _LoginID = loginID;
 
             // save expense 
             SaveButtonTapped = new Command(() =>
@@ -334,58 +327,30 @@ namespace OSFOLCrossPlatform.ViewModels
                 // Task to call database and save expense with values from model 
                 Task.Run(() => App.Database.SaveExpense(new Expense
                 {
-                    LoginID = _LoginID,
+                    LoginID               = _LoginID,
                     MonthReportIdentifier = _monthIdentifier,
-                    SalesOpportunityID = _SalesOpportunityID,
-                    Locationfrom = _LocationFrom,
-                    LocationTo = _LocationTo,
-                    CustomerID = _CustomerID,
-                    ExpenseDetails = _ExpenseDetails,
-                    ContactID = _ContactID,
-                    rfCurrencyID = _rfCurrencyID,
-                    ExchangeRate = 1.2m,
-                    ExpenseAmountCur = 11,
-                    ExpenseAmount = _ExpenseAmount,
-                    rfExpenseTypeID = _rfExpenseTypeID,
-                    rfExpenseMethodID = _rfExpenseMethodID,
-                    IsRechargeable = _IsRechargeable,
-                    VendorID = _VendorID,
-                    ModifiedDT = _ModifiedDT,
-                    CreatedDT = DateTime.Now,
-                    rfBusinessOwner = 1
+                    SalesOpportunityID    = _SalesOpportunityID,
+                    LocationFrom          = _LocationFrom,
+                    LocationTo            = _LocationTo,
+                    CustomerID            = _CustomerID,
+                    ExpenseDetails        = _ExpenseDetails,
+                    ContactID             = _ContactID,
+                    rfCurrencyID          = _rfCurrencyID,
+                    ExchangeRate          = 1.2m,
+                    ExpenseAmountCur      = 11,
+                    ExpenseAmount         = _ExpenseAmount,
+                    rfExpenseTypeID       = _rfExpenseTypeID,
+                    rfExpenseMethodID     = _rfExpenseMethodID,
+                    IsRechargeable        = _IsRechargeable,
+                    VendorID              = _VendorID,
+                    ModifiedDT            = _ModifiedDT,
+                    CreatedDT             = _CreatedDT,
+                    rfBusinessOwner       = 1
                 }));
 
 
             });
 
         }
-
-    
-        
-
-        //private ObservableCollection<Expense> expenses = new ObservableCollection<Expense>();
-
-        //public ObservableCollection<Expense> Expenses
-        //{
-        //    get { return expenses; }
-        //    set { expenses = value; RaisePropertyChanged("Expenses"); }
-        //}
-
-        //public async Task UpdateExpenseData(int expenseID, int loginID)
-        //{
-        //    Expenses.Clear();
-        //    UpdateNeeded = false;
-
-        //    try
-        //    {
-        //        var exps = await App.Database.GetExpenseItems();
-
-        //        foreach (var expense in exps)
-        //        {
-
-        //            Expenses.Add(expense);
-        //        }
-        //    }
-        //}
     }
 }

@@ -17,14 +17,5 @@ namespace OSFOLCrossPlatform.Pages
             this.Children.Add(new AddTypeExpenseView(loginID));
             this.Children.Add(new AddCostingExpenseView(loginID));
         }
-
-        //public ExpenseTabbedPage(ExpenseSummary expenseSummary)
-        //{
-        //    Title = "Edit Expense";
-
-        //    this.Children.Add(new AddExpense(loginID));
-        //    this.Children.Add(new AddTypeExpenseView(loginID));
-        //    this.Children.Add(new AddCostingExpenseView(loginID));
-        //}
     }
 }

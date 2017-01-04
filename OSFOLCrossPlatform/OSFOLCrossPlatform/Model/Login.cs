@@ -3,9 +3,15 @@ using SQLite;
 
 namespace OSFOLCrossPlatform
 {
+    /// <summary>
+    /// Class representing the logged on user
+    /// </summary>
     public class Login
     {
-
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Login"/> class.
+        /// </summary>
+        /// <param name="id"></param>
         public Login(int id)
         {
             LoginID = id;

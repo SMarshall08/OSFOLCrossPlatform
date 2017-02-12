@@ -32,7 +32,7 @@ namespace OSFOLCrossPlatform.Views
             InitializeComponent();
             
             Title = "Edit Expense";
-
+            
             _expense = App.Database.GetEditExpense(editExpense.ExpenseID);
 
             viewModel = new AddExpenseViewModel(_expense);
@@ -57,7 +57,12 @@ namespace OSFOLCrossPlatform.Views
 
         public void OnSaveButtonClicked (object sender, EventArgs e)
         {
-            customerListView.DisplayMemberPath = null;
+            customerListView.SelectedIndex = -1;
+            opportunityListView.SelectedIndex = -1;
+            expenseTypeListView.SelectedIndex = -1;
+            vendorListView.SelectedIndex = -1;
+            contactListView.SelectedIndex = -1;
+            expenseMethodListView.SelectedIndex = -1;
         }
         #endregion
 

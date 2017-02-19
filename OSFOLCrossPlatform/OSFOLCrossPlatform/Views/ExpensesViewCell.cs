@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Emit;
-using System.Text;
-using OSFOLCrossPlatform.Model;
-
+﻿using OSFOLCrossPlatform.Model;
 using Xamarin.Forms;
 using System.Threading.Tasks;
 
@@ -17,7 +11,9 @@ namespace OSFOLCrossPlatform.Views
             #region Create Image
             var lighthouseImage = new Image
             {
-                Source = "lighthouseicon"
+                Source  = "lighthouseicon",
+                Scale   = 0.5
+               
             };
             #endregion
 
@@ -42,11 +38,11 @@ namespace OSFOLCrossPlatform.Views
             #region Create Customer Stack
             var customerLabel = new Label
             {
-                Text = "CustomerID",
+                Text = "Customer",
                 FontAttributes = FontAttributes.Bold
             };
             var customer = new Label();
-            customer.SetBinding(Label.TextProperty, "CustomerID");
+            customer.SetBinding(Label.TextProperty, "Customer");
 
             var customerStack = new StackLayout
             {
@@ -57,38 +53,20 @@ namespace OSFOLCrossPlatform.Views
             };
             #endregion
 
-            #region Create Opportunity Stack
-            var opportunityLabel = new Label
+            #region Create Date Stack
+            var dateLabel = new Label
             {
-                Text = "SaleOpportunityID",
+                Text = "Date",
                 FontAttributes = FontAttributes.Bold
             };
-            var opportunity = new Label();
-            opportunity.SetBinding(Label.TextProperty, "SaleOpportunityID");
+            var date = new Label();
+            date.SetBinding(Label.TextProperty, "CreatedDT");
 
-            var opportunityStack = new StackLayout
+            var dateStack = new StackLayout
             {
                 Children = {
-                    opportunityLabel,
-                    opportunity
-                }
-            };
-            #endregion
-
-            #region Create ExpenseType Stack
-            var expenseTypeLabel = new Label
-            {
-                Text = "rfExpenseTypeID",
-                FontAttributes = FontAttributes.Bold
-            };
-            var expenseType = new Label();
-            expenseType.SetBinding(Label.TextProperty, "rfExpenseTypeID");
-
-            var expenseTypeStack = new StackLayout
-            {
-                Children = {
-                    expenseTypeLabel,
-                    expenseType
+                    dateLabel,
+                    date
                 }
             };
             #endregion
@@ -131,8 +109,7 @@ namespace OSFOLCrossPlatform.Views
                         lighthouseImage,
                         expenseStack,
                         customerStack,
-                        opportunityStack,
-                        expenseTypeStack
+                        dateStack
                     }
                 };
             }
@@ -151,7 +128,7 @@ namespace OSFOLCrossPlatform.Views
                         lighthouseImage,
                         expenseStack,
                         customerStack,
-                        opportunityStack
+                        dateStack
                     }
                 };
             }

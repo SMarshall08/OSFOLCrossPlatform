@@ -12,18 +12,22 @@ namespace OSFOLCrossPlatform.Pages
     {
         int _loginID;
         int _expenseID;
+        int _monthID;
 
         ListView _listView;
         ExpensesViewModel _expensesViewModel;
         ToolbarItem _addButtonToolBar;
         ToolbarItem _logoutButtonToolBar;
+        ToolbarItem _homeButtonToolBar;
         ToolbarItem _deleteButtonToolBar;
         bool _areEventHandlersSubscribed;
 
-        public ExpensesPage(int loginID)
+        public ExpensesPage(int loginID, int monthID)
         {
             _loginID = loginID;
-            _expensesViewModel = new ExpensesViewModel(_loginID);
+            _monthID = monthID;
+
+            _expensesViewModel = new ExpensesViewModel(_loginID, _monthID);
             BindingContext = _expensesViewModel;
 
             #region Create the ListView
@@ -36,7 +40,7 @@ namespace OSFOLCrossPlatform.Pages
             _listView.IsPullToRefreshEnabled = true;
             _listView.Refreshing += (async (sender, e) =>
             {
-                await _expensesViewModel.RefreshExpensesDataAsync(_loginID);
+                await _expensesViewModel.RefreshExpensesDataAsync(_loginID,_monthID);
                 _listView.EndRefresh();
             });
 
@@ -55,19 +59,20 @@ namespace OSFOLCrossPlatform.Pages
             #region Initialize the Toolbar Add Button
             _addButtonToolBar = new ToolbarItem();
             _logoutButtonToolBar = new ToolbarItem();
+            _homeButtonToolBar = new ToolbarItem();
 
-
+            _homeButtonToolBar.Text = "Home";
             _addButtonToolBar.Icon = "Add";
             _logoutButtonToolBar.Text = "Logout";
 
-
+            ToolbarItems.Add(_homeButtonToolBar);
             ToolbarItems.Add(_addButtonToolBar);
             ToolbarItems.Add(_logoutButtonToolBar);
             #endregion
 
             #region Create Searchbar
             var searchBar = new SearchBar();
-            searchBar.TextChanged += (sender, e) => _expensesViewModel.FilterExpenses(searchBar.Text,_loginID);
+            searchBar.TextChanged += (sender, e) => _expensesViewModel.FilterExpenses(searchBar.Text,_loginID,_monthID);
             #endregion
 
             #region Create Stack
@@ -93,6 +98,7 @@ namespace OSFOLCrossPlatform.Pages
             if (_areEventHandlersSubscribed)
                 return;
 
+            _homeButtonToolBar.Clicked += OnHomeButtonClicked;
             _addButtonToolBar.Clicked += HandleAddButtonClicked;
             _logoutButtonToolBar.Clicked += OnLogoutButtonClicked;
 
@@ -100,11 +106,16 @@ namespace OSFOLCrossPlatform.Pages
 
         }
 
+        async void OnHomeButtonClicked(object sender, EventArgs e)
+        {
+            Navigation.InsertPageBefore(new MainPage(_loginID), this);
+            await Navigation.PopAsync(); 
+        }
+
         void HandleAddButtonClicked(object sender, EventArgs e)
         {
             Navigation.PushModalAsync(new NavigationPage(new AddExpense(_loginID)));
         }
-
 
         // On button click logout
         async void OnLogoutButtonClicked(object sender, EventArgs e)

@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             x:Class="OSFOLCrossPlatform.Views.AddExpenseSet"
+             Title="Add Expense Set (Trip)">
+  <ContentPage.ToolbarItems>
+    <ToolbarItem Text="Logout" Clicked="OnLogoutButtonClicked"/>
+    <ToolbarItem Text="Home"   Clicked="OnHomeButtonClicked"/>
+  </ContentPage.ToolbarItems>
+
+  <ScrollView>
+    <StackLayout Margin="5,0">
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="85" />
+          <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Label Text="Expense Set Name" />
+        <Entry Grid.Column="1"
+               x:Name="ExpenseSetEntry"
+               Placeholder="Name"
+               Text="{Binding ExpenseSetName}"/>
+      </Grid>
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="85" />
+          <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Label Text="From Date"/>
+        <DatePicker  Grid.Column="1"
+                     VerticalOptions="CenterAndExpand"
+                     Date="{Binding FromDT}"
+                     x:Name="ExpenseSetFromDTPicker">
+          <DatePicker.Format>dd-MM-yyyy</DatePicker.Format>
+          <DatePicker.MinimumDate>
+            <sys:DateTime x:FactoryMethod="Parse">
+              <x:Arguments>
+                <x:String>Jan 1 2017</x:String>
+              </x:Arguments>
+            </sys:DateTime>
+          </DatePicker.MinimumDate>
+          <DatePicker.MaximumDate>
+            <sys:DateTime x:FactoryMethod="Parse">
+              <x:Arguments>
+                <x:String>Dec 31 2050</x:String>
+              </x:Arguments>
+            </sys:DateTime>
+          </DatePicker.MaximumDate>
+        </DatePicker>
+      </Grid>
+
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="85" />
+          <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Label Text="To Date"/>
+        <DatePicker  Grid.Column="1"
+                     VerticalOptions="CenterAndExpand"
+                     Date="{Binding ToDT}"
+                     x:Name="ExpenseSetToDTPicker">
+          <DatePicker.Format>dd-MM-yyyy</DatePicker.Format>
+          <DatePicker.MinimumDate>
+            <sys:DateTime x:FactoryMethod="Parse">
+              <x:Arguments>
+                <x:String>Jan 1 2017</x:String>
+              </x:Arguments>
+            </sys:DateTime>
+          </DatePicker.MinimumDate>
+          <DatePicker.MaximumDate>
+            <sys:DateTime x:FactoryMethod="Parse">
+              <x:Arguments>
+                <x:String>Dec 31 2050</x:String>
+              </x:Arguments>
+            </sys:DateTime>
+          </DatePicker.MaximumDate>
+        </DatePicker>
+      </Grid>      
+      <Button x:Name="Add" Command="{Binding Path=SaveButtonTapped}" Clicked="AddExpenseSetButton_OnClicked" Text="Save" />
+    </StackLayout>
+  </ScrollView>
+</ContentPage>

@@ -26,13 +26,15 @@ namespace OSFOLCrossPlatform.ViewModels
         string _ExpenseDetails;
         string _Vendor;
         string _rfExpenseMethod;
-        string _Currency;
+        string _rfCurrency;
         string _FirstName; // Customer contact
         string _LastName; // Customer Contact
         string _Contact;
         decimal _ExchangeRate;
-        int _ExpenseAmountCur;
-        int _ExpenseAmount;
+        decimal _ExpenseAmountCur;
+        decimal _ExpenseAmount;
+
+        string _ReceiptImageUri;
 
 
         public DateTime CreatedDT
@@ -57,12 +59,15 @@ namespace OSFOLCrossPlatform.ViewModels
         {
             get
             {
-                _Contact = _FirstName + _LastName;
                 return _Contact;
             }
             set
             {
                 SetProperty<string>(ref _Contact, value);
+
+                string[] names = value.Split(' ');
+                SetProperty<string>(ref _FirstName, names[0]);
+                SetProperty<string>(ref _LastName, names[1]);
             }
         }
         public string Opportunity
@@ -128,12 +133,12 @@ namespace OSFOLCrossPlatform.ViewModels
             }
         }
 
-        public string Currency
+        public string rfCurrency
         {
-            get { return _Currency; }
+            get { return _rfCurrency; }
             set
             {
-                SetProperty<string>(ref _Currency, value);
+                SetProperty<string>(ref _rfCurrency, value);
             }
         }
 
@@ -148,41 +153,53 @@ namespace OSFOLCrossPlatform.ViewModels
         }
 
 
-        public int ExpenseAmountCur
+        public decimal ExpenseAmountCur
         {
             get { return _ExpenseAmountCur; }
             set
             {
-                SetProperty<int>(ref _ExpenseAmountCur, value);
+                SetProperty<decimal>(ref _ExpenseAmountCur, value);
             }
         }
-        public int ExpenseAmount
+        public decimal ExpenseAmount
         {
             get { return _ExpenseAmount; }
             set
             {
-                SetProperty<int>(ref _ExpenseAmount, value);
+                SetProperty<decimal>(ref _ExpenseAmount, value);
+            }
+        }
+
+        public string ReceiptImageUri
+        {
+            get { return _ReceiptImageUri; }
+            set
+            {
+                SetProperty<string>(ref _ReceiptImageUri, value);
             }
         }
 
 
-        public void ExpenseInnverView(int aSelectedExpense)
+        public void FillExpenseDetails(int aSelectedExpense)
         {
             viewExpense = App.Database.GetExpenses(aSelectedExpense);
 
-            CreatedDT = viewExpense.CreatedDT;
-            Customer = viewExpense.Customer;
-            Contact = viewExpense.Contact;
-            Opportunity = viewExpense.Opportunity;
-            LocationFrom = viewExpense.LocationFrom;
-            LocationTo = viewExpense.LocationTo;
-            rfExpenseType = viewExpense.rfExpenseType;
-            rfExpenseMethod = viewExpense.rfExpenseMethod;
-            Vendor = viewExpense.Vendor;
-            Currency = viewExpense.Currency;
-            ExchangeRate = viewExpense.ExchangeRate;
-            ExpenseAmountCur = viewExpense.ExpenseAmountCur;
-            ExpenseAmount = viewExpense.ExpenseAmount;
+            CreatedDT           = viewExpense.CreatedDT;
+            Customer            = viewExpense.Customer;
+            Contact             = viewExpense.Contact;
+            Opportunity         = viewExpense.Opportunity;
+            LocationFrom        = viewExpense.LocationFrom;
+            LocationTo          = viewExpense.LocationTo;
+            rfExpenseType       = viewExpense.rfExpenseType;
+            rfExpenseMethod     = viewExpense.rfExpenseMethod;
+            Vendor              = viewExpense.Vendor;
+            rfCurrency          = viewExpense.rfCurrency;
+            ExchangeRate        = viewExpense.ExchangeRate;
+            ExpenseAmountCur    = viewExpense.ExpenseAmountCur;
+            ExpenseAmount       = viewExpense.ExpenseAmount;
+            ExpenseDetails      = viewExpense.ExpenseDetails;
+
+            ReceiptImageUri     = viewExpense.ReceiptImageUri;
 
         }
     }   

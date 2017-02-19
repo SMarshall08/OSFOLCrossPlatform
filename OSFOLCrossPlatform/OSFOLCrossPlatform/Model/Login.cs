@@ -11,7 +11,7 @@ namespace OSFOLCrossPlatform
         /// <summary>
         /// Initializes a new instance of the <see cref="Login"/> class.
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="id">The identifier</param>
         public Login(int id)
         {
             LoginID = id;

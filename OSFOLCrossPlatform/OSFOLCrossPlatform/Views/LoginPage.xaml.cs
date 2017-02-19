@@ -28,10 +28,10 @@ namespace OSFOLCrossPlatform.Views
             {
                 Login user = data.GetLogin(this.usernameEntry.Text);
 
-                // If _user returned null error message will be shown
+                // If user returned null error message will be shown
                 if(user == null)
                 {
-                    messageLabel.Text = "Login failed";
+                    messageLabel.Text  = "Login failed";
                     passwordEntry.Text = string.Empty;
                 }
 

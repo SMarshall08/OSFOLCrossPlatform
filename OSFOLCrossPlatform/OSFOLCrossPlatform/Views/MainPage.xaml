@@ -8,10 +8,12 @@
   </ContentPage.ToolbarItems>
   <ContentPage.Content>
     <StackLayout>
-      <Label Text="Main app content goes here" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
+      <Button Text="Receipt Capture" Clicked="ReceiptImageButton_OnClicked"/>
+      <Button Text="Add Expense Set (Trip)" Clicked="AddExpenseSetButton_OnClicked"/>
       <Button Text="Add Expense" Clicked="OnAddExpenseButtonClicked" />
-      <Button Text="Add Quick Expense" Clicked="OnAddQuickExpenseButtonClicked" />
-      <Button Text="Report" Clicked="OnReportButtonClicked" />
+      <Button Text="Month Report" Clicked="MonthExpenseReport_OnClicked"/>
+      <Button Text="My Trips" Clicked="ExpenseSetReport_OnClicked"/>
+
     </StackLayout>
   </ContentPage.Content>
 </ContentPage>

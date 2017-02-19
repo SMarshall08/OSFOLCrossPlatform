@@ -9,7 +9,8 @@
     <!--<ToolbarItem Text="Home"   Clicked="OnHomeButtonClicked" />-->
     <ToolbarItem Text="Logout" Clicked="OnLogoutButtonClicked"/>
     <ToolbarItem Text="Home"   Clicked="OnHomeButtonClicked"/>
-    <ToolbarItem Text="Save"   Command="{Binding Path=SaveButtonTapped}" Clicked="OnSaveButtonClicked"/>
+    <ToolbarItem Text="Next"   Command="{Binding Path=SaveButtonTapped}" Clicked="OnNextButtonClicked"/>
+    <ToolbarItem x:Name="Save" Text="{Binding Save}"   Command="{Binding Path=SaveButtonTapped}" Clicked="OnSaveButtonClicked"/>
   </ContentPage.ToolbarItems>
   <ContentPage.Resources>
     <ResourceDictionary>
@@ -31,9 +32,27 @@
       </Style>
     </ResourceDictionary>
   </ContentPage.Resources>
-  
-    
+
+  <ScrollView>
     <StackLayout Margin="5,0">
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="85" />
+          <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Label Text="Trip Name: " />
+        <Label x:Name="ExpenseSetNameLabel"
+               Grid.Column="1"
+               Text="{Binding ExpenseSetName}"
+               FontSize="20"
+               TextColor="Black"
+               VerticalOptions="Center"
+               HorizontalOptions="Center"
+               IsVisible="{Binding ExpenseSetNameLabel}"/>
+      </Grid>
+      <Button x:Name="AddPicture" 
+              Clicked="AddPictureButton_OnClicked"  
+              Text="{Binding AddPicture}" />
       <Grid>
         <Grid.ColumnDefinitions>
           <ColumnDefinition Width="85" />
@@ -213,6 +232,13 @@
                 IsToggled="{Binding IsRechargeable}"/>
       </Grid>
 
+      
+      <Label  x:Name="ReceiptImageUri" 
+              FontSize="16" 
+              TextColor="Black"  
+              Text="{Binding ReceiptImageUri}"/>
+
     </StackLayout>
+  </ScrollView>
 </ContentPage>
 

@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using OSFOLCrossPlatform.Infrastructure;
 using OSFOLCrossPlatform.Model;
@@ -11,42 +8,12 @@ namespace OSFOLCrossPlatform.ViewModels
 {
     public class ExpenseViewModel : ObservableObject
     {
-        private ExpenseService expenseService;
         private ExpenseSummary currrentExpense;
 
         public ExpenseViewModel()
         {
-            expenseService = ServiceContainer.Resolve<ExpenseService>();
+            
         }
-
-        public ExpenseViewModel(ExpenseService expenseService)
-        {
-            this.expenseService = expenseService;
-        }
-
-        public async Task InitialiseExpense(int expenseID)
-        {
-            if (expenseID >= 0)
-                currrentExpense = await expenseService.GetExpense(expenseID);
-            else
-                currrentExpense = null;
-            InitialiseExpense();
-        }
-
-        public void InitialiseExpense(ExpenseSummary expense)
-        {
-            currrentExpense = expense;
-            InitialiseExpense();
-        }
-
-        private void InitialiseExpense()
-        {
-            if(currrentExpense == null)
-            {
-
-            }
-        }
-
 
         DateTime _CreatedDT;
         string _Customer;
@@ -57,13 +24,15 @@ namespace OSFOLCrossPlatform.ViewModels
         string _ExpenseDetails;
         string _Vendor;
         string _rfExpenseMethod;
-        string _Currency;
+        string _rfCurrency;
         string _FirstName; // Customer contact
         string _LastName; // Customer Contact
         string _Contact;
         decimal _ExchangeRate;
-        int _ExpenseAmountCur;
-        int _ExpenseAmount;
+        decimal _ExpenseAmountCur;
+        decimal _ExpenseAmount;
+
+        string _receiptImageUri;
 
 
         public DateTime CreatedDT
@@ -88,12 +57,15 @@ namespace OSFOLCrossPlatform.ViewModels
         {
             get
             {
-                _Contact = _FirstName + _LastName;
                 return _Contact;
             }
             set
             {
                 SetProperty<string>(ref _Contact, value);
+
+                string[] names = _Contact.Split(' ');
+                SetProperty<string>(ref _FirstName, names[0]);
+                SetProperty<string>(ref _LastName, names[1]);
             }
         }
         public string Opportunity
@@ -159,12 +131,12 @@ namespace OSFOLCrossPlatform.ViewModels
             }
         }
 
-        public string Currency
+        public string rfCurrency
         {
-            get { return _Currency; }
+            get { return _rfCurrency; }
             set
             {
-                SetProperty<string>(ref _Currency, value);
+                SetProperty<string>(ref _rfCurrency, value);
             }
         }
 
@@ -179,20 +151,29 @@ namespace OSFOLCrossPlatform.ViewModels
         }
 
 
-        public int ExpenseAmountCur
+        public decimal ExpenseAmountCur
         {
             get { return _ExpenseAmountCur; }
             set
             {
-                SetProperty<int>(ref _ExpenseAmountCur, value);
+                SetProperty<decimal>(ref _ExpenseAmountCur, value);
             }
         }
-        public int ExpenseAmount
+        public decimal ExpenseAmount
         {
             get { return _ExpenseAmount; }
             set
             {
-                SetProperty<int>(ref _ExpenseAmount, value);
+                SetProperty<decimal>(ref _ExpenseAmount, value);
+            }
+        }
+
+        public string ReceiptImageUri
+        {
+            get { return _receiptImageUri; }
+            set
+            {
+                SetProperty<string>(ref _receiptImageUri, value);
             }
         }
     }

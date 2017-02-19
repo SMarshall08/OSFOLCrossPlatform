@@ -105,6 +105,15 @@ namespace OSFOLCrossPlatform.Data
             }
         }
 
+        public IEnumerable<ExpenseMonth> GetMonths()
+        {
+            lock (locker)
+            {
+                //return (from i in database.Table<Contact>() select i).ToList();
+                return database.Query<ExpenseMonth>("SELECT * FROM [ExpenseMonth] ORDER BY MonthID ASC");
+            }
+        }
+
         // Gets all Logins and populates into a list ordered by name 
         public List<Login> ListofLogins()
         {
@@ -116,15 +125,19 @@ namespace OSFOLCrossPlatform.Data
         {
             lock (locker)
             {
-                return database.Table<Login>().FirstOrDefault(x => x.UserName == username);
+                return database.Table<Login>().
+                    FirstOrDefault(x => x.UserName == username);
             }
         }
+
+
 
         public Expense GetExpense(Expense expense)
         {
             lock (locker)
             {
-                return database.Table<Expense>().FirstOrDefault(x => x.ExpenseID == expense.ExpenseID);
+                return database.Table<Expense>().
+                    FirstOrDefault(x => x.ExpenseID == expense.ExpenseID);
             }
         }
 
@@ -137,6 +150,17 @@ namespace OSFOLCrossPlatform.Data
             }
         }
 
+        public ExpenseSet GetExpenseSet(int expenseSetID)
+        {
+            lock (locker)
+            {
+                return database.Table<ExpenseSet>().
+                    FirstOrDefault(x => x.ExpenseSetID == expenseSetID);
+            }
+        }
+
+
+
         public ExpenseSummary GetExpenses(int expenseID)
         {
             lock (locker)
@@ -146,12 +170,50 @@ namespace OSFOLCrossPlatform.Data
             }
         }
 
-        public IEnumerable<Expense> GetAllExpensesData_OldToNew(int loginID)
+
+        public IEnumerable<ExpenseSet> GetExpenseSets(int loginID)
+        {
+            lock (locker)
+            {
+                return (from i in database.Table<ExpenseSet>()
+                        select i).ToList().Where(x => x.LoginID == loginID);
+            }
+        }
+
+        public IEnumerable<ExpenseSet> GetExpenseSetData(int loginID)
+        {
+            lock (locker)
+            {
+                return (from i in database.Table<ExpenseSet>()
+                        select i).ToList().Where(x => x.LoginID == loginID);
+            }
+        }
+
+
+        public IEnumerable<ExpenseSummary> GetAllExpenseSummaryData_OldToNew(int loginID)
+        {
+            lock (locker)
+            {
+                return (from i in database.Table<ExpenseSummary>()
+                        select i).ToList().Where(x => x.ExpenseID > 0 && x.LoginID == loginID);
+            }
+        }
+
+        public IEnumerable<Expense> GetAllExpenseData_OldToNew(int loginID, int monthID)
         {
             lock (locker)
             {
                 return (from i in database.Table<Expense>()
-                        select i).ToList().Where(x => x.ExpenseID > 0 && x.LoginID == loginID);
+                        select i).ToList().Where(x => x.ExpenseID > 0 && x.LoginID == loginID && x.MonthReportIdentifier == monthID);
+            }
+        }
+
+        public IEnumerable<Expense> GetAllExpenseSetData_OldToNew(int expenseSetID)
+        {
+            lock (locker)
+            {
+                return (from i in database.Table<Expense>()
+                        select i).ToList().Where(x => x.ExpenseSetID == expenseSetID);
             }
         }
 

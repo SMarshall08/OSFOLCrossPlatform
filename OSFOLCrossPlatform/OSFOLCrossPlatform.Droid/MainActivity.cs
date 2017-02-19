@@ -7,21 +7,24 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using Plugin.Media;
 
 namespace OSFOLCrossPlatform.Droid
 {
 	[Activity (Theme = "@android:style/Theme.Holo.Light",Label = "OSFOL", MainLauncher = true, Icon = "@drawable/lighthouseicon")]
 	public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsApplicationActivity
 	{
-		protected override void OnCreate (Bundle bundle)
-		{
-			base.OnCreate(bundle);
+        protected override async void OnCreate(Bundle bundle)
+        {
+            base.OnCreate(bundle);
 
-			global::Xamarin.Forms.Forms.Init(this, bundle);
+            await CrossMedia.Current.Initialize();
 
-			LoadApplication(new App());
-		}
-	}
+            global::Xamarin.Forms.Forms.Init(this, bundle);
+
+            LoadApplication(new App());
+        }
+    }
 }
 
 

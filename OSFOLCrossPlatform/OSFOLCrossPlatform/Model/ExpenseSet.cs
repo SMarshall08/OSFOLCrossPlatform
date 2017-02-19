@@ -11,50 +11,20 @@ namespace OSFOLCrossPlatform.Model
         /// </summary>
         public ExpenseSet() { }
 
-        /// <summary>
-        /// Gets or sets the expense set identifier.
-        /// </summary>
-        /// <value>
-        /// The expense set identifier Unique primiary key).
-        /// </value>
-        [PrimaryKey, Unique]
-        public int ExpenseSetID { get; set; }
 
-        /// <summary>
-        /// Gets or sets the name of the expense set.
-        /// </summary>
-        /// <value>
-        /// The name of the expense set.
-        /// </value>
-        public string ExpenseSetName { get; set; }
+        [PrimaryKey, AutoIncrement, Unique]
+        public int ExpenseSetID         { get; set; }
+        public string ExpenseSetName    { get; set; }
+        public int LoginID              { get; set; }
+        public DateTime FromDT          { get; set; }
+        public DateTime ToDT            { get; set; }
+        public DateTime CreatedDT       { get; set; }
 
-        /// <summary>
-        /// Gets or sets the expense image - an image corroborating the expenses (such as a ttendees, or receipt photo?)
-        /// </summary>
-        /// <value>
-        /// The expense image.
-        /// </value>
-        public Image ExpenseImage { get; set; }
-
-        /// <summary>
-        /// Gets or sets the date the expense ran from
-        /// </summary>
-        /// <value>
-        /// From dt.
-        /// </value>
-        public DateTime FromDT { get; set; }
-
-        /// <summary>
-        /// Gets or sets the date the expense ran to
-        /// </summary>
-        /// <value>
-        /// To dt.
-        /// </value>
-        public DateTime ToDT { get; set; }
     }
 
     /// <summary>
     /// Summary details of an expense incurred. Maps to a view in the database to expose the string names of records joined by ID
+    /// Used for the View Expense Form
     /// </summary>
     public class ExpenseSummary 
     {
@@ -72,10 +42,12 @@ namespace OSFOLCrossPlatform.Model
         public string rfExpenseMethod   { get; set; }
         public string ExpenseDetails    { get; set; }
         public string Vendor            { get; set; }
-        public string Currency          { get; set; }
+        public string rfCurrency        { get; set; }
         public decimal ExchangeRate     { get; set; }
-        public int ExpenseAmountCur     { get; set; }
-        public int ExpenseAmount        { get; set; }
+        public decimal ExpenseAmountCur { get; set; }
+        public decimal ExpenseAmount    { get; set; }
+        public string ReceiptImageUri   { get; set; }
+        public string ExpenseSetName    { get; set; }
     }
 
     /// <summary>
@@ -188,4 +160,15 @@ namespace OSFOLCrossPlatform.Model
         public string rfCurrency    { get; set; }
         public string Description   { get; set; }
     }
+
+    public class ExpenseMonth
+    {
+        public ExpenseMonth() { }
+
+        public string Month { get; set; }
+        public string Year  { get; set; }
+        public int MonthID  { get; set; }
+    }
+
+   
 }

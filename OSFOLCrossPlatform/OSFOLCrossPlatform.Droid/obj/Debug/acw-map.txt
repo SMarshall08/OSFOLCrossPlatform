@@ -6,6 +6,14 @@ OSFOLCrossPlatform.Droid.MainActivity, OSFOLCrossPlatform.Droid;md56c9b6899f4635
 OSFOLCrossPlatform.Droid.MainActivity, OSFOLCrossPlatform.Droid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md56c9b6899f46359f363c6d6ceba6e333a.MainActivity
 OSFOLCrossPlatform.Droid.MainActivity;md56c9b6899f46359f363c6d6ceba6e333a.MainActivity
 osfolcrossplatform.droid.MainActivity;md56c9b6899f46359f363c6d6ceba6e333a.MainActivity
+OSFOLCrossPlatform.Droid.MainApplication, OSFOLCrossPlatform.Droid;md56c9b6899f46359f363c6d6ceba6e333a.MainApplication
+OSFOLCrossPlatform.Droid.MainApplication, OSFOLCrossPlatform.Droid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md56c9b6899f46359f363c6d6ceba6e333a.MainApplication
+OSFOLCrossPlatform.Droid.MainApplication;md56c9b6899f46359f363c6d6ceba6e333a.MainApplication
+osfolcrossplatform.droid.MainApplication;md56c9b6899f46359f363c6d6ceba6e333a.MainApplication
+Plugin.Media.MediaPickerActivity, Plugin.Media;md5a3e164e78ade0c22cefea770ddd0bc49.MediaPickerActivity
+Plugin.Media.MediaPickerActivity, Plugin.Media, Version=2.6.2.0, Culture=neutral, PublicKeyToken=null;md5a3e164e78ade0c22cefea770ddd0bc49.MediaPickerActivity
+Plugin.Media.MediaPickerActivity;md5a3e164e78ade0c22cefea770ddd0bc49.MediaPickerActivity
+plugin.media.MediaPickerActivity;md5a3e164e78ade0c22cefea770ddd0bc49.MediaPickerActivity
 Android.Support.Design.Widget.Snackbar/SnackbarActionClickImplementor, Xamarin.Android.Support.Design;android.support.design.widget.Snackbar_SnackbarActionClickImplementor
 Android.Support.Design.Widget.Snackbar+SnackbarActionClickImplementor, Xamarin.Android.Support.Design, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;android.support.design.widget.Snackbar_SnackbarActionClickImplementor
 Android.Support.Design.Widget.Snackbar.SnackbarActionClickImplementor;android.support.design.widget.Snackbar_SnackbarActionClickImplementor

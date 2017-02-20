@@ -44,8 +44,10 @@ namespace OSFOLCrossPlatform.Views
 
                     App.IsUserLoggedIn = true;
 
-                    Navigation.InsertPageBefore(new MainPage(_loginID), this);
-                    await Navigation.PopAsync();
+                    //Navigation.InsertPageBefore(new MainPage(_loginID), this);
+                    await Navigation.PushAsync(new MainPage(_loginID));
+                    Navigation.RemovePage(this);
+                    //await Navigation.PopAsync();
                 }
                 else {
                     messageLabel.Text = "Login failed";

@@ -30,11 +30,13 @@ namespace OSFOLCrossPlatform.ViewModels
         string _FirstName; // Customer contact
         string _LastName; // Customer Contact
         string _Contact;
+        string _ReceiptImageUri;
+        string _ExpenseSetName;
+
         decimal _ExchangeRate;
         decimal _ExpenseAmountCur;
         decimal _ExpenseAmount;
 
-        string _ReceiptImageUri;
 
 
         public DateTime CreatedDT
@@ -179,6 +181,15 @@ namespace OSFOLCrossPlatform.ViewModels
             }
         }
 
+        public string ExpenseSetName
+        {
+            get { return _ExpenseSetName; }
+            set
+            {
+                SetProperty<string>(ref _ExpenseSetName, value);
+            }
+        }
+
 
         public void FillExpenseDetails(int aSelectedExpense)
         {
@@ -198,7 +209,7 @@ namespace OSFOLCrossPlatform.ViewModels
             ExpenseAmountCur    = viewExpense.ExpenseAmountCur;
             ExpenseAmount       = viewExpense.ExpenseAmount;
             ExpenseDetails      = viewExpense.ExpenseDetails;
-
+            ExpenseSetName      = viewExpense.ExpenseSetName;
             ReceiptImageUri     = viewExpense.ReceiptImageUri;
 
         }

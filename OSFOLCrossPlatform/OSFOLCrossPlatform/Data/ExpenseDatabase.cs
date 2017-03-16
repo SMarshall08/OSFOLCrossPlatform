@@ -51,6 +51,7 @@ namespace OSFOLCrossPlatform.Data
             }
         }
 
+
         public IEnumerable<ExpenseMethod> GetExpenseMethods()
         {
             lock (locker)
@@ -114,6 +115,14 @@ namespace OSFOLCrossPlatform.Data
             }
         }
 
+        public IEnumerable<SalesOpportunity> GetDependencyOpportunity(int customerID)
+        {
+            lock (locker)
+            {
+                return database.Table<SalesOpportunity>().Where(x => x.CustomerID == customerID);
+            }
+        }
+
         // Gets all Logins and populates into a list ordered by name 
         public List<Login> ListofLogins()
         {
@@ -129,7 +138,6 @@ namespace OSFOLCrossPlatform.Data
                     FirstOrDefault(x => x.UserName == username);
             }
         }
-
 
 
         public Expense GetExpense(Expense expense)

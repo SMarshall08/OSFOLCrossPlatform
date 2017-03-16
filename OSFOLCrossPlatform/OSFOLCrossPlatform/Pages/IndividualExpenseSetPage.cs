@@ -51,7 +51,7 @@ namespace OSFOLCrossPlatform.Pages
             {
                 var expense = e.SelectedItem as Expense;
                 _expenseID = expense.ExpenseID;
-                Navigation.PushAsync(new ViewExpenseCS(_expenseID));
+                Navigation.PushAsync(new ViewExpenseView(_expenseID));
             };
 
             _listView.SetBinding(ListView.ItemsSourceProperty, "AllExpenseSetData");
@@ -63,12 +63,12 @@ namespace OSFOLCrossPlatform.Pages
             Title =  _expenseSetName + $" Expenses";
 
             #region Initialize the Toolbar Add Button
-            _addButtonToolBar = new ToolbarItem();
-            _logoutButtonToolBar = new ToolbarItem();
-            _homeButtonToolBar = new ToolbarItem();
+            _addButtonToolBar       = new ToolbarItem();
+            _logoutButtonToolBar    = new ToolbarItem();
+            _homeButtonToolBar      = new ToolbarItem();
 
             _homeButtonToolBar.Text = "Home";
-            _addButtonToolBar.Icon = "Add";
+            _addButtonToolBar.Icon  = "Add";
             _logoutButtonToolBar.Text = "Logout";
 
             ToolbarItems.Add(_homeButtonToolBar);

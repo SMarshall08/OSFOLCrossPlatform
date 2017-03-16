@@ -1,0 +1,264 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OSFOLCrossPlatform.Views.ViewExpenseView"
+             Title="View Expense">
+  <ContentPage.ToolbarItems>
+    <ToolbarItem Text="Logout" Clicked="OnLogoutButtonClicked"/>
+    <ToolbarItem Text="Home"   Clicked="OnHomeButtonClicked"/>
+  </ContentPage.ToolbarItems>
+  <ScrollView>
+    <StackLayout Margin="5,0">
+      <Button x:Name="EditExpense"
+              Text="Edit Expense"
+             Clicked="ExpenseLabel_Clicked" />
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="85" />
+          <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Label Text="Trip Name: "
+               x:Name="expenseSetNameLabel"
+               IsVisible="{Binding expenseSetNameLabel}"/>
+        <Label x:Name="expenseSetNameData"
+               Grid.Column="1"
+               Text="{Binding ExpenseSetName}"
+               FontSize="20"
+               TextColor="Black"
+               VerticalOptions="Center"
+               HorizontalOptions="Center"
+               IsVisible="{Binding expenseSetNameData}"/>
+      </Grid>
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="85" />
+          <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+      </Grid>
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="85" />
+          <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Label Text="Date: "
+               x:Name="expenseDateLabel"/>
+        <Label x:Name="expenseDateData"
+               Grid.Column="1"
+               Text="{Binding CreatedDT}"
+               FontSize="20"
+               TextColor="Black"
+               VerticalOptions="Center"
+               HorizontalOptions="Center"/>
+      </Grid>
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="85" />
+          <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Label Text="Customer: "
+               x:Name="expenseCustomerLabel"/>
+        <Label x:Name="expenseCustomerData"
+               Grid.Column="1"
+               Text="{Binding Customer}"
+               FontSize="20"
+               TextColor="Black"
+               VerticalOptions="Center"
+               HorizontalOptions="Center"/>
+      </Grid>
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="85" />
+          <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Label Text="Customer Contact: "
+               x:Name="expenseCustomerContactLabel"/>
+        <Label x:Name="expenseCustomerContactData"
+               Grid.Column="1"
+               Text="{Binding Contact}"
+               FontSize="20"
+               TextColor="Black"
+               VerticalOptions="Center"
+               HorizontalOptions="Center"/>
+      </Grid>
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="85" />
+          <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Label Text="Sales Opportunity: "
+               x:Name="expenseSalesOppLabel"/>
+        <Label x:Name="expenseSalesOppData"
+               Grid.Column="1"
+               Text="{Binding Opportunity}"
+               FontSize="20"
+               TextColor="Black"
+               VerticalOptions="Center"
+               HorizontalOptions="Center"/>
+      </Grid>
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="85" />
+          <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Label Text="Expense Type: "
+               x:Name="expenseTypeLabel"/>
+        <Label x:Name="expenseTypeData"
+               Grid.Column="1"
+               Text="{Binding rfExpenseType}"
+               FontSize="20"
+               TextColor="Black"
+               VerticalOptions="Center"
+               HorizontalOptions="Center"/>
+      </Grid>
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="85" />
+          <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Label Text="Location From: "
+               x:Name="expenseLocationFromLabel"/>
+        <Label x:Name="expenseLocationFromData"
+               Grid.Column="1"
+               Text="{Binding LocationFrom}"
+               FontSize="20"
+               TextColor="Black"
+               VerticalOptions="Center"
+               HorizontalOptions="Center"
+               IsVisible="{Binding expenseTypeData}"/>
+      </Grid>
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="85" />
+          <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Label Text="Location To: "
+               x:Name="expenseLocationToLabel"/>
+        <Label x:Name="expenseLocationToData"
+               Grid.Column="1"
+               Text="{Binding LocationTo}"
+               FontSize="20"
+               TextColor="Black"
+               VerticalOptions="Center"
+               HorizontalOptions="Center"/>
+      </Grid>
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="85" />
+          <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Label Text="Details: "
+               x:Name="expenseDetailsLabel"/>
+        <Label x:Name="expenseDetailsData"
+               Grid.Column="1"
+               Text="{Binding ExpenseDetails}"
+               FontSize="20"
+               TextColor="Black"
+               VerticalOptions="Center"
+               HorizontalOptions="Center"/>
+      </Grid>
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="85" />
+          <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Label Text="Vendor: "
+               x:Name="expenseVendorLabel"/>
+        <Label x:Name="expenseVendorData"
+               Grid.Column="1"
+               Text="{Binding Vendor}"
+               FontSize="20"
+               TextColor="Black"
+               VerticalOptions="Center"
+               HorizontalOptions="Center"/>
+      </Grid>
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="85" />
+          <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Label Text="Expense Method: "
+               x:Name="expenseExpenseMethodLabel"/>
+        <Label x:Name="expenseExpenseMethodData"
+               Grid.Column="1"
+               Text="{Binding rfExpenseMethod}"
+               FontSize="20"
+               TextColor="Black"
+               VerticalOptions="Center"
+               HorizontalOptions="Center"/>
+      </Grid>
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="85" />
+          <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Label Text="Currency: "
+               x:Name="expenseCurrencyLabel"/>
+        <Label x:Name="expenseCurrencyData"
+               Grid.Column="1"
+               Text="{Binding rfCurrency}"
+               FontSize="20"
+               TextColor="Black"
+               VerticalOptions="Center"
+               HorizontalOptions="Center"/>
+      </Grid>
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="85" />
+          <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Label Text="Exchange Rate: "
+               x:Name="expenseExchangeRateLabel"/>
+        <Label x:Name="expenseExchangeRateData"
+               Grid.Column="1"
+               Text="{Binding ExchangeRate}"
+               FontSize="20"
+               TextColor="Black"
+               VerticalOptions="Center"
+               HorizontalOptions="Center"/>
+      </Grid>
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="85" />
+          <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Label Text="Amount: "
+               x:Name="expenseAmountLabel"/>
+        <Label x:Name="expenseAmountData"
+               Grid.Column="1"
+               Text="{Binding ExpenseAmount}"
+               FontSize="20"
+               TextColor="Black"
+               VerticalOptions="Center"
+               HorizontalOptions="Center"/>
+      </Grid>
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="85" />
+          <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Label Text="Amount Currency: "
+               x:Name="expenseAmountCurLabel"/>
+        <Label x:Name="expenseAmountCurData"
+               Grid.Column="1"
+               Text="{Binding ExpenseAmountCur}"
+               FontSize="20"
+               TextColor="Black"
+               VerticalOptions="Center"
+               HorizontalOptions="Center"/>
+      </Grid>
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="85" />
+          <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Label Text="Receipt Image: "
+               x:Name="expenseReceiptImageLabel"/>
+        <Image x:Name="expenseReceiptImageData"
+               Grid.Column="1"
+               Source="{Binding ReceiptImageUri}"
+               VerticalOptions="Start"
+               HorizontalOptions="Center"/>
+      </Grid>
+    </StackLayout>
+  </ScrollView>
+</ContentPage>

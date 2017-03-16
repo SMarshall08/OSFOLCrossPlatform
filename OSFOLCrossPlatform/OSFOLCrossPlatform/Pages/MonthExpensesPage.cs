@@ -20,12 +20,12 @@ namespace OSFOLCrossPlatform.Pages
 
         public MonthExpensesPage(int loginID)
         {
-            _loginID = loginID;
+            _loginID                = loginID;
             _monthexpensesViewModel = new MonthExpenseViewModel(_loginID);
-            BindingContext = _monthexpensesViewModel;
+            BindingContext          = _monthexpensesViewModel;
 
             #region Create the ListView
-            _monthListView = new ListView()
+            _monthListView   = new ListView()
             {
                 ItemTemplate = new DataTemplate(typeof(MonthExpenseViewCell)),
                 RowHeight = 50
@@ -33,8 +33,8 @@ namespace OSFOLCrossPlatform.Pages
 
             _monthListView.ItemSelected += (sender, e) =>
             {
-                var month = e.SelectedItem as ExpenseMonth;
-                _monthID = month.MonthID;
+                var month   = e.SelectedItem as ExpenseMonth;
+                _monthID    = month.MonthID;
                 Navigation.PushAsync(new ExpensesPage(loginID,_monthID));
             };
 
@@ -44,13 +44,13 @@ namespace OSFOLCrossPlatform.Pages
             Title = $"Month Expenses";
 
             #region Initialize the Toolbar Add Button
-            _addButtonToolBar = new ToolbarItem();
-            _logoutButtonToolBar = new ToolbarItem();
-            _homeButtonToolBar = new ToolbarItem();
+            _addButtonToolBar       = new ToolbarItem();
+            _logoutButtonToolBar    = new ToolbarItem();
+            _homeButtonToolBar      = new ToolbarItem();
 
-            _homeButtonToolBar.Text = "Home";
-            _addButtonToolBar.Icon = "Add";
-            _logoutButtonToolBar.Text = "Logout";
+            _homeButtonToolBar.Text     = "Home";
+            _addButtonToolBar.Icon      = "Add";
+            _logoutButtonToolBar.Text   = "Logout";
 
             ToolbarItems.Add(_homeButtonToolBar);
             ToolbarItems.Add(_addButtonToolBar);
@@ -60,9 +60,9 @@ namespace OSFOLCrossPlatform.Pages
             #region Create Stack
             var listStack = new StackLayout
             {
-                Padding = 0,
-                Spacing = 0,
-                Children = {
+                Padding     = 0,
+                Spacing     = 0,
+                Children    = {
                     _monthListView
                 }
             };
@@ -79,8 +79,8 @@ namespace OSFOLCrossPlatform.Pages
             if (_areEventHandlersSubscribed)
                 return;
 
-            _homeButtonToolBar.Clicked += OnHomeButtonClicked;
-            _addButtonToolBar.Clicked += HandleAddButtonClicked;
+            _homeButtonToolBar.Clicked   += OnHomeButtonClicked;
+            _addButtonToolBar.Clicked    += HandleAddButtonClicked;
             _logoutButtonToolBar.Clicked += OnLogoutButtonClicked;
 
             _areEventHandlersSubscribed = true;

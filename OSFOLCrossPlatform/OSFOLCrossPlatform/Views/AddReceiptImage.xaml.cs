@@ -97,6 +97,10 @@ namespace OSFOLCrossPlatform.Views
             if (file == null)
                 return;
 
+
+            ReceiptImageUri.Text = file.Path;
+            _receiptImageUri = file.Path;
+
             ReceiptImage.Source = ImageSource.FromStream(() =>
             {
                 var stream = file.GetStream();
@@ -104,8 +108,6 @@ namespace OSFOLCrossPlatform.Views
                 return stream;
             });
 
-            ReceiptImageUri.Text = file.Path;
-            _receiptImageUri = file.Path;
         }
 
         // On button click logout

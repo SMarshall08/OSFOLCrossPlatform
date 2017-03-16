@@ -92,7 +92,8 @@
                                  x:Name="customerListView"
                                  DisplayMemberPath="Customer"
                                  SelectedValuePath="CustomerID"
-                                 SelectedValue="{Binding Path=Customers.CustomerID, Mode=TwoWay}" />
+                                 SelectedValue="{Binding Path=Customers.CustomerID, Mode=TwoWay}"
+                                 />
       </Grid>
       <Grid>
         <Grid.ColumnDefinitions>
@@ -104,7 +105,7 @@
                                  x:Name="opportunityListView"
                                  DisplayMemberPath="Opportunity"
                                  SelectedValuePath="SalesOpportunityID"
-                                 SelectedValue="{Binding Path=SalesOpportunity.SalesOpportunityID, Mode=TwoWay}" />
+                                 SelectedValue="{Binding Path=SalesOpportunity.SalesOpportunityID, Mode=TwoWay}"/>
       </Grid>
 
       <Grid>

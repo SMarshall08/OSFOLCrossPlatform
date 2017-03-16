@@ -35,7 +35,6 @@
   <ItemGroup>
     <Compile Include="Controls\BindablePicker.cs" />
     <Compile Include="Data\ExpenseDatabase.cs" />
-    <Compile Include="Helper\ServiceContainer.cs" />
     <Compile Include="Infrastructure\ObservableObject.cs" />
     <Compile Include="Pages\Base\BaseContentPage.cs" />
     <Compile Include="Pages\ExpenseSetsPage.cs" />
@@ -59,7 +58,6 @@
       <DependentUpon>AddExpenseView.xaml</DependentUpon>
     </Compile>
     <Compile Include="App.cs" />
-    <Compile Include="Pages\ViewExpenseCS.cs" />
     <Compile Include="Views\AddReceiptImage.xaml.cs">
       <DependentUpon>AddReceiptImage.xaml</DependentUpon>
     </Compile>
@@ -75,6 +73,9 @@
     <Compile Include="Pages\ExpensesPage.cs" />
     <Compile Include="Model\Login.cs" />
     <Compile Include="Views\MonthExpenseViewCell.cs" />
+    <Compile Include="Views\ViewExpenseView.xaml.cs">
+      <DependentUpon>ViewExpenseView.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="ExifLib, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
@@ -172,6 +173,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\AddExpenseSet.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\ViewExpenseView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

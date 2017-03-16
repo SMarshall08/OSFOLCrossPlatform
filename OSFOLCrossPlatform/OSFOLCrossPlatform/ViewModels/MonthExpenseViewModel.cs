@@ -17,11 +17,11 @@ namespace OSFOLCrossPlatform.ViewModels
 
             public MonthExpenseViewModel(int loginID)
             {
-                RefreshExpensesDataAsync();
+                RefreshMonthDataAsync();
 
                 MessagingCenter.Subscribe<object>(this, "RefreshData", async (sender) =>
                 {
-                    await RefreshExpensesDataAsync();
+                    await RefreshMonthDataAsync();
                 });
             }
 
@@ -43,7 +43,7 @@ namespace OSFOLCrossPlatform.ViewModels
                 }
             }
 
-            public async Task RefreshExpensesDataAsync()
+            public async Task RefreshMonthDataAsync()
             {
                 await Task.Run(() =>
                 {
@@ -53,7 +53,19 @@ namespace OSFOLCrossPlatform.ViewModels
 
             public void RefreshMonthData()
             {
-                AllMonthData = App.Database.GetMonths();
-            }
+                DateTime Now = DateTime.Now;
+                int month = Now.Month;
+                int previousMonth;
+                if(month == 1)
+                {
+                    previousMonth = 12;
+                }
+                else
+                {
+                    previousMonth = month - 1;
+                }
+                
+                    AllMonthData = App.Database.GetMonths();
+                }
         }
 }

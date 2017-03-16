@@ -12,6 +12,7 @@ namespace OSFOLCrossPlatform.Views
         int _loginID;
         int _expenseSetID;
         int _month;
+        int _customerID;
         private Expense _expense;
         private ExpenseSet _expenseSet;
         string _receiptImageUri;
@@ -320,7 +321,19 @@ namespace OSFOLCrossPlatform.Views
         }
         #endregion
 
-       
+        //public void OpportunityDependencyProperty()
+        //{
+            
+        //    if(customerListView.SelectedIndex > 0)
+        //    {
+        //        _customerID = customerListView.SelectedIndex;
+        //        opportunityListView.ItemsSource = App.Database.GetDependencyOpportunity(_customerID);
+        //        return;
+        //    }
+        //    opportunityListView.ItemsSource = App.Database.GetOpportunities();
+        //    return;
+        //}
+
 
         // Get all data from database on page appearing
         protected override void OnAppearing()
@@ -350,6 +363,20 @@ namespace OSFOLCrossPlatform.Views
                 expenseAmountEntry.Text             = _expense.ExpenseAmount.ToString();
                 ReceiptImageUri.Text                = _expense.ReceiptImageUri;
                 isRechargeableSwitch.IsToggled      = _expense.IsRechargeable;
+
+                // Find the expense using expenseSetID from selected expense and extract expense set name to fill label
+                if(_expense.ExpenseSetID > 0)
+                {
+                    ExpenseSet expenseSet = App.Database.GetExpenseSet(_expense.ExpenseSetID);
+                    ExpenseSetNameLabel.Text = expenseSet.ExpenseSetName;
+                    ExpenseSetNameLabel.IsVisible = true;
+                }
+                else
+                {
+                    ExpenseSetNameLabel.IsVisible = false;
+                }
+                                 
+                
             }
         }
 

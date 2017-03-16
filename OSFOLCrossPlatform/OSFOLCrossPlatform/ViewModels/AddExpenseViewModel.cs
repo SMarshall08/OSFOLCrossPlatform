@@ -294,6 +294,18 @@ namespace OSFOLCrossPlatform.ViewModels
 
         #endregion
 
+        //public void Dependencies()
+        //{
+
+        //    if (CustomerID > 0)
+        //    {
+        //        opportunityListView.ItemsSource = App.Database.GetDependencyOpportunity(CustomerID);
+        //        return;
+        //    }
+        //    return;
+        //}
+
+
         public AddExpenseViewModel(Expense expense)
         {
             database = new ExpenseDatabase();

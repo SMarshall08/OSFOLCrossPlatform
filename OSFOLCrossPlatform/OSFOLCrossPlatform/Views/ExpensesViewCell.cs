@@ -71,6 +71,24 @@ namespace OSFOLCrossPlatform.Views
             };
             #endregion
 
+            #region Create Amount Stack
+            var amountLabel = new Label
+            {
+                Text = "Amount",
+                FontAttributes = FontAttributes.Bold
+            };
+            var amount = new Label();
+            date.SetBinding(Label.TextProperty, "ExpenseAmount");
+
+            var amountStack = new StackLayout
+            {
+                Children = {
+                    amountLabel,
+                    amount
+                }
+            };
+            #endregion
+
             #region Create MenuItem
             var deleteAction = new MenuItem
             {
@@ -109,7 +127,8 @@ namespace OSFOLCrossPlatform.Views
                         lighthouseImage,
                         expenseStack,
                         customerStack,
-                        dateStack
+                        dateStack,
+                        amountStack
                     }
                 };
             }
@@ -128,7 +147,8 @@ namespace OSFOLCrossPlatform.Views
                         lighthouseImage,
                         expenseStack,
                         customerStack,
-                        dateStack
+                        dateStack,
+                        amountStack
                     }
                 };
             }

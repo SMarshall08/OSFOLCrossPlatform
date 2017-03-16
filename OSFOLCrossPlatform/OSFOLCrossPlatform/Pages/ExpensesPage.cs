@@ -19,7 +19,6 @@ namespace OSFOLCrossPlatform.Pages
         ToolbarItem _addButtonToolBar;
         ToolbarItem _logoutButtonToolBar;
         ToolbarItem _homeButtonToolBar;
-        ToolbarItem _deleteButtonToolBar;
         bool _areEventHandlersSubscribed;
 
         public ExpensesPage(int loginID, int monthID)
@@ -48,7 +47,7 @@ namespace OSFOLCrossPlatform.Pages
             {
                 var expense = e.SelectedItem as Expense;
                 _expenseID = expense.ExpenseID;
-                Navigation.PushAsync(new ViewExpenseCS(_expenseID));
+                Navigation.PushAsync(new ViewExpenseView(_expenseID));
             };
 
             _listView.SetBinding(ListView.ItemsSourceProperty, "AllExpensesData");
@@ -57,13 +56,13 @@ namespace OSFOLCrossPlatform.Pages
             Title = $"Expenses";
 
             #region Initialize the Toolbar Add Button
-            _addButtonToolBar = new ToolbarItem();
-            _logoutButtonToolBar = new ToolbarItem();
-            _homeButtonToolBar = new ToolbarItem();
+            _addButtonToolBar       = new ToolbarItem();
+            _logoutButtonToolBar    = new ToolbarItem();
+            _homeButtonToolBar      = new ToolbarItem();
 
-            _homeButtonToolBar.Text = "Home";
-            _addButtonToolBar.Icon = "Add";
-            _logoutButtonToolBar.Text = "Logout";
+            _homeButtonToolBar.Text     = "Home";
+            _addButtonToolBar.Icon      = "Add";
+            _logoutButtonToolBar.Text   = "Logout";
 
             ToolbarItems.Add(_homeButtonToolBar);
             ToolbarItems.Add(_addButtonToolBar);
@@ -78,8 +77,8 @@ namespace OSFOLCrossPlatform.Pages
             #region Create Stack
             var listSearchStack = new StackLayout
             {
-                Padding = 0,
-                Spacing = 0,
+                Padding  = 0,
+                Spacing  = 0,
                 Children = {
                     searchBar,
                     _listView
@@ -103,7 +102,6 @@ namespace OSFOLCrossPlatform.Pages
             _logoutButtonToolBar.Clicked += OnLogoutButtonClicked;
 
             _areEventHandlersSubscribed = true;
-
         }
 
         async void OnHomeButtonClicked(object sender, EventArgs e)
@@ -124,6 +122,5 @@ namespace OSFOLCrossPlatform.Pages
             await Navigation.PushAsync(new LoginPage());
             await Navigation.PushModalAsync(new NavigationPage(new LoginPage()));
         }
-
     }
 }

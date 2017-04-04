@@ -10,7 +10,7 @@
   <uses-feature android:name="android.hardware.camera" android:required="false" />
   <uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />
   <application android:name="md56c9b6899f46359f363c6d6ceba6e333a.MainApplication" android:allowBackup="true" android:label="OSFOLCrossPlatform.Droid" android:icon="@drawable/lighthouseicon" android:debuggable="true">
-    <activity android:icon="@drawable/lighthouseicon" android:label="OSFOL" android:theme="@android:style/Theme.Holo.Light" android:name="md56c9b6899f46359f363c6d6ceba6e333a.MainActivity">
+    <activity android:icon="@drawable/lighthouseicon" android:label="Lighthouse Office Expense Tracker" android:theme="@android:style/Theme.Holo.Light" android:name="md56c9b6899f46359f363c6d6ceba6e333a.MainActivity">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
         <category android:name="android.intent.category.LAUNCHER" />

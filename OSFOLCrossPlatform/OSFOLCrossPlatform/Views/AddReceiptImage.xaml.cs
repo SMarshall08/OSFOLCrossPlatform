@@ -128,21 +128,40 @@ namespace OSFOLCrossPlatform.Views
         // On button click go to expense report page to view most recent expense added
         async void NextButton_OnClicked(object sender, EventArgs e)
         {
+           // If expense is valid
             if(_expense != null)
             {
-                _expense.ReceiptImageUri = _receiptImageUri;
-                Navigation.InsertPageBefore(new AddExpense(_expense), this);
-                await Navigation.PopAsync();
+                // If user edits an expense, but decides to not update image expense stays the same
+                if (_receiptImageUri == null)
+                {
+                    Navigation.InsertPageBefore(new AddExpense(_expense), this);
+                    await Navigation.PopAsync();
+                }
+                // If user edits an expense, the expense imageuri shall be replaced by the updated imageuri
+                else
+                {
+                    _expense.ReceiptImageUri = _receiptImageUri;
+                    Navigation.InsertPageBefore(new AddExpense(_expense), this);
+                    await Navigation.PopAsync();
+                }
+               
             }
+            // If User has clicked Add expense and then add picture, only the expense set id shall be present
             else if (_expenseSetID > 0)
             {
                 Navigation.InsertPageBefore(new AddExpense(_loginID,_expenseSetID,_receiptImageUri), this);
                 await Navigation.PopAsync();
             }
+            // If the user wants to add an image but then decides against it and clicks next, taking them back to Add expense
+            else if(_receiptImageUri == null)
+            {
+                Navigation.InsertPageBefore(new AddExpense(_loginID), this);
+                await Navigation.PopAsync();
+            }
+            // If user add an image then wants to continue to add an expense.
             else
             {
-                string receiptImageUri = Convert.ToString(_receiptImageUri);
-                Navigation.InsertPageBefore(new AddExpense(_loginID, receiptImageUri), this);
+                Navigation.InsertPageBefore(new AddExpense(_loginID, _receiptImageUri), this);
                 await Navigation.PopAsync();
             }
                 

@@ -55,17 +55,22 @@ namespace OSFOLCrossPlatform.ViewModels
             {
                 DateTime Now = DateTime.Now;
                 int month = Now.Month;
-                int previousMonth;
+                int threeMonthsBack;
+
                 if(month == 1)
                 {
-                    previousMonth = 12;
+                    threeMonthsBack = 11;
+                }
+                else if(month == 2)
+                {
+                    threeMonthsBack = 12;
                 }
                 else
                 {
-                    previousMonth = month - 1;
+                    threeMonthsBack = month - 2;
                 }
                 
-                    AllMonthData = App.Database.GetMonths();
+                    AllMonthData = App.Database.GetMonths(threeMonthsBack, month);
                 }
         }
 }

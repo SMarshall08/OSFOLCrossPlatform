@@ -106,14 +106,14 @@ namespace OSFOLCrossPlatform.Data
             }
         }
 
-        public IEnumerable<ExpenseMonth> GetMonths()
-        {
-            lock (locker)
-            {
-                //return (from i in database.Table<Contact>() select i).ToList();
-                return database.Query<ExpenseMonth>("SELECT * FROM [ExpenseMonth] ORDER BY MonthID ASC");
-            }
-        }
+        //public IEnumerable<ExpenseMonth> GetMonths(int threeMonthsBack)
+        //{
+        //    lock (locker)
+        //    {
+        //        //return (from i in database.Table<Contact>() select i).ToList();
+        //        return database.Query<ExpenseMonth>("SELECT * FROM [ExpenseMonth] ORDER BY MonthID ASC");
+        //    }
+        //}
 
         public IEnumerable<SalesOpportunity> GetDependencyOpportunity(int customerID)
         {
@@ -136,6 +136,25 @@ namespace OSFOLCrossPlatform.Data
             {
                 return database.Table<Login>().
                     FirstOrDefault(x => x.UserName == username);
+            }
+        }
+
+        // Get Logins that equal to username param passed in
+        public Login GetLoginName(int loginID)
+        {
+            lock (locker)
+            {
+                return database.Table<Login>().
+                    FirstOrDefault(x => x.LoginID == loginID);
+            }
+        }
+
+        // Get 3 months back from now
+        public IEnumerable<ExpenseMonth> GetMonths(int threeMonthsBack, int nowMonth)
+        {
+            lock (locker)
+            {
+                return database.Table<ExpenseMonth>().Where(x => x.MonthID >= threeMonthsBack && x.MonthID <= nowMonth).ToList();
             }
         }
 
@@ -263,6 +282,14 @@ namespace OSFOLCrossPlatform.Data
             lock (locker)
             {
                 return database.Delete<Expense>(id);
+            }
+        }
+
+        public int DeleteItem(ExpenseSet deleteExpenseSet)
+        {
+            lock (locker)
+            {
+                return database.Delete<ExpenseSet>(deleteExpenseSet.ExpenseSetID);
             }
         }
 

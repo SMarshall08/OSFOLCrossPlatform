@@ -9,7 +9,7 @@
     <!--<ToolbarItem Text="Home"   Clicked="OnHomeButtonClicked" />-->
     <ToolbarItem Text="Logout" Clicked="OnLogoutButtonClicked"/>
     <ToolbarItem Text="Home"   Clicked="OnHomeButtonClicked"/>
-    <ToolbarItem Text="Next"   Command="{Binding Path=SaveButtonTapped}" Clicked="OnNextButtonClicked"/>
+    <ToolbarItem x:Name="Next" Text="Next"  Command="{Binding Path=SaveButtonTapped}" Clicked="OnNextButtonClicked"/>
     <ToolbarItem x:Name="Save" Text="{Binding Save}"   Command="{Binding Path=SaveButtonTapped}" Clicked="OnSaveButtonClicked"/>
   </ContentPage.ToolbarItems>
   <ContentPage.Resources>
@@ -40,15 +40,24 @@
           <ColumnDefinition Width="85" />
           <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <Label Text="Trip Name: " />
-        <Label x:Name="ExpenseSetNameLabel"
+        <Label Text="Trip Name: "
+               x:Name="ExpenseSetNameLabel"
+               IsVisible="{Binding ExpenseSetNameData}"/>
+        <Label x:Name="ExpenseSetNameData"
                Grid.Column="1"
                Text="{Binding ExpenseSetName}"
                FontSize="20"
                TextColor="Black"
                VerticalOptions="Center"
                HorizontalOptions="Center"
-               IsVisible="{Binding ExpenseSetNameLabel}"/>
+               IsVisible="{Binding ExpenseSetNameData}"/>
+        <!--<controls:BindablePicker  Grid.Column="1"
+                                  x:Name="expenseSetListView"
+                                  DisplayMemberPath="ExpenseSet"
+                                  SelectedValuePath="ExpenseSetID"
+                                  SelectedValue="{Binding Path=ExpenseSet.ExpenseSetID, Mode=TwoWay}"
+                                  IsVisible="{Binding expenseSetListView}"
+                                  /> -->
       </Grid>
       <Button x:Name="AddPicture" 
               Clicked="AddPictureButton_OnClicked"  
@@ -58,7 +67,7 @@
           <ColumnDefinition Width="85" />
           <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <Label Text="Date"/>
+        <Label Text="Date*"/>
         <DatePicker  Grid.Column="1"
                      VerticalOptions="CenterAndExpand" 
                      Date="{Binding CreatedDT}"
@@ -80,12 +89,25 @@
           </DatePicker.MaximumDate>
         </DatePicker>
       </Grid>
+
       <Grid>
         <Grid.ColumnDefinitions>
           <ColumnDefinition Width="85" />
           <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <Label Text="Customers" />
+        <Label Text="Expense Details*" />
+        <Entry Grid.Column="1"
+               x:Name="expenseDetailsEntry"
+               Placeholder="Details"
+               Text="{Binding ExpenseDetails}"/>
+      </Grid>
+      
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="85" />
+          <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Label Text="Customer*" />
         <Label Grid.Column="1"
                x:Name="CustomerLabel"/>
         <controls:BindablePicker Grid.Column="1"
@@ -113,19 +135,6 @@
           <ColumnDefinition Width="85" />
           <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <Label Text="Vendor" />
-        <controls:BindablePicker Grid.Column="1"
-                                 x:Name="vendorListView"
-                                 DisplayMemberPath="Vendor"
-                                 SelectedValuePath="VendorID"
-                                 SelectedValue="{Binding Path=rfVendor.VendorID, Mode=TwoWay}" />
-      </Grid>
-
-      <Grid>
-        <Grid.ColumnDefinitions>
-          <ColumnDefinition Width="85" />
-          <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
         <Label Text="Location From" />
          <Entry Grid.Column="1"
                 x:Name="locationFromEntry" 
@@ -138,23 +147,11 @@
           <ColumnDefinition Width="85" />
           <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <Label Text="Location To" />
+        <Label Text="Location To*" />
          <Entry Grid.Column="1"
                 x:Name="locationToEntry" 
                 Placeholder="Location To"
                 Text="{Binding LocationTo}"/>
-      </Grid>
-      
-      <Grid>
-        <Grid.ColumnDefinitions>
-          <ColumnDefinition Width="85" />
-          <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
-        <Label Text="Expense Details" />
-         <Entry Grid.Column="1"
-                x:Name="expenseDetailsEntry" 
-                Placeholder="Details" 
-                Text="{Binding ExpenseDetails}"/>
       </Grid>
       
       <Grid>
@@ -169,13 +166,26 @@
                                  SelectedValuePath="ContactID"
                                  SelectedValue="{Binding Path=Contact.ContactID, Mode=TwoWay}" />
       </Grid>
+
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="85" />
+          <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Label Text="Vendor" />
+        <controls:BindablePicker Grid.Column="1"
+                                 x:Name="vendorListView"
+                                 DisplayMemberPath="Vendor"
+                                 SelectedValuePath="VendorID"
+                                 SelectedValue="{Binding Path=rfVendor.VendorID, Mode=TwoWay}" />
+      </Grid>
       
       <Grid>
         <Grid.ColumnDefinitions>
           <ColumnDefinition Width="85" />
           <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <Label Text="Expense Type" />
+        <Label Text="Expense Type*" />
         <controls:BindablePicker Grid.Column="1"
                                  x:Name="expenseTypeListView"
                                  DisplayMemberPath="rfExpenseType"
@@ -188,7 +198,7 @@
           <ColumnDefinition Width="85" />
           <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <Label Text="Expense Method" />
+        <Label Text="Expense Method*" />
         <controls:BindablePicker Grid.Column="1"
                                  x:Name="expenseMethodListView"
                                  DisplayMemberPath="rfExpenseMethod"
@@ -201,12 +211,39 @@
           <ColumnDefinition Width="85" />
           <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <Label Text="Currency" />
+        <Label Text="Currency*" />
         <controls:BindablePicker Grid.Column="1"
                                  x:Name="currencyListView"
                                  DisplayMemberPath="rfCurrency"
                                  SelectedValuePath="rfCurrencyID"
                                  SelectedValue="{Binding Path=Currency.rfCurrencyID, Mode=TwoWay}" />
+      </Grid>
+
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="85" />
+          <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Label Text="Exchange Rate*" />
+        <Entry Grid.Column="1"
+               x:Name="exchangeRateEntry"
+               Placeholder="Exchange Rate"
+               Text="{Binding ExchangeRate}"
+               Keyboard="Numeric"
+               />
+      </Grid>
+
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="85" />
+          <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Label Text="Expense Amount Currency*" />
+        <Entry Grid.Column="1"
+               x:Name="expenseAmountCurEntry"
+               Placeholder="Currency Amount"
+               Text="{Binding ExpenseAmountCur}"
+               Keyboard="Numeric"/>
       </Grid>
     
       <Grid>
@@ -214,7 +251,7 @@
           <ColumnDefinition Width="85" />
           <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <Label Text="Expense Amount" />
+        <Label Text="Expense Amount*" />
          <Entry Grid.Column="1"
                 x:Name="expenseAmountEntry" 
                 Placeholder="Amount"

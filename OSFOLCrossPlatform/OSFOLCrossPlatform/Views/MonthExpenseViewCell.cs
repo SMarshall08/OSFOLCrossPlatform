@@ -12,7 +12,7 @@ namespace OSFOLCrossPlatform.Views
             var lighthouseImage = new Image
             {
                 Source = "lighthouseicon",
-                Scale = 0.8
+                Scale = 1
 
             };
             #endregion
@@ -20,7 +20,7 @@ namespace OSFOLCrossPlatform.Views
             #region Create Month Stack
             var month = new Label
             {
-                FontSize = 16
+                FontSize = 24
             };
             month.SetBinding(Label.TextProperty, "Month");
 
@@ -33,6 +33,8 @@ namespace OSFOLCrossPlatform.Views
 
 
             #endregion
+
+
 
             StackLayout cellStack;
             #region Create Cell Horizontal StackLayout

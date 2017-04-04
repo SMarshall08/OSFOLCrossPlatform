@@ -19,7 +19,7 @@
         </Grid.ColumnDefinitions>
         <Label Text="Trip Name: "
                x:Name="expenseSetNameLabel"
-               IsVisible="{Binding expenseSetNameLabel}"/>
+               IsVisible="{Binding expenseSetNameData}"/>
         <Label x:Name="expenseSetNameData"
                Grid.Column="1"
                Text="{Binding ExpenseSetName}"

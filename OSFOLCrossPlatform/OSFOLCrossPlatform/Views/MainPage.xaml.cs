@@ -7,16 +7,30 @@ namespace OSFOLCrossPlatform
 {
     public partial class MainPage : ContentPage
     {
+        Login _login;
         public int _loginid;
+
         public MainPage()
         {
             InitializeComponent();
+
+            _login = App.Database.GetLoginName(_loginid);
+            string firstName = _login.FirstName;
+            string lastName = _login.LastName;
+
+            Title = firstName + " " + lastName + " Expense Tracker";
         }
 
         public MainPage(int loginID)
         {
             _loginid = loginID;
             InitializeComponent();
+
+            _login = App.Database.GetLoginName(_loginid);
+            string firstName = _login.FirstName;
+            string lastName = _login.LastName;
+
+            Title = firstName + " " + lastName + " Expense Tracker";
         }
         
         // On Button click navigate to Add Expense page
@@ -36,8 +50,9 @@ namespace OSFOLCrossPlatform
         // On button click, user will navigate to Expense Set report view 
         async void ExpenseSetReport_OnClicked(object sender, EventArgs e)
         {
-            Navigation.InsertPageBefore(new ExpenseSetsPage(_loginid), this);
-            await Navigation.PopAsync();
+            //Navigation.PushAsync(new ExpenseSetsPage(_loginid));
+            await Navigation.PushAsync(new ExpenseSetsPage(_loginid));
+            //await Navigation.PushAsync();
         }
 
         // On button click, user will navigate to Expense Set report view 

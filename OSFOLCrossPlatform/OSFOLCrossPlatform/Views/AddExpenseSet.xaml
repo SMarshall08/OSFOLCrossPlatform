@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:sys="clr-namespace:System;assembly=mscorlib"
              x:Class="OSFOLCrossPlatform.Views.AddExpenseSet"
-             Title="Add Expense Set (Trip)">
+             Title="Add Trip">
   <ContentPage.ToolbarItems>
     <ToolbarItem Text="Logout" Clicked="OnLogoutButtonClicked"/>
     <ToolbarItem Text="Home"   Clicked="OnHomeButtonClicked"/>
@@ -16,7 +16,7 @@
           <ColumnDefinition Width="85" />
           <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <Label Text="Expense Set Name" />
+        <Label Text="Trip Name" />
         <Entry Grid.Column="1"
                x:Name="ExpenseSetEntry"
                Placeholder="Name"

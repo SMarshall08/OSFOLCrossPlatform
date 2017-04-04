@@ -17,8 +17,6 @@ namespace OSFOLCrossPlatform.Views
         private ExpenseSet _expenseSet;
         string _receiptImageUri;
 
-
-
         AddExpenseViewModel viewModel;
 
         public AddExpense(int loginID)
@@ -88,12 +86,13 @@ namespace OSFOLCrossPlatform.Views
 
             Save.Text = "Save";
 
+            // We make a call to the database to get the expense set
             _expenseSet = App.Database.GetExpenseSet(expenseSetID);
-
-            ExpenseSetNameLabel.Text = _expenseSet.ExpenseSetName;
-
+            // Set the label to have true visibility
             ExpenseSetNameLabel.IsVisible = true;
-
+            // Set the label to be the name of the expense set
+            ExpenseSetNameLabel.Text = _expenseSet.ExpenseSetName;
+            // Set the min and max date within the range of the expense set
             ExpenseDatePicker.MinimumDate = _expenseSet.FromDT;
             ExpenseDatePicker.MaximumDate = _expenseSet.ToDT;
 
@@ -146,9 +145,10 @@ namespace OSFOLCrossPlatform.Views
             Title = "Edit Expense";
 
             Save.Text = "Update";
-
+            //Next.Text = "";
+            
             // Checks to see if an expense set name is associated with the expense, if true then assign value to label
-            if(editExpense.ExpenseSetName != null)
+            if (editExpense.ExpenseSetName != null)
             {
                 ExpenseSetNameLabel.Text = editExpense.ExpenseSetName;
                 ExpenseSetNameLabel.IsVisible = true;
@@ -185,7 +185,7 @@ namespace OSFOLCrossPlatform.Views
             _expense = ExpenseReceiptCapture;
 
             // If expense set is valid, we still need to add expense to this set
-            if(_expense.ExpenseSetID > 0)
+            if(_expense.ExpenseSetID == 0)
             {
                 Title = "Add Expense";
                 Save.Text = "Save";
@@ -212,8 +212,9 @@ namespace OSFOLCrossPlatform.Views
             else
             {
                 Title = "Edit Expense";
-
-                Save.Text = "Update";
+                
+                Save.Text = "Update";   
+                
 
                 ExpenseSetNameLabel.IsVisible = false;
 
@@ -245,41 +246,18 @@ namespace OSFOLCrossPlatform.Views
         {
             if(_expense != null)
             {
-                Navigation.InsertPageBefore(new AddReceiptImage(_expense), this);
-                await Navigation.PopAsync();
+                await Navigation.PushAsync(new AddReceiptImage(_expense));
+                //await Navigation.PopAsync();
             }
-            //else if(customerListView.SelectedValue != null || opportunityListView.SelectedValue != null || expenseTypeListView.SelectedValue != null ||
-            //        vendorListView.SelectedValue != null || contactListView.SelectedValue != null || expenseMethodListView.SelectedValue != null ||
-            //        currencyListView.SelectedValue != null || locationFromEntry.Text != null || locationToEntry.Text != null || expenseDetailsEntry.Text != null ||
-            //         _expense.ExpenseSetID > 0)
-            //{
-            //    customerListView.SelectedValue = _expense.CustomerID;
-            //    opportunityListView.SelectedValue = _expense.SalesOpportunityID;
-            //    expenseTypeListView.SelectedValue = _expense.rfExpenseTypeID;
-            //    vendorListView.SelectedValue = _expense.VendorID;
-            //    contactListView.SelectedValue = _expense.ContactID;
-            //    expenseMethodListView.SelectedValue = _expense.rfExpenseMethodID;
-            //    currencyListView.SelectedValue = _expense.rfCurrencyID;
-            //    locationFromEntry.Text = _expense.LocationFrom;
-            //    locationToEntry.Text = _expense.LocationTo;
-            //    expenseDetailsEntry.Text = _expense.ExpenseDetails;
-            //    expenseAmountEntry.Text = _expense.ExpenseAmount.ToString();
-            //    isRechargeableSwitch.IsToggled = _expense.IsRechargeable;
-
-
-            //    Navigation.InsertPageBefore(new AddReceiptImage(_expense), this);
-            //    await Navigation.PopAsync();
-
-            //}
             else if(_expenseSetID > 0)
             {
-                Navigation.InsertPageBefore(new AddReceiptImage(_loginID, _expenseSetID), this);
-                await Navigation.PopAsync();
+                await Navigation.PushAsync(new AddReceiptImage(_loginID, _expenseSetID));
+                //await Navigation.PopAsync();
             }
             else
             {
-                Navigation.InsertPageBefore(new AddReceiptImage(_loginID), this);
-                await Navigation.PopAsync();
+                await Navigation.PushAsync(new AddReceiptImage(_loginID));
+                //await Navigation.PopAsync();
             }
                 
         }
@@ -302,6 +280,7 @@ namespace OSFOLCrossPlatform.Views
         public void OnNextButtonClicked(Object sender, EventArgs e)
         {
             
+            
             customerListView.SelectedIndex      = -1;
             opportunityListView.SelectedIndex   = -1;
             expenseTypeListView.SelectedIndex   = -1;
@@ -309,10 +288,13 @@ namespace OSFOLCrossPlatform.Views
             contactListView.SelectedIndex       = -1;
             expenseMethodListView.SelectedIndex = -1;
             currencyListView.SelectedIndex      = -1;
+            //expenseSetListView.SelectedIndex    = -1;
             locationFromEntry.Text              = string.Empty;
             locationToEntry.Text                = string.Empty;
             expenseDetailsEntry.Text            = string.Empty;
             expenseAmountEntry.Text             = "0";
+            expenseAmountCurEntry.Text          = "0";
+            exchangeRateEntry.Text              = "1";
             ReceiptImageUri.Text                = string.Empty;
             ExpenseDatePicker.Date              = DateTime.Now;
             isRechargeableSwitch.IsToggled      = false;
@@ -321,24 +303,12 @@ namespace OSFOLCrossPlatform.Views
         }
         #endregion
 
-        //public void OpportunityDependencyProperty()
-        //{
-            
-        //    if(customerListView.SelectedIndex > 0)
-        //    {
-        //        _customerID = customerListView.SelectedIndex;
-        //        opportunityListView.ItemsSource = App.Database.GetDependencyOpportunity(_customerID);
-        //        return;
-        //    }
-        //    opportunityListView.ItemsSource = App.Database.GetOpportunities();
-        //    return;
-        //}
-
-
         // Get all data from database on page appearing
         protected override void OnAppearing()
         {
             base.OnAppearing();
+
+            // Get all list view data on appearing so user can quickly choose expense options. 
             customerListView.ItemsSource        = App.Database.GetCustomers();
             opportunityListView.ItemsSource     = App.Database.GetOpportunities();
             expenseTypeListView.ItemsSource     = App.Database.GetExpenseTypes();
@@ -346,6 +316,11 @@ namespace OSFOLCrossPlatform.Views
             contactListView.ItemsSource         = App.Database.GetContact();
             expenseMethodListView.ItemsSource   = App.Database.GetExpenseMethods();
             currencyListView.ItemsSource        = App.Database.GetCurrency();
+
+            //expenseSetListView.ItemsSource      = App.Database.GetExpenseSets(_loginID);
+
+            // We want to fill exchange rate to a standard rate of 1 incase the user uses Sterling 
+            exchangeRateEntry.Text = "1";
 
             // If expense does not equal null fill fields with data.
             if (_expense != null)
@@ -361,19 +336,27 @@ namespace OSFOLCrossPlatform.Views
                 locationToEntry.Text                = _expense.LocationTo;
                 expenseDetailsEntry.Text            = _expense.ExpenseDetails;
                 expenseAmountEntry.Text             = _expense.ExpenseAmount.ToString();
+                expenseAmountCurEntry.Text          = _expense.ExpenseAmountCur.ToString();
+                exchangeRateEntry.Text              = _expense.ExchangeRate.ToString();
                 ReceiptImageUri.Text                = _expense.ReceiptImageUri;
                 isRechargeableSwitch.IsToggled      = _expense.IsRechargeable;
 
                 // Find the expense using expenseSetID from selected expense and extract expense set name to fill label
                 if(_expense.ExpenseSetID > 0)
                 {
-                    ExpenseSet expenseSet = App.Database.GetExpenseSet(_expense.ExpenseSetID);
-                    ExpenseSetNameLabel.Text = expenseSet.ExpenseSetName;
+                    ExpenseSet expenseSet         = App.Database.GetExpenseSet(_expense.ExpenseSetID);
+                    ExpenseSetNameData.Text       = expenseSet.ExpenseSetName;
+                    ExpenseSetNameData.IsVisible  = true;
                     ExpenseSetNameLabel.IsVisible = true;
+
+                    //expenseSetListView.IsVisible  = false;
                 }
                 else
                 {
-                    ExpenseSetNameLabel.IsVisible = false;
+                    ExpenseSetNameLabel.IsVisible   = true;
+                    ExpenseSetNameData.IsVisible    = false;
+
+                    //expenseSetListView.IsVisible    = true;
                 }
                                  
                 

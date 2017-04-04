@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OSFOLCrossPlatform.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -33,6 +34,29 @@ namespace OSFOLCrossPlatform.Views
                     expenseSet
                 }
             };
+
+            #region Create MenuItem
+            var deleteAction = new MenuItem
+            {
+                Text = "Delete",
+                IsDestructive = true
+            };
+            deleteAction.SetBinding(MenuItem.CommandProperty, "DeleteActionSelected");
+
+            deleteAction.Clicked += async (sender, e) =>
+            {
+                var menuItem = (MenuItem)sender;
+                ExpenseSet thisModel = ((ExpenseSet)menuItem.BindingContext);
+                App.Database.DeleteItem(thisModel);
+
+                //Wait for the iOS animation to finish
+                if (Device.OS == TargetPlatform.iOS)
+                    await Task.Delay(300);
+
+                MessagingCenter.Send<object>(this, "RefreshData");
+            };
+            ContextActions.Add(deleteAction);
+            #endregion
 
 
             #endregion

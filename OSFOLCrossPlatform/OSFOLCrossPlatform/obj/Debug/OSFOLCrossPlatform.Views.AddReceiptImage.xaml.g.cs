@@ -23,7 +23,7 @@ namespace OSFOLCrossPlatform.Views {
         private global::Xamarin.Forms.Button SelectPicture;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
-        private global::Xamarin.Forms.Button Next;
+        private global::Xamarin.Forms.Button AddExpense;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private global::Xamarin.Forms.Label ReceiptImageUri;
@@ -36,7 +36,7 @@ namespace OSFOLCrossPlatform.Views {
             this.LoadFromXaml(typeof(AddReceiptImage));
             TakePicture = this.FindByName<global::Xamarin.Forms.Button>("TakePicture");
             SelectPicture = this.FindByName<global::Xamarin.Forms.Button>("SelectPicture");
-            Next = this.FindByName<global::Xamarin.Forms.Button>("Next");
+            AddExpense = this.FindByName<global::Xamarin.Forms.Button>("AddExpense");
             ReceiptImageUri = this.FindByName<global::Xamarin.Forms.Label>("ReceiptImageUri");
             ReceiptImage = this.FindByName<global::Xamarin.Forms.Image>("ReceiptImage");
         }

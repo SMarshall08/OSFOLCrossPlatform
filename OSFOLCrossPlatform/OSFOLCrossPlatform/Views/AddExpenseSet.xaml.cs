@@ -58,6 +58,13 @@ namespace OSFOLCrossPlatform.Views
         {
             ExpenseSetFromDTPicker.Date = DateTime.Now;
             ExpenseSetToDTPicker.Date   = DateTime.Now;
+
+            int minusOneMonthFromNow = DateTime.Now.Month - 1;
+            int firstDayOfMonth = 1;
+            int year = DateTime.Now.Year;
+            string minDate = "0" + firstDayOfMonth + "/0" + minusOneMonthFromNow + "/" + year;
+            ExpenseSetFromDTPicker.MinimumDate = Convert.ToDateTime(minDate);
+            ExpenseSetToDTPicker.MinimumDate = DateTime.Now;
         }
     }
 }

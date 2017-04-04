@@ -2,18 +2,57 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              x:Class="OSFOLCrossPlatform.MainPage" 
-             Title="Main Page">
+             Title="{Binding Title}">
   <ContentPage.ToolbarItems>
     <ToolbarItem Text="Logout" Clicked="OnLogoutButtonClicked" />
   </ContentPage.ToolbarItems>
   <ContentPage.Content>
     <StackLayout>
-      <Button Text="Receipt Capture" Clicked="ReceiptImageButton_OnClicked"/>
-      <Button Text="Add Expense Set (Trip)" Clicked="AddExpenseSetButton_OnClicked"/>
-      <Button Text="Add Expense" Clicked="OnAddExpenseButtonClicked" />
-      <Button Text="Month Report" Clicked="MonthExpenseReport_OnClicked"/>
-      <Button Text="My Trips" Clicked="ExpenseSetReport_OnClicked"/>
+      <Button Text="Quick Receipt Capture" Clicked="ReceiptImageButton_OnClicked" Image="ReceiptCapture.png"/>
+      <Button Text="Add Trip" Clicked="AddExpenseSetButton_OnClicked" Image="AddTrip.png"/>
+      <Button Text="Add Expense" Clicked="OnAddExpenseButtonClicked" Image="AddExpense.png" />
+      <Button Text="Month Report" Clicked="MonthExpenseReport_OnClicked" Image="MonthReport.png"/>
+      <Button Text="My Trips" Clicked="ExpenseSetReport_OnClicked" Image="MyTrips.png" />
 
+      <Image Source="ReceiptCapture.png" HeightRequest="100" WidthRequest="100">
+        <Image.GestureRecognizers>
+          <TapGestureRecognizer
+                  Tapped="ReceiptImageButton_OnClicked"
+                  NumberOfTapsRequired="1" />
+        </Image.GestureRecognizers>
+      </Image>
+
+      <Image Source="AddTrip.png" HeightRequest="100" WidthRequest="100">
+        <Image.GestureRecognizers>
+          <TapGestureRecognizer
+                  Tapped="AddExpenseSetButton_OnClicked"
+                  NumberOfTapsRequired="1" />
+        </Image.GestureRecognizers>
+      </Image>
+
+      <Image Source="AddExpense.png" HeightRequest="100" WidthRequest="100">
+        <Image.GestureRecognizers>
+          <TapGestureRecognizer
+                  Tapped="OnAddExpenseButtonClicked"
+                  NumberOfTapsRequired="1" />
+        </Image.GestureRecognizers>
+      </Image>
+
+      <Image Source="MonthReport.png" HeightRequest="100" WidthRequest="100">
+        <Image.GestureRecognizers>
+          <TapGestureRecognizer
+                  Tapped="MonthExpenseReport_OnClicked"
+                  NumberOfTapsRequired="1" />
+        </Image.GestureRecognizers>
+      </Image>
+      
+       <Image Source="MyTrips.png" HeightRequest="100" WidthRequest="100">
+        <Image.GestureRecognizers>
+          <TapGestureRecognizer
+                  Tapped="ExpenseSetReport_OnClicked"
+                  NumberOfTapsRequired="1" />
+        </Image.GestureRecognizers>
+      </Image>
     </StackLayout>
   </ContentPage.Content>
 </ContentPage>

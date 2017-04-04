@@ -20,7 +20,9 @@ namespace OSFOLCrossPlatform.Pages
 
         public ExpenseSetsPage(int loginID)
         {
+            // Login Id that was carried over from the Add expense Set Page
             _loginID = loginID;
+
             _expenseSetViewModel = new ExpenseSetsViewModel(_loginID);
             BindingContext = _expenseSetViewModel;
 
@@ -31,6 +33,7 @@ namespace OSFOLCrossPlatform.Pages
                 RowHeight = 50
             };
 
+            // Pull down to refresh
             _expenseSetListView.IsPullToRefreshEnabled = true;
             _expenseSetListView.Refreshing += (async (sender, e) =>
             {
@@ -38,6 +41,7 @@ namespace OSFOLCrossPlatform.Pages
                 _expenseSetListView.EndRefresh();
             });
 
+            // Once a trip is selected the user is navigated to the trip expense report page
             _expenseSetListView.ItemSelected += (sender, e) =>
             {
                 var expenseSet = e.SelectedItem as ExpenseSet;
@@ -46,9 +50,11 @@ namespace OSFOLCrossPlatform.Pages
                 Navigation.PushAsync(new IndividualExpenseSetPage(loginID, _expenseSetID));
             };
 
+            // Bind the source items from All Expense Set Data with the list view
             _expenseSetListView.SetBinding(ListView.ItemsSourceProperty, "AllExpenseSetsData");
             #endregion
 
+            // Set the title of the page
             Title = $"My Trips";
 
             #region Initialize the Toolbar Add Button

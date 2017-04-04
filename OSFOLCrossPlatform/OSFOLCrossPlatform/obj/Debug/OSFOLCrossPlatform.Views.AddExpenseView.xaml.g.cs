@@ -17,16 +17,25 @@ namespace OSFOLCrossPlatform.Views {
     public partial class AddExpense : global::Xamarin.Forms.ContentPage {
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.ToolbarItem Next;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private global::Xamarin.Forms.ToolbarItem Save;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private global::Xamarin.Forms.Label ExpenseSetNameLabel;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.Label ExpenseSetNameData;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private global::Xamarin.Forms.Button AddPicture;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private global::Xamarin.Forms.DatePicker ExpenseDatePicker;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.Entry expenseDetailsEntry;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private global::Xamarin.Forms.Label CustomerLabel;
@@ -38,19 +47,16 @@ namespace OSFOLCrossPlatform.Views {
         private global::OSFOLCrossPlatform.Controls.BindablePicker opportunityListView;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
-        private global::OSFOLCrossPlatform.Controls.BindablePicker vendorListView;
-        
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private global::Xamarin.Forms.Entry locationFromEntry;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private global::Xamarin.Forms.Entry locationToEntry;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
-        private global::Xamarin.Forms.Entry expenseDetailsEntry;
+        private global::OSFOLCrossPlatform.Controls.BindablePicker contactListView;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
-        private global::OSFOLCrossPlatform.Controls.BindablePicker contactListView;
+        private global::OSFOLCrossPlatform.Controls.BindablePicker vendorListView;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private global::OSFOLCrossPlatform.Controls.BindablePicker expenseTypeListView;
@@ -60,6 +66,12 @@ namespace OSFOLCrossPlatform.Views {
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private global::OSFOLCrossPlatform.Controls.BindablePicker currencyListView;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.Entry exchangeRateEntry;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.Entry expenseAmountCurEntry;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private global::Xamarin.Forms.Entry expenseAmountEntry;
@@ -73,21 +85,25 @@ namespace OSFOLCrossPlatform.Views {
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private void InitializeComponent() {
             this.LoadFromXaml(typeof(AddExpense));
+            Next = this.FindByName<global::Xamarin.Forms.ToolbarItem>("Next");
             Save = this.FindByName<global::Xamarin.Forms.ToolbarItem>("Save");
             ExpenseSetNameLabel = this.FindByName<global::Xamarin.Forms.Label>("ExpenseSetNameLabel");
+            ExpenseSetNameData = this.FindByName<global::Xamarin.Forms.Label>("ExpenseSetNameData");
             AddPicture = this.FindByName<global::Xamarin.Forms.Button>("AddPicture");
             ExpenseDatePicker = this.FindByName<global::Xamarin.Forms.DatePicker>("ExpenseDatePicker");
+            expenseDetailsEntry = this.FindByName<global::Xamarin.Forms.Entry>("expenseDetailsEntry");
             CustomerLabel = this.FindByName<global::Xamarin.Forms.Label>("CustomerLabel");
             customerListView = this.FindByName<global::OSFOLCrossPlatform.Controls.BindablePicker>("customerListView");
             opportunityListView = this.FindByName<global::OSFOLCrossPlatform.Controls.BindablePicker>("opportunityListView");
-            vendorListView = this.FindByName<global::OSFOLCrossPlatform.Controls.BindablePicker>("vendorListView");
             locationFromEntry = this.FindByName<global::Xamarin.Forms.Entry>("locationFromEntry");
             locationToEntry = this.FindByName<global::Xamarin.Forms.Entry>("locationToEntry");
-            expenseDetailsEntry = this.FindByName<global::Xamarin.Forms.Entry>("expenseDetailsEntry");
             contactListView = this.FindByName<global::OSFOLCrossPlatform.Controls.BindablePicker>("contactListView");
+            vendorListView = this.FindByName<global::OSFOLCrossPlatform.Controls.BindablePicker>("vendorListView");
             expenseTypeListView = this.FindByName<global::OSFOLCrossPlatform.Controls.BindablePicker>("expenseTypeListView");
             expenseMethodListView = this.FindByName<global::OSFOLCrossPlatform.Controls.BindablePicker>("expenseMethodListView");
             currencyListView = this.FindByName<global::OSFOLCrossPlatform.Controls.BindablePicker>("currencyListView");
+            exchangeRateEntry = this.FindByName<global::Xamarin.Forms.Entry>("exchangeRateEntry");
+            expenseAmountCurEntry = this.FindByName<global::Xamarin.Forms.Entry>("expenseAmountCurEntry");
             expenseAmountEntry = this.FindByName<global::Xamarin.Forms.Entry>("expenseAmountEntry");
             isRechargeableSwitch = this.FindByName<global::Xamarin.Forms.Switch>("isRechargeableSwitch");
             ReceiptImageUri = this.FindByName<global::Xamarin.Forms.Label>("ReceiptImageUri");

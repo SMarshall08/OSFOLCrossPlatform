@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OSFOLCrossPlatform.Views.Admin"
+             Title="Admin">
+  <ContentPage.ToolbarItems>
+    <ToolbarItem Text="Logout" Clicked="OnLogoutButtonClicked"/>
+    <ToolbarItem Text="Home"   Clicked="OnHomeButtonClicked"/>
+  </ContentPage.ToolbarItems>
+  <ScrollView>
+    <StackLayout Margin="5,0">
+      <Button x:Name="AddSalesOpportunity" Clicked="AddSalesOpButton_OnClicked"   Text="Add Sales Opportunity" />
+      <Button x:Name="SelectPicture" Clicked="SelectPictureButton_OnClicked" Text="Select Image from Library" />
+      <Button x:Name="Next" Clicked="NextButton_OnClicked" Text="Next" />
+    </StackLayout>
+  </ScrollView>
+</ContentPage>

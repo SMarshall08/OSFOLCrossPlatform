@@ -55,6 +55,21 @@
           <ColumnDefinition Width="85" />
           <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
+        <Label Text="Details: "
+               x:Name="expenseDetailsLabel"/>
+        <Label x:Name="expenseDetailsData"
+               Grid.Column="1"
+               Text="{Binding ExpenseDetails}"
+               FontSize="20"
+               TextColor="Black"
+               VerticalOptions="Center"
+               HorizontalOptions="Center"/>
+      </Grid>
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="85" />
+          <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
         <Label Text="Customer: "
                x:Name="expenseCustomerLabel"/>
         <Label x:Name="expenseCustomerData"
@@ -141,21 +156,7 @@
                VerticalOptions="Center"
                HorizontalOptions="Center"/>
       </Grid>
-      <Grid>
-        <Grid.ColumnDefinitions>
-          <ColumnDefinition Width="85" />
-          <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
-        <Label Text="Details: "
-               x:Name="expenseDetailsLabel"/>
-        <Label x:Name="expenseDetailsData"
-               Grid.Column="1"
-               Text="{Binding ExpenseDetails}"
-               FontSize="20"
-               TextColor="Black"
-               VerticalOptions="Center"
-               HorizontalOptions="Center"/>
-      </Grid>
+
       <Grid>
         <Grid.ColumnDefinitions>
           <ColumnDefinition Width="85" />

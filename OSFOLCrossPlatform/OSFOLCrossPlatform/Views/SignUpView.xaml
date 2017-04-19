@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OSFOLCrossPlatform.Views.SignUpView"
+             Title="Sign Up" >
+  <ContentPage.Content>
+    <StackLayout VerticalOptions="StartAndExpand">
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="150" />
+          <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Label Text="First Name"/>
+        <Entry Grid.Column="1"
+               x:Name="firstNameEntry"
+               Placeholder="First Name"
+               Text="{Binding FirstName}"
+               />
+      </Grid>
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="150" />
+          <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Label Text="Last Name"/>
+        <Entry Grid.Column="1"
+               x:Name="lastNameEntry"
+               Placeholder="Last Name"
+               Text="{Binding LastName}"
+               />
+      </Grid>
+
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="150" />
+          <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Label Text="UserName"/>
+        <Entry Grid.Column="1"
+               x:Name="userNameEntry"
+               Placeholder="E.g: johndo_lighthouse"
+               Text="{Binding UserName}"
+               />
+      </Grid>
+
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="150" />
+          <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Label Text="Password"/>
+        <Entry Grid.Column="1"
+               x:Name="passwordEntry"
+               Placeholder="Password"
+               Text="{Binding Password}"
+               />
+      </Grid>
+      <Button x:Name="SignUp"
+        Clicked="SignUpButton_OnClicked"
+        Command="{Binding Path=SaveButtonTapped}"
+        Text="Sign Up" />
+      
+    </StackLayout>
+  </ContentPage.Content>
+</ContentPage>

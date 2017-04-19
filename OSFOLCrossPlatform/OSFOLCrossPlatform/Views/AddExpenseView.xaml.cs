@@ -55,9 +55,11 @@ namespace OSFOLCrossPlatform.Views
 
             _expenseSet = App.Database.GetExpenseSet(expenseSetID);
 
-            ExpenseSetNameLabel.Text = _expenseSet.ExpenseSetName;
-
+            ExpenseSetNameLabel.Text = "Trip Name:";
             ExpenseSetNameLabel.IsVisible = true;
+            ExpenseSetNameData.Text = _expenseSet.ExpenseSetName;
+            ExpenseSetNameData.IsVisible = true;
+            
 
             ExpenseDatePicker.MinimumDate = _expenseSet.FromDT;
             ExpenseDatePicker.MaximumDate = _expenseSet.ToDT;
@@ -90,8 +92,11 @@ namespace OSFOLCrossPlatform.Views
             _expenseSet = App.Database.GetExpenseSet(expenseSetID);
             // Set the label to have true visibility
             ExpenseSetNameLabel.IsVisible = true;
-            // Set the label to be the name of the expense set
-            ExpenseSetNameLabel.Text = _expenseSet.ExpenseSetName;
+            // Set the label to be the state trip name
+            ExpenseSetNameLabel.Text = "Trip Name: ";
+            ExpenseSetNameData.Text = _expenseSet.ExpenseSetName;
+            ExpenseSetNameData.IsVisible = true;
+            
             // Set the min and max date within the range of the expense set
             ExpenseDatePicker.MinimumDate = _expenseSet.FromDT;
             ExpenseDatePicker.MaximumDate = _expenseSet.ToDT;
@@ -150,8 +155,11 @@ namespace OSFOLCrossPlatform.Views
             // Checks to see if an expense set name is associated with the expense, if true then assign value to label
             if (editExpense.ExpenseSetName != null)
             {
-                ExpenseSetNameLabel.Text = editExpense.ExpenseSetName;
+                ExpenseSetNameLabel.Text = "Trip Name: ";
                 ExpenseSetNameLabel.IsVisible = true;
+                ExpenseSetNameData.Text = editExpense.ExpenseSetName;
+                ExpenseSetNameData.IsVisible = true;
+
 
                 int expenseID = editExpense.ExpenseID;
                 _expense = App.Database.GetEditExpense(expenseID);
@@ -185,15 +193,18 @@ namespace OSFOLCrossPlatform.Views
             _expense = ExpenseReceiptCapture;
 
             // If expense set is valid, we still need to add expense to this set
-            if(_expense.ExpenseSetID == 0)
+            if(_expense.ExpenseSetID != 0)
             {
-                Title = "Add Expense";
-                Save.Text = "Save";
+                Title = "Edit Expense";
+                Save.Text = "Update";
 
                 _expenseSet = App.Database.GetExpenseSet(_expense.ExpenseSetID);
 
-                ExpenseSetNameLabel.Text = _expenseSet.ExpenseSetName;
+                ExpenseSetNameLabel.Text = "Trip Name: ";
                 ExpenseSetNameLabel.IsVisible = true;
+                ExpenseSetNameData.Text = _expenseSet.ExpenseSetName;
+                ExpenseSetNameData.IsVisible = true;
+
 
                 ExpenseDatePicker.MinimumDate = _expenseSet.FromDT;
                 ExpenseDatePicker.MaximumDate = _expenseSet.ToDT;
@@ -276,6 +287,8 @@ namespace OSFOLCrossPlatform.Views
             await Navigation.PopAsync();
         }
 
+        
+
         // On button click, clear all values to add new expense
         public void OnNextButtonClicked(Object sender, EventArgs e)
         {
@@ -292,7 +305,7 @@ namespace OSFOLCrossPlatform.Views
             locationFromEntry.Text              = string.Empty;
             locationToEntry.Text                = string.Empty;
             expenseDetailsEntry.Text            = string.Empty;
-            expenseAmountEntry.Text             = "0";
+            //expenseAmountEntry.Text             = "0";
             expenseAmountCurEntry.Text          = "0";
             exchangeRateEntry.Text              = "1";
             ReceiptImageUri.Text                = string.Empty;
@@ -310,10 +323,10 @@ namespace OSFOLCrossPlatform.Views
 
             // Get all list view data on appearing so user can quickly choose expense options. 
             customerListView.ItemsSource        = App.Database.GetCustomers();
-            opportunityListView.ItemsSource     = App.Database.GetOpportunities();
+            //opportunityListView.ItemsSource     = App.Database.GetOpportunities();
             expenseTypeListView.ItemsSource     = App.Database.GetExpenseTypes();
             vendorListView.ItemsSource          = App.Database.GetVendor();
-            contactListView.ItemsSource         = App.Database.GetContact();
+            //contactListView.ItemsSource         = App.Database.GetContact();
             expenseMethodListView.ItemsSource   = App.Database.GetExpenseMethods();
             currencyListView.ItemsSource        = App.Database.GetCurrency();
 
@@ -335,7 +348,7 @@ namespace OSFOLCrossPlatform.Views
                 locationFromEntry.Text              = _expense.LocationFrom;
                 locationToEntry.Text                = _expense.LocationTo;
                 expenseDetailsEntry.Text            = _expense.ExpenseDetails;
-                expenseAmountEntry.Text             = _expense.ExpenseAmount.ToString();
+                //expenseAmountEntry.Text             = _expense.ExpenseAmount.ToString();
                 expenseAmountCurEntry.Text          = _expense.ExpenseAmountCur.ToString();
                 exchangeRateEntry.Text              = _expense.ExchangeRate.ToString();
                 ReceiptImageUri.Text                = _expense.ReceiptImageUri;
@@ -361,9 +374,25 @@ namespace OSFOLCrossPlatform.Views
                                  
                 
             }
+
         }
 
-        
+        void onCustomerSelected(object sender, EventArgs e)
+        {
+            Customers selectedCustomer = customerListView.SelectedItem as Customers;
+            int customerID = selectedCustomer.CustomerID;
+
+            // Load the customer opportunities and refresh
+            opportunityListView.Items.Clear();
+            opportunityListView.ItemsSource = App.Database.GetDependencyOpportunity(customerID);
+
+            // load customer contacts and refresh
+            contactListView.Items.Clear();
+            contactListView.ItemsSource = App.Database.GetDependencyContact(customerID);
+
+        }
+
+
 
     }
 }

@@ -26,12 +26,13 @@ namespace OSFOLCrossPlatform.Views
 
             using (var data = new ExpenseDatabase())
             {
-                Login user = data.GetLogin(this.usernameEntry.Text);
+                //Login user = data.GetLogin(this.usernameEntry.Text);
+                Login user = data.GetLogin(usernameListView.SelectedValue.ToString());
 
                 // If user returned null error message will be shown
-                if(user == null)
+                if (user == null)
                 {
-                    messageLabel.Text  = "Login failed";
+                    messageLabel.Text = "Login failed";
                     passwordEntry.Text = string.Empty;
                 }
 
@@ -58,7 +59,7 @@ namespace OSFOLCrossPlatform.Views
 
         bool AreCredentialsCorrect(Login user)
         {
-            if (user.IsRetired == false && user.UserName == usernameEntry.Text && user.Password == passwordEntry.Text)
+            if (user.IsRetired == false && user.UserName == usernameListView.SelectedValue.ToString() && user.Password == passwordEntry.Text)
             {
                 return true;
             }
@@ -70,7 +71,22 @@ namespace OSFOLCrossPlatform.Views
             {
                 return false;
             }
-             
+
         }
+
+        async void SignUpButton_OnClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new SignUpView());
+        }
+
+        // Get all data from database on page appearing
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            // Get all list view data on appearing so user can quickly choose expense options. 
+            usernameListView.ItemsSource = App.Database.GetUserNames();
+        }
+
     }
 }

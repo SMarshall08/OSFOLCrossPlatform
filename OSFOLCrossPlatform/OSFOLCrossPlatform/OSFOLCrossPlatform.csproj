@@ -41,16 +41,27 @@
     <Compile Include="Pages\IndividualExpenseSetPage.cs" />
     <Compile Include="Pages\MonthExpensesPage.cs" />
     <Compile Include="Styles\StyleManager.cs" />
+    <Compile Include="ViewModels\AddContactViewModel.cs" />
+    <Compile Include="ViewModels\AddCustomerViewModel.cs" />
     <Compile Include="ViewModels\AddExpenseSetViewModel.cs" />
     <Compile Include="ViewModels\AddExpenseViewModel.cs" />
     <Compile Include="Model\ExpenseSet.cs" />
     <Compile Include="Model\Expense.cs" />
     <Compile Include="ISQLite.cs" />
     <Compile Include="ITextToSpeech.cs" />
+    <Compile Include="ViewModels\AddSalesOpportunityViewModel.cs" />
+    <Compile Include="ViewModels\AddVendorViewModel.cs" />
     <Compile Include="ViewModels\ExpenseInnerView.cs" />
     <Compile Include="ViewModels\ExpenseSetsViewModel.cs" />
     <Compile Include="ViewModels\ExpensesViewModel.cs" />
     <Compile Include="ViewModels\MonthExpenseViewModel.cs" />
+    <Compile Include="ViewModels\SignUpViewModel.cs" />
+    <Compile Include="Views\AddContactView.xaml.cs">
+      <DependentUpon>AddContactView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddCustomerView.xaml.cs">
+      <DependentUpon>AddCustomerView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\AddExpenseSet.xaml.cs">
       <DependentUpon>AddExpenseSet.xaml</DependentUpon>
     </Compile>
@@ -60,6 +71,15 @@
     <Compile Include="App.cs" />
     <Compile Include="Views\AddReceiptImage.xaml.cs">
       <DependentUpon>AddReceiptImage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddSalesOpportunityView.xaml.cs">
+      <DependentUpon>AddSalesOpportunityView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddVendorView.xaml.cs">
+      <DependentUpon>AddVendorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AdminView.xaml.cs">
+      <DependentUpon>AdminView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ExpenseSetViewCell.cs" />
     <Compile Include="Views\ExpensesViewCell.cs" />
@@ -73,6 +93,9 @@
     <Compile Include="Pages\ExpensesPage.cs" />
     <Compile Include="Model\Login.cs" />
     <Compile Include="Views\MonthExpenseViewCell.cs" />
+    <Compile Include="Views\SignUpView.xaml.cs">
+      <DependentUpon>SignUpView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ViewExpenseView.xaml.cs">
       <DependentUpon>ViewExpenseView.xaml</DependentUpon>
     </Compile>
@@ -179,6 +202,42 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\ViewExpenseView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\AdminView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\AddCustomerView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\AddContactView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\AddSalesOpportunityView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\AddVendorView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\SignUpView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

@@ -189,7 +189,7 @@ namespace OSFOLCrossPlatform.ViewModels
             get { return _ExpenseAmount; }
             set
             {
-                _ExpenseAmount = value;
+                _ExpenseAmount = _ExpenseAmountCur * _ExchangeRate;
                 RaisePropertyChanged();
             }
         }
@@ -349,7 +349,7 @@ namespace OSFOLCrossPlatform.ViewModels
                     rfCurrencyID            = rfCurrencyID,
                     ExchangeRate            = ExchangeRate,
                     ExpenseAmountCur        = ExpenseAmountCur,
-                    ExpenseAmount           = ExpenseAmount,
+                    ExpenseAmount           = ExpenseAmountCur * ExchangeRate,
                     rfExpenseTypeID         = rfExpenseTypeID,
                     rfExpenseMethodID       = rfExpenseMethodID,
                     IsRechargeable          = IsRechargeable,
@@ -378,6 +378,7 @@ namespace OSFOLCrossPlatform.ViewModels
             {
                 _monthIdentifier = _CreatedDT.Month;
 
+
                 // Task to call database and save expense with values from model 
                 Task.Run(() => App.Database.SaveExpense(new Expense
                 {
@@ -392,7 +393,7 @@ namespace OSFOLCrossPlatform.ViewModels
                     rfCurrencyID          = _rfCurrencyID,
                     ExchangeRate          = _ExchangeRate,
                     ExpenseAmountCur      = _ExpenseAmountCur,
-                    ExpenseAmount         = _ExpenseAmount,
+                    ExpenseAmount         = _ExpenseAmountCur * _ExchangeRate,
                     rfExpenseTypeID       = _rfExpenseTypeID,
                     rfExpenseMethodID     = _rfExpenseMethodID,
                     IsRechargeable        = _IsRechargeable,

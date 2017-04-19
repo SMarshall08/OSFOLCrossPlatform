@@ -74,13 +74,13 @@ namespace OSFOLCrossPlatform.Views {
         private global::Xamarin.Forms.Entry expenseAmountCurEntry;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
-        private global::Xamarin.Forms.Entry expenseAmountEntry;
-        
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private global::Xamarin.Forms.Switch isRechargeableSwitch;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private global::Xamarin.Forms.Label ReceiptImageUri;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.Entry expenseAmountEntry;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private void InitializeComponent() {
@@ -104,9 +104,9 @@ namespace OSFOLCrossPlatform.Views {
             currencyListView = this.FindByName<global::OSFOLCrossPlatform.Controls.BindablePicker>("currencyListView");
             exchangeRateEntry = this.FindByName<global::Xamarin.Forms.Entry>("exchangeRateEntry");
             expenseAmountCurEntry = this.FindByName<global::Xamarin.Forms.Entry>("expenseAmountCurEntry");
-            expenseAmountEntry = this.FindByName<global::Xamarin.Forms.Entry>("expenseAmountEntry");
             isRechargeableSwitch = this.FindByName<global::Xamarin.Forms.Switch>("isRechargeableSwitch");
             ReceiptImageUri = this.FindByName<global::Xamarin.Forms.Label>("ReceiptImageUri");
+            expenseAmountEntry = this.FindByName<global::Xamarin.Forms.Entry>("expenseAmountEntry");
         }
     }
 }

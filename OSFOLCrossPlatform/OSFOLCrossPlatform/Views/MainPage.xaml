@@ -13,46 +13,7 @@
       <Button Text="Add Expense" Clicked="OnAddExpenseButtonClicked" Image="AddExpense.png" />
       <Button Text="Month Report" Clicked="MonthExpenseReport_OnClicked" Image="MonthReport.png"/>
       <Button Text="My Trips" Clicked="ExpenseSetReport_OnClicked" Image="MyTrips.png" />
-
-      <Image Source="ReceiptCapture.png" HeightRequest="100" WidthRequest="100">
-        <Image.GestureRecognizers>
-          <TapGestureRecognizer
-                  Tapped="ReceiptImageButton_OnClicked"
-                  NumberOfTapsRequired="1" />
-        </Image.GestureRecognizers>
-      </Image>
-
-      <Image Source="AddTrip.png" HeightRequest="100" WidthRequest="100">
-        <Image.GestureRecognizers>
-          <TapGestureRecognizer
-                  Tapped="AddExpenseSetButton_OnClicked"
-                  NumberOfTapsRequired="1" />
-        </Image.GestureRecognizers>
-      </Image>
-
-      <Image Source="AddExpense.png" HeightRequest="100" WidthRequest="100">
-        <Image.GestureRecognizers>
-          <TapGestureRecognizer
-                  Tapped="OnAddExpenseButtonClicked"
-                  NumberOfTapsRequired="1" />
-        </Image.GestureRecognizers>
-      </Image>
-
-      <Image Source="MonthReport.png" HeightRequest="100" WidthRequest="100">
-        <Image.GestureRecognizers>
-          <TapGestureRecognizer
-                  Tapped="MonthExpenseReport_OnClicked"
-                  NumberOfTapsRequired="1" />
-        </Image.GestureRecognizers>
-      </Image>
-      
-       <Image Source="MyTrips.png" HeightRequest="100" WidthRequest="100">
-        <Image.GestureRecognizers>
-          <TapGestureRecognizer
-                  Tapped="ExpenseSetReport_OnClicked"
-                  NumberOfTapsRequired="1" />
-        </Image.GestureRecognizers>
-      </Image>
+      <Button Text="Admin" Clicked="Admin_OnClicked" />
     </StackLayout>
   </ContentPage.Content>
 </ContentPage>

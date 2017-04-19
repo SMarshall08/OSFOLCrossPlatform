@@ -25,7 +25,6 @@ namespace OSFOLCrossPlatform.Views
         // On button click logout
         async void OnLogoutButtonClicked(object sender, EventArgs e)
         {
-            App.IsUserLoggedIn = false;
             Navigation.InsertPageBefore(new LoginPage(), this);
             await Navigation.PopAsync();
         }
@@ -33,7 +32,8 @@ namespace OSFOLCrossPlatform.Views
         // On button click go back to main page
         async void OnHomeButtonClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new MainPage(_loginID));
+            Navigation.InsertPageBefore(new MainPage(_loginID),this);
+            await Navigation.PopAsync();
         }
 
         // On button click go back to expense set
@@ -45,8 +45,10 @@ namespace OSFOLCrossPlatform.Views
         // On button click go to expense report page to view most recent expense added
         async void OnSaveButtonClicked(object sender, EventArgs e)
         {
-            Navigation.InsertPageBefore(new ExpenseSetsPage(_loginID), this);
-            await Navigation.PopAsync();
+            //Navigation.InsertPageBefore(new ExpenseSetsPage(_loginID), this);
+            //await Navigation.PushAsync(new ExpenseSetsPage(_loginID));
+            await Navigation.PushModalAsync(new ExpenseSetsPage(_loginID));
+            //await Navigation.PopAsync();
 
             ExpenseSetEntry.Text        = string.Empty;
             ExpenseSetFromDTPicker.Date = DateTime.Now;
@@ -56,6 +58,8 @@ namespace OSFOLCrossPlatform.Views
         // Get all data from database on page appearing
         protected override void OnAppearing()
         {
+            ExpenseSetEntry.Text = "";
+
             ExpenseSetFromDTPicker.Date = DateTime.Now;
             ExpenseSetToDTPicker.Date   = DateTime.Now;
 

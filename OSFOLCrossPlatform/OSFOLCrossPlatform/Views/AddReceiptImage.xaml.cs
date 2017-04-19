@@ -19,13 +19,17 @@ namespace OSFOLCrossPlatform.Views
             InitializeComponent();
 
             _loginID = loginID;
+            AddExpense.Text = "Add Expense";
         }
         public AddReceiptImage(Expense expense)
         {
             InitializeComponent();
 
             _expense = expense;
-            
+
+            AddExpense.Text = "Edit Expense";
+
+
         }
 
         public AddReceiptImage(int loginID, int expenseSetID)
@@ -34,6 +38,8 @@ namespace OSFOLCrossPlatform.Views
 
             _loginID      = loginID;
             _expenseSetID = expenseSetID;
+
+            AddExpense.Text = "Add Expense";
         }
 
         public AddReceiptImage()

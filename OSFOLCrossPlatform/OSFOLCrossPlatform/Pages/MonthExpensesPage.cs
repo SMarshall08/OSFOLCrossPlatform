@@ -31,6 +31,13 @@ namespace OSFOLCrossPlatform.Pages
                 RowHeight = 50
             };
 
+            _monthListView.IsPullToRefreshEnabled = true;
+            _monthListView.Refreshing += (async (sender, e) =>
+            {
+                await _monthexpensesViewModel.RefreshMonthDataAsync();
+                _monthListView.EndRefresh();
+            });
+
             _monthListView.ItemSelected += (sender, e) =>
             {
                 var month   = e.SelectedItem as ExpenseMonth;
@@ -106,5 +113,12 @@ namespace OSFOLCrossPlatform.Pages
             await Navigation.PopAsync();
         }
 
+        // Get all data from database on page appearing
+        protected override async void OnAppearing()
+        {
+            await _monthexpensesViewModel.RefreshMonthDataAsync();
+        }
     }
+
 }
+

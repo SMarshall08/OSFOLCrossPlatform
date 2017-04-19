@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OSFOLCrossPlatform.Views.AddCustomerView"
+             xmlns:controls="clr-namespace:OSFOLCrossPlatform.Controls;assembly=OSFOLCrossPlatform"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             Title="Add Customer">
+  <ContentPage.ToolbarItems>
+    <ToolbarItem Text="Logout" Clicked="OnLogoutButtonClicked"/>
+    <ToolbarItem Text="Home"   Clicked="OnHomeButtonClicked"/>
+    <ToolbarItem x:Name="Next" Text="Next"  Command="{Binding Path=SaveButtonTapped}" Clicked="OnNextButtonClicked"/>
+    <ToolbarItem x:Name="Save" Text="Save"   Command="{Binding Path=SaveButtonTapped}" Clicked="OnSaveButtonClicked"/>
+  </ContentPage.ToolbarItems>
+  <ScrollView>
+    <StackLayout>
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="85" />
+          <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Label Text="Customer:*" />
+        <Entry Grid.Column="1"
+               x:Name="CustomerEntry"
+               Placeholder="Customer"
+               Text="{Binding Customer}"/>
+      </Grid>
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="85" />
+          <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Label Text="Location:*" />
+        <Entry Grid.Column="1"
+               x:Name="LocationEntry"
+               Placeholder="Location"
+               Text="{Binding Location}"/>
+      </Grid>
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="85" />
+          <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Label Text="Country:*" />
+        <Entry Grid.Column="1"
+               x:Name="CountryEntry"
+               Placeholder="Country"
+               Text="{Binding Country}"/>
+      </Grid>
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="150" />
+          <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Label Text="Telephone Number:" />
+        <Entry Grid.Column="1"
+               x:Name="TelephoneNoEntry"
+               Placeholder="Telephone Number"
+               Keyboard="Numeric"
+               Text="{Binding TelephoneNumber}"/>
+      </Grid>
+    </StackLayout>
+  </ScrollView>
+</ContentPage>

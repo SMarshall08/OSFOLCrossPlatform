@@ -42,7 +42,7 @@
         </Grid.ColumnDefinitions>
         <Label Text="Trip Name: "
                x:Name="ExpenseSetNameLabel"
-               IsVisible="{Binding ExpenseSetNameData}"/>
+               IsVisible="{Binding ExpenseSetNameLabel}"/>
         <Label x:Name="ExpenseSetNameData"
                Grid.Column="1"
                Text="{Binding ExpenseSetName}"
@@ -115,6 +115,7 @@
                                  DisplayMemberPath="Customer"
                                  SelectedValuePath="CustomerID"
                                  SelectedValue="{Binding Path=Customers.CustomerID, Mode=TwoWay}"
+                                 ItemSelected="onCustomerSelected"
                                  />
       </Grid>
       <Grid>
@@ -127,7 +128,8 @@
                                  x:Name="opportunityListView"
                                  DisplayMemberPath="Opportunity"
                                  SelectedValuePath="SalesOpportunityID"
-                                 SelectedValue="{Binding Path=SalesOpportunity.SalesOpportunityID, Mode=TwoWay}"/>
+                                 SelectedValue="{Binding Path=SalesOpportunity.SalesOpportunityID, Mode=TwoWay}"
+                                 />
       </Grid>
 
       <Grid>
@@ -177,7 +179,8 @@
                                  x:Name="vendorListView"
                                  DisplayMemberPath="Vendor"
                                  SelectedValuePath="VendorID"
-                                 SelectedValue="{Binding Path=rfVendor.VendorID, Mode=TwoWay}" />
+                                 SelectedValue="{Binding Path=rfVendor.VendorID, Mode=TwoWay}" 
+                                 />
       </Grid>
       
       <Grid>
@@ -208,7 +211,7 @@
       
       <Grid>
         <Grid.ColumnDefinitions>
-          <ColumnDefinition Width="85" />
+          <ColumnDefinition Width="150" />
           <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Label Text="Currency*" />
@@ -221,7 +224,7 @@
 
       <Grid>
         <Grid.ColumnDefinitions>
-          <ColumnDefinition Width="85" />
+          <ColumnDefinition Width="150" />
           <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Label Text="Exchange Rate*" />
@@ -230,38 +233,27 @@
                Placeholder="Exchange Rate"
                Text="{Binding ExchangeRate}"
                Keyboard="Numeric"
+               
                />
       </Grid>
 
       <Grid>
         <Grid.ColumnDefinitions>
-          <ColumnDefinition Width="85" />
+          <ColumnDefinition Width="150" />
           <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <Label Text="Expense Amount Currency*" />
+        <Label Text="Expense Amount*" />
         <Entry Grid.Column="1"
                x:Name="expenseAmountCurEntry"
                Placeholder="Currency Amount"
                Text="{Binding ExpenseAmountCur}"
-               Keyboard="Numeric"/>
+               Keyboard="Numeric"
+               />
       </Grid>
     
       <Grid>
         <Grid.ColumnDefinitions>
-          <ColumnDefinition Width="85" />
-          <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
-        <Label Text="Expense Amount*" />
-         <Entry Grid.Column="1"
-                x:Name="expenseAmountEntry" 
-                Placeholder="Amount"
-                Text="{Binding ExpenseAmount}"
-                Keyboard="Numeric"/>
-      </Grid>
-    
-      <Grid>
-        <Grid.ColumnDefinitions>
-          <ColumnDefinition Width="85" />
+          <ColumnDefinition Width="150" />
           <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Label Text="Is Rechargeable?" />
@@ -275,7 +267,21 @@
               FontSize="16" 
               TextColor="Black"  
               Text="{Binding ReceiptImageUri}"/>
-
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="150" />
+          <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Label Text="Expense Amount*" 
+               IsVisible="False"/>
+        <Entry Grid.Column="1"
+               x:Name="expenseAmountEntry"
+               Placeholder="Amount"
+               Text="{Binding ExpenseAmount}"
+               Keyboard="Numeric"
+               IsVisible="false"
+               />
+      </Grid>
     </StackLayout>
   </ScrollView>
 </ContentPage>

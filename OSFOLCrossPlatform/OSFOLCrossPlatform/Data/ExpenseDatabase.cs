@@ -35,6 +35,15 @@ namespace OSFOLCrossPlatform.Data
             }
         }
 
+        public IEnumerable<Login> GetUserNames()
+        {
+            lock (locker)
+            {
+                //return (from i in database.Table<Customer>() select i).ToList();
+                return database.Query<Login>("SELECT UserName FROM [Login] WHERE IsRetired = 0 ORDER BY UserName ASC");
+            }
+        }
+
         public Customers GetCustomer(int customerID)
         {
             lock (locker)
@@ -120,6 +129,14 @@ namespace OSFOLCrossPlatform.Data
             lock (locker)
             {
                 return database.Table<SalesOpportunity>().Where(x => x.CustomerID == customerID);
+            }
+        }
+
+        public IEnumerable<Contact> GetDependencyContact(int customerID)
+        {
+            lock (locker)
+            {
+                return database.Table<Contact>().Where(x => x.CustomerID == customerID);
             }
         }
 
@@ -244,6 +261,49 @@ namespace OSFOLCrossPlatform.Data
             }
         }
 
+        public int SaveCustomer(Customers customer)
+        {
+            lock (locker)
+            {
+                database.Insert(customer);
+                return customer.CustomerID;
+            }
+        }
+        public int SaveContact(Contact contact)
+        {
+            lock (locker)
+            {
+                database.Insert(contact);
+                return contact.ContactID;
+            }
+        }
+
+        public int SaveSalesOpportunity(SalesOpportunity opportunity)
+        {
+            lock (locker)
+            {
+                database.Insert(opportunity);
+                return opportunity.SalesOpportunityID;
+            }
+        }
+
+        public int SaveVendor(rfVendor vendor)
+        {
+            lock (locker)
+            {
+                database.Insert(vendor);
+                return vendor.VendorID;
+            }
+        }
+
+        public int SignUp(Login login)
+        {
+            lock (locker)
+            {
+                database.Insert(login);
+                return login.LoginID;
+            }
+        }
 
         public int SaveExpense(Expense expense)
         {

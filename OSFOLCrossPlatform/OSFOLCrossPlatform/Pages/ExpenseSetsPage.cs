@@ -124,5 +124,11 @@ namespace OSFOLCrossPlatform.Pages
             Navigation.InsertPageBefore(new LoginPage(), this);
             await Navigation.PopAsync();
         }
+
+        // Get all data from database on page appearing
+        protected override async void OnAppearing()
+        {
+            await _expenseSetViewModel.RefreshExpenseSetsDataAsync(_loginID);
+        }
     }
 }

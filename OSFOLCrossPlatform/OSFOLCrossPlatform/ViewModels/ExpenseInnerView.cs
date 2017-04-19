@@ -66,10 +66,13 @@ namespace OSFOLCrossPlatform.ViewModels
             set
             {
                 SetProperty<string>(ref _Contact, value);
-
-                string[] names = value.Split(' ');
-                SetProperty<string>(ref _FirstName, names[0]);
-                SetProperty<string>(ref _LastName, names[1]);
+                if(value != null)
+                {
+                    string[] names = value.Split(' ');
+                    SetProperty<string>(ref _FirstName, names[0]);
+                    SetProperty<string>(ref _LastName, names[1]);
+                }
+                
             }
         }
         public string Opportunity

@@ -32,6 +32,12 @@ namespace OSFOLCrossPlatform.Views {
         private global::Xamarin.Forms.Label expenseDateData;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.Label expenseDetailsLabel;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.Label expenseDetailsData;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private global::Xamarin.Forms.Label expenseCustomerLabel;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
@@ -66,12 +72,6 @@ namespace OSFOLCrossPlatform.Views {
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private global::Xamarin.Forms.Label expenseLocationToData;
-        
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
-        private global::Xamarin.Forms.Label expenseDetailsLabel;
-        
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
-        private global::Xamarin.Forms.Label expenseDetailsData;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private global::Xamarin.Forms.Label expenseVendorLabel;
@@ -123,6 +123,8 @@ namespace OSFOLCrossPlatform.Views {
             expenseSetNameData = this.FindByName<global::Xamarin.Forms.Label>("expenseSetNameData");
             expenseDateLabel = this.FindByName<global::Xamarin.Forms.Label>("expenseDateLabel");
             expenseDateData = this.FindByName<global::Xamarin.Forms.Label>("expenseDateData");
+            expenseDetailsLabel = this.FindByName<global::Xamarin.Forms.Label>("expenseDetailsLabel");
+            expenseDetailsData = this.FindByName<global::Xamarin.Forms.Label>("expenseDetailsData");
             expenseCustomerLabel = this.FindByName<global::Xamarin.Forms.Label>("expenseCustomerLabel");
             expenseCustomerData = this.FindByName<global::Xamarin.Forms.Label>("expenseCustomerData");
             expenseCustomerContactLabel = this.FindByName<global::Xamarin.Forms.Label>("expenseCustomerContactLabel");
@@ -135,8 +137,6 @@ namespace OSFOLCrossPlatform.Views {
             expenseLocationFromData = this.FindByName<global::Xamarin.Forms.Label>("expenseLocationFromData");
             expenseLocationToLabel = this.FindByName<global::Xamarin.Forms.Label>("expenseLocationToLabel");
             expenseLocationToData = this.FindByName<global::Xamarin.Forms.Label>("expenseLocationToData");
-            expenseDetailsLabel = this.FindByName<global::Xamarin.Forms.Label>("expenseDetailsLabel");
-            expenseDetailsData = this.FindByName<global::Xamarin.Forms.Label>("expenseDetailsData");
             expenseVendorLabel = this.FindByName<global::Xamarin.Forms.Label>("expenseVendorLabel");
             expenseVendorData = this.FindByName<global::Xamarin.Forms.Label>("expenseVendorData");
             expenseExpenseMethodLabel = this.FindByName<global::Xamarin.Forms.Label>("expenseExpenseMethodLabel");

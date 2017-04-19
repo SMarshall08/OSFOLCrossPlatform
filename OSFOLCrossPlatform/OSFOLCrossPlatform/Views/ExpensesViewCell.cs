@@ -35,24 +35,6 @@ namespace OSFOLCrossPlatform.Views
             };
             #endregion
 
-            #region Create Customer Stack
-            var customerLabel = new Label
-            {
-                Text = "Customer",
-                FontAttributes = FontAttributes.Bold
-            };
-            var customer = new Label();
-            customer.SetBinding(Label.TextProperty, "Customer");
-
-            var customerStack = new StackLayout
-            {
-                Children = {
-                    customerLabel,
-                    customer
-                }
-            };
-            #endregion
-
             #region Create Date Stack
             var dateLabel = new Label
             {
@@ -74,11 +56,11 @@ namespace OSFOLCrossPlatform.Views
             #region Create Amount Stack
             var amountLabel = new Label
             {
-                Text = "Amount",
+                Text = "Amount (£)",
                 FontAttributes = FontAttributes.Bold
             };
             var amount = new Label();
-            date.SetBinding(Label.TextProperty, "ExpenseAmount");
+            amount.SetBinding(Label.TextProperty, "ExpenseAmount");
 
             var amountStack = new StackLayout
             {
@@ -116,7 +98,7 @@ namespace OSFOLCrossPlatform.Views
             #region Create Cell Horizontal StackLayout for Phone
             if (Device.Idiom == TargetIdiom.Phone)
             {
-                customer.LineBreakMode = LineBreakMode.NoWrap;
+                //customer.LineBreakMode = LineBreakMode.NoWrap;
                 cellStack = new StackLayout
                 {
                     HorizontalOptions = LayoutOptions.Fill,
@@ -126,9 +108,10 @@ namespace OSFOLCrossPlatform.Views
                     Children = {
                         lighthouseImage,
                         expenseStack,
-                        customerStack,
-                        dateStack,
-                        amountStack
+                        //customerStack,
+                        amountStack,
+                        dateStack
+                        
                     }
                 };
             }
@@ -146,9 +129,10 @@ namespace OSFOLCrossPlatform.Views
                     Children = {
                         lighthouseImage,
                         expenseStack,
-                        customerStack,
-                        dateStack,
-                        amountStack
+                        //customerStack,
+                        amountStack,
+                        dateStack
+                        
                     }
                 };
             }

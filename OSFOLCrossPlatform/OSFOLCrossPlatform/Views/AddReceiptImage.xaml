@@ -10,11 +10,11 @@
 
   <ScrollView>
     <StackLayout Margin="5,0">
-      <Button x:Name="TakePicture" Clicked="TakePictureButton_OnClicked"   Text="Take Picture" />
-      <Button x:Name="SelectPicture" Clicked="SelectPictureButton_OnClicked" Text="Select Image from Library" />
-      <Button x:Name="AddExpense" Clicked="NextButton_OnClicked" Text="Next" />
+      <Button x:Name="TakePicture" Clicked="TakePictureButton_OnClicked"   Text="Take Picture" Image="ReceiptCapture.png"/>
+      <Button x:Name="SelectPicture" Clicked="SelectPictureButton_OnClicked" Text="Select Image" Image="Photo.png" />
+      <Button x:Name="AddExpense" Clicked="NextButton_OnClicked" Text="{Binding AddExpense}" Image="AddExpense.png"/>
       <Label  x:Name="ReceiptImageUri" Text="{Binding ReceiptImageUri}" FontSize="12" TextColor="Black" IsVisible="False"/>
-      <Image  x:Name="ReceiptImage"></Image>
+      <Image  x:Name="ReceiptImage" ></Image>
     </StackLayout>
   </ScrollView>
 </ContentPage>

@@ -1,7 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="OSFOLCrossPlatform.Views.Admin"
+             x:Class="OSFOLCrossPlatform.Views.AdminView"
+             xmlns:controls="clr-namespace:OSFOLCrossPlatform.Controls;assembly=OSFOLCrossPlatform"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
              Title="Admin">
   <ContentPage.ToolbarItems>
     <ToolbarItem Text="Logout" Clicked="OnLogoutButtonClicked"/>
@@ -9,9 +11,18 @@
   </ContentPage.ToolbarItems>
   <ScrollView>
     <StackLayout Margin="5,0">
-      <Button x:Name="AddSalesOpportunity" Clicked="AddSalesOpButton_OnClicked"   Text="Add Sales Opportunity" />
-      <Button x:Name="SelectPicture" Clicked="SelectPictureButton_OnClicked" Text="Select Image from Library" />
-      <Button x:Name="Next" Clicked="NextButton_OnClicked" Text="Next" />
+      <Button x:Name="AddCustomer"
+             Clicked="AddCustomerButton_OnClicked"
+             Text="Add Customer" />
+      <Button x:Name="AddContact"
+             Clicked="AddContactButton_OnClicked"
+             Text="Add Contact" />
+      <Button x:Name="AddSalesOpp"
+             Clicked="AddSalesOppButton_OnClicked"
+             Text="Add Sales Opportunity" />
+      <Button x:Name="AddVendor"
+             Clicked="AddVendorButton_OnClicked"
+             Text="Add Vendor" />
     </StackLayout>
   </ScrollView>
 </ContentPage>

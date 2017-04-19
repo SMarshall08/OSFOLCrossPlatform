@@ -69,12 +69,20 @@ namespace OSFOLCrossPlatform
             await Navigation.PopAsync();
         }
 
+        // On button click navigate to Receipt Capture page, where user can take photo and attach to expense
+        async void Admin_OnClicked(object sender, EventArgs e)
+        {
+            Navigation.InsertPageBefore(new AdminView(_loginid), this);
+            await Navigation.PopAsync();
+        }
+
         // On button click logout
         async void OnLogoutButtonClicked(object sender, EventArgs e)
         {
-            App.IsUserLoggedIn = false;
             Navigation.InsertPageBefore(new LoginPage(), this);
             await Navigation.PopAsync();
+
+            App.IsUserLoggedIn = false;
         }
     }
 }

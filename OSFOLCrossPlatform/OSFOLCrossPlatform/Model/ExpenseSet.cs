@@ -57,7 +57,7 @@ namespace OSFOLCrossPlatform.Model
     {
         public Customers() { }
 
-        [PrimaryKey, Unique]
+        [PrimaryKey, AutoIncrement, Unique]
         public int CustomerID               { get; set; }
         public int rfBusinessOwnerID        { get; set; }
         public string Customer              { get; set; }
@@ -78,7 +78,7 @@ namespace OSFOLCrossPlatform.Model
     {
         public SalesOpportunity() { }
 
-        [PrimaryKey,Unique]
+        [PrimaryKey,AutoIncrement, Unique]
         public int SalesOpportunityID       { get; set; }
         public int rfBusinessOwnerID        { get; set; }
         public int PersonnelOwnerID         { get; set; }
@@ -121,7 +121,7 @@ namespace OSFOLCrossPlatform.Model
     {
         public rfVendor() { }
 
-        [PrimaryKey,Unique]
+        [PrimaryKey, AutoIncrement, Unique]
         public int VendorID  { get; set; }
         public string Vendor { get; set; }
     }
@@ -133,9 +133,10 @@ namespace OSFOLCrossPlatform.Model
     {
         public Contact() { }
 
-        [PrimaryKey,Unique]
+        [PrimaryKey, AutoIncrement, Unique]
         public int ContactID        { get; set; }
         public int CustomerID       { get; set; }
+        public string Title         { get; set; }
         public string FirstName     { get; set; }
         public string LastName      { get; set; }
         public string Email         { get; set; }
@@ -143,7 +144,7 @@ namespace OSFOLCrossPlatform.Model
         public string MobilePhone   { get; set; }
         public string JobTitle      { get; set; }
         public string Department    { get; set; }
-        public bool IsRetired       { get; set; }
+        public int IsRetired       { get; set; }
         public DateTime CreatedDT   { get; set; }
         public DateTime ModifiedDT  { get; set; }
     }

@@ -103,7 +103,7 @@ namespace OSFOLCrossPlatform.Pages
 
             _areEventHandlersSubscribed = true;
         }
-
+        
         async void OnHomeButtonClicked(object sender, EventArgs e)
         {
             Navigation.InsertPageBefore(new MainPage(_loginID), this);
@@ -121,6 +121,12 @@ namespace OSFOLCrossPlatform.Pages
             App.IsUserLoggedIn = false;
             await Navigation.PushAsync(new LoginPage());
             await Navigation.PushModalAsync(new NavigationPage(new LoginPage()));
+        }
+
+        // Get all data from database on page appearing
+        protected override async void OnAppearing()
+        {
+            await _expensesViewModel.RefreshExpensesDataAsync(_loginID, _monthID);
         }
     }
 }

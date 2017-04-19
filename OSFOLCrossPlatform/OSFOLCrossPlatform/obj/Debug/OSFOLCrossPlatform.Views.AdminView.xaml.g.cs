@@ -14,23 +14,27 @@ namespace OSFOLCrossPlatform.Views {
     using Xamarin.Forms.Xaml;
     
     
-    public partial class Admin : global::Xamarin.Forms.ContentPage {
+    public partial class AdminView : global::Xamarin.Forms.ContentPage {
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
-        private global::Xamarin.Forms.Button AddSalesOpportunity;
+        private global::Xamarin.Forms.Button AddCustomer;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
-        private global::Xamarin.Forms.Button SelectPicture;
+        private global::Xamarin.Forms.Button AddContact;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
-        private global::Xamarin.Forms.Button Next;
+        private global::Xamarin.Forms.Button AddSalesOpp;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.Button AddVendor;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private void InitializeComponent() {
-            this.LoadFromXaml(typeof(Admin));
-            AddSalesOpportunity = this.FindByName<global::Xamarin.Forms.Button>("AddSalesOpportunity");
-            SelectPicture = this.FindByName<global::Xamarin.Forms.Button>("SelectPicture");
-            Next = this.FindByName<global::Xamarin.Forms.Button>("Next");
+            this.LoadFromXaml(typeof(AdminView));
+            AddCustomer = this.FindByName<global::Xamarin.Forms.Button>("AddCustomer");
+            AddContact = this.FindByName<global::Xamarin.Forms.Button>("AddContact");
+            AddSalesOpp = this.FindByName<global::Xamarin.Forms.Button>("AddSalesOpp");
+            AddVendor = this.FindByName<global::Xamarin.Forms.Button>("AddVendor");
         }
     }
 }

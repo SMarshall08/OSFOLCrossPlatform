@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OSFOLCrossPlatform.Views.AddSalesOpportunityView"
+             xmlns:controls="clr-namespace:OSFOLCrossPlatform.Controls;assembly=OSFOLCrossPlatform"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             Title="Add Sales Opportunity">
+  <ContentPage.ToolbarItems>
+    <ToolbarItem Text="Logout" Clicked="OnLogoutButtonClicked"/>
+    <ToolbarItem Text="Home"   Clicked="OnHomeButtonClicked"/>
+    <ToolbarItem x:Name="Next" Text="Next"  Command="{Binding Path=SaveButtonTapped}" Clicked="OnNextButtonClicked"/>
+    <ToolbarItem x:Name="Save" Text="Save"   Command="{Binding Path=SaveButtonTapped}" Clicked="OnSaveButtonClicked"/>
+  </ContentPage.ToolbarItems>
+  <ScrollView>
+    <StackLayout>
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="85" />
+          <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Label Text="Customer" />
+        <Label Grid.Column="1"
+               x:Name="CustomerLabel"/>
+        <controls:BindablePicker Grid.Column="1"
+                                 x:Name="customerListView"
+                                 DisplayMemberPath="Customer"
+                                 SelectedValuePath="CustomerID"
+                                 SelectedValue="{Binding Path=Customers.CustomerID, Mode=TwoWay}"
+                                 
+                                 />
+      </Grid>
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="85" />
+          <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Label Text="Opportunity:" />
+        <Entry Grid.Column="1"
+               x:Name="SalesOpportunityEntry"
+               Placeholder="Opportunity"
+               Text="{Binding Opportunity}"/>
+      </Grid>
+    </StackLayout>
+  </ScrollView>
+</ContentPage>

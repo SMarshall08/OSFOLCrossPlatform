@@ -6,18 +6,38 @@
              Title="Login" >
     <ContentPage.Content>
       <StackLayout VerticalOptions="StartAndExpand">
-        <Label Text="Username" />
-        <Label Grid.Column="1"
-                 x:Name="UserNameLabel"/>
-        <controls:BindablePicker Grid.Column="1"
-                                 x:Name="usernameListView"
-                                 DisplayMemberPath="UserName"
-                                 SelectedValuePath="UserName"
-                                 SelectedValue="{Binding Path=Login.UserName, Mode=TwoWay}"
+        
+        <Image Source="lighthouselogo.png"/>
+        <Grid>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="85" />
+            <ColumnDefinition Width="*" />
+          </Grid.ColumnDefinitions>
+          <Label Text="Username" />
+          <Label Grid.Column="1"
+                   x:Name="UserNameLabel"/>
+          <controls:BindablePicker Grid.Column="1"
+                                   x:Name="usernameListView"
+                                   DisplayMemberPath="UserName"
+                                   SelectedValuePath="UserName"
+                                   SelectedValue="{Binding Path=Login.UserName, Mode=TwoWay}"
                                  />
-        <!--<Entry x:Name="usernameEntry" Placeholder="Username" />-->
+        </Grid>
+        <Grid>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="85" />
+            <ColumnDefinition Width="*" />
+          </Grid.ColumnDefinitions>
+          <Label Text="Password" />
+          <Entry Grid.Column="1"
+                 x:Name="passwordEntry"
+                 Placeholder="Password"
+                 IsPassword="true" />
+        </Grid>
+        
+        <!--<Entry x:Name="usernameEntry" Placeholder="Username" />-
         <Label Text="Password" />
-        <Entry x:Name="passwordEntry" Placeholder="Password" IsPassword="true" />
+        <Entry x:Name="passwordEntry" Placeholder="Password" IsPassword="true" />-->
         <Button Text="Login" Clicked="OnLoginButtonClicked" />
         <Button x:Name="SignUp" Clicked="SignUpButton_OnClicked" Text="Sign Up" />
         <Label x:Name="messageLabel" />

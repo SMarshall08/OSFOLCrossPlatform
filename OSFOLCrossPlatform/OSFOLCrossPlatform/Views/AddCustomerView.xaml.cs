@@ -48,9 +48,7 @@ namespace OSFOLCrossPlatform.Views
         public void OnNextButtonClicked(Object sender, EventArgs e)
         {
             CustomerEntry.Text      = "";
-            LocationEntry.Text      = "";
             CountryEntry.Text       = "";
-            TelephoneNoEntry.Text   = "";
         }
     }
 }

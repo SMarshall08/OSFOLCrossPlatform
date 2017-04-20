@@ -160,10 +160,10 @@ namespace OSFOLCrossPlatform.ViewModels
                     LoginID = _LoginID,
                     rfBusinessOwnerID = 1,
                     Customer = _Customer,
-                    Location = _Location,
+                    Location = "",
                     Country = _Country,
                     IsRetired = 0,
-                    TelephoneNum = _TelephoneNumber,
+                    TelephoneNum = "",
                     Website = "",
                     ModifiedDT = _ModifiedDT,
                     RevisionNo = 0

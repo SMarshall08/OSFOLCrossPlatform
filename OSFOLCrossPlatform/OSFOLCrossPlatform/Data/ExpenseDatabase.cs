@@ -35,6 +35,21 @@ namespace OSFOLCrossPlatform.Data
             }
         }
 
+        public int GetMaxLoginID()
+        {
+            lock (locker)
+            {
+                //return (from i in database.Table<Customer>() select i).ToList();
+                //return database.Query<int>("SELECT MAX(LoginID) As LoginID FROM [Login]").Max();
+                return database.ExecuteScalar<int>("SELECT MAX(LoginID) As LoginID FROM [Login]");
+            }
+        }
+
+        //public int GetMAXLoginID()
+        //{
+        //    return database.Table<Login>().Max(x => x.LoginID);
+        //}
+
         public IEnumerable<Login> GetUserNames()
         {
             lock (locker)
@@ -304,6 +319,8 @@ namespace OSFOLCrossPlatform.Data
                 return login.LoginID;
             }
         }
+
+
 
         public int SaveExpense(Expense expense)
         {

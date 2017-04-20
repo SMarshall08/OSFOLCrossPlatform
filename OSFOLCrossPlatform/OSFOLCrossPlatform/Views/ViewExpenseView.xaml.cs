@@ -9,11 +9,16 @@ namespace OSFOLCrossPlatform.Views
     public partial class ViewExpenseView : ContentPage
     {
         int _selectedExpenseId;
+        int _loginID;
+        Expense _expense;
         ExpenseInnerView viewModel;
 
         public ViewExpenseView(int selectedExpenseID)
         {
             _selectedExpenseId = selectedExpenseID;
+
+            _expense = App.Database.GetEditExpense(_selectedExpenseId);
+            _loginID = _expense.LoginID;
 
             // Create new instance of ExpenseViewModel
             viewModel = new ExpenseInnerView();
@@ -41,7 +46,7 @@ namespace OSFOLCrossPlatform.Views
         // On button click logout
         async void OnHomeButtonClicked(object sender, EventArgs e)
         {
-            Navigation.InsertPageBefore(new MainPage(), this);
+            Navigation.InsertPageBefore(new MainPage(_loginID), this);
             await Navigation.PopAsync();
         }
 

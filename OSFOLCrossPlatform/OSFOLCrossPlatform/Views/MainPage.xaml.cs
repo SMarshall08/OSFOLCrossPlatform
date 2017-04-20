@@ -14,11 +14,7 @@ namespace OSFOLCrossPlatform
         {
             InitializeComponent();
 
-            _login = App.Database.GetLoginName(_loginid);
-            string firstName = _login.FirstName;
-            string lastName = _login.LastName;
-
-            Title = firstName + " " + lastName + " Expense Tracker";
+            Title = " Expense Tracker";
         }
 
         public MainPage(int loginID)

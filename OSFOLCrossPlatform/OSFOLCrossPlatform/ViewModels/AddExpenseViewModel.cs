@@ -310,6 +310,7 @@ namespace OSFOLCrossPlatform.ViewModels
         {
             database = new ExpenseDatabase();
 
+            ExpenseID               = expense.ExpenseID;
             LoginID                 = expense.LoginID;
             MonthReportIdentifier   = expense.MonthReportIdentifier;
             SalesOpportunityID      = expense.SalesOpportunityID;
@@ -437,9 +438,9 @@ namespace OSFOLCrossPlatform.ViewModels
                     ExpenseDetails          = _ExpenseDetails,
                     ContactID               = _ContactID,
                     rfCurrencyID            = _rfCurrencyID,
-                    ExchangeRate            = 1.2m,
-                    ExpenseAmountCur        = 11,
-                    ExpenseAmount           = _ExpenseAmount,
+                    ExchangeRate            = _ExchangeRate,
+                    ExpenseAmountCur        = _ExpenseAmountCur,
+                    ExpenseAmount           = _ExpenseAmountCur * _ExchangeRate,
                     rfExpenseTypeID         = _rfExpenseTypeID,
                     rfExpenseMethodID       = _rfExpenseMethodID,
                     IsRechargeable          = _IsRechargeable,
@@ -484,9 +485,9 @@ namespace OSFOLCrossPlatform.ViewModels
                     ExpenseDetails          = _ExpenseDetails,
                     ContactID               = _ContactID,
                     rfCurrencyID            = _rfCurrencyID,
-                    ExchangeRate            = 1.2m,
-                    ExpenseAmountCur        = 11,
-                    ExpenseAmount           = _ExpenseAmount,
+                    ExchangeRate            = _ExchangeRate,
+                    ExpenseAmountCur        = _ExpenseAmountCur,
+                    ExpenseAmount           = _ExpenseAmountCur * _ExchangeRate,
                     rfExpenseTypeID         = _rfExpenseTypeID,
                     rfExpenseMethodID       = _rfExpenseMethodID,
                     IsRechargeable          = _IsRechargeable,
@@ -527,9 +528,9 @@ namespace OSFOLCrossPlatform.ViewModels
                     ExpenseDetails          = _ExpenseDetails,
                     ContactID               = _ContactID,
                     rfCurrencyID            = _rfCurrencyID,
-                    ExchangeRate            = 1.2m,
-                    ExpenseAmountCur        = 11,
-                    ExpenseAmount           = _ExpenseAmount,
+                    ExchangeRate            = _ExchangeRate,
+                    ExpenseAmountCur        = _ExpenseAmountCur,
+                    ExpenseAmount           = _ExpenseAmountCur * _ExchangeRate,
                     rfExpenseTypeID         = _rfExpenseTypeID,
                     rfExpenseMethodID       = _rfExpenseMethodID,
                     IsRechargeable          = _IsRechargeable,

@@ -19,7 +19,7 @@ namespace OSFOLCrossPlatform
 
         public Login() { }
 
-        [PrimaryKey,AutoIncrement, Unique]
+        [PrimaryKey, Unique]
         public int    LoginID   { get; set; }
         public string UserName  { get; set; }
         public string Password  { get; set; }

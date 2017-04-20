@@ -29,34 +29,11 @@
           <ColumnDefinition Width="85" />
           <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <Label Text="Location:*" />
-        <Entry Grid.Column="1"
-               x:Name="LocationEntry"
-               Placeholder="Location"
-               Text="{Binding Location}"/>
-      </Grid>
-      <Grid>
-        <Grid.ColumnDefinitions>
-          <ColumnDefinition Width="85" />
-          <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
         <Label Text="Country:*" />
         <Entry Grid.Column="1"
                x:Name="CountryEntry"
                Placeholder="Country"
                Text="{Binding Country}"/>
-      </Grid>
-      <Grid>
-        <Grid.ColumnDefinitions>
-          <ColumnDefinition Width="150" />
-          <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
-        <Label Text="Telephone Number:" />
-        <Entry Grid.Column="1"
-               x:Name="TelephoneNoEntry"
-               Placeholder="Telephone Number"
-               Keyboard="Numeric"
-               Text="{Binding TelephoneNumber}"/>
       </Grid>
     </StackLayout>
   </ScrollView>

@@ -26,13 +26,7 @@ namespace OSFOLCrossPlatform.Views {
         private global::Xamarin.Forms.Entry CustomerEntry;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
-        private global::Xamarin.Forms.Entry LocationEntry;
-        
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private global::Xamarin.Forms.Entry CountryEntry;
-        
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
-        private global::Xamarin.Forms.Entry TelephoneNoEntry;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private void InitializeComponent() {
@@ -40,9 +34,7 @@ namespace OSFOLCrossPlatform.Views {
             Next = this.FindByName<global::Xamarin.Forms.ToolbarItem>("Next");
             Save = this.FindByName<global::Xamarin.Forms.ToolbarItem>("Save");
             CustomerEntry = this.FindByName<global::Xamarin.Forms.Entry>("CustomerEntry");
-            LocationEntry = this.FindByName<global::Xamarin.Forms.Entry>("LocationEntry");
             CountryEntry = this.FindByName<global::Xamarin.Forms.Entry>("CountryEntry");
-            TelephoneNoEntry = this.FindByName<global::Xamarin.Forms.Entry>("TelephoneNoEntry");
         }
     }
 }

@@ -48,9 +48,6 @@ C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform
 C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform\obj\Debug\OSFOLCrossPlatform.pdb
 C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform\obj\Debug\OSFOLCrossPlatform.Views.AddVendorView.xaml.g.cs
 C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform\obj\Debug\OSFOLCrossPlatform.Views.SignUpView.xaml.g.cs
-C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform\obj\Debug\OSFOLCrossPlatform.dll.mdb
-C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform\bin\Debug\OSFOLCrossPlatform.dll.mdb
-C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform\obj\Debug\OSFOLCrossPlatform.dll.mdb
-C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform\bin\Debug\OSFOLCrossPlatform.dll.mdb
+C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform\obj\Debug\OSFOLCrossPlatform.csprojResolveAssemblyReference.cache
 C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform\obj\Debug\OSFOLCrossPlatform.dll.mdb
 C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform\bin\Debug\OSFOLCrossPlatform.dll.mdb

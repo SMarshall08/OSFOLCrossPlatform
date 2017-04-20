@@ -13,7 +13,7 @@
       <Button Text="Add Expense" Clicked="OnAddExpenseButtonClicked" Image="AddExpense.png" />
       <Button Text="Month Report" Clicked="MonthExpenseReport_OnClicked" Image="MonthReport.png"/>
       <Button Text="My Trips" Clicked="ExpenseSetReport_OnClicked" Image="MyTrips.png" />
-      <Button Text="Admin" Clicked="Admin_OnClicked" />
+      <Button Text="Admin" Clicked="Admin_OnClicked" Image="Settings.png"/>
     </StackLayout>
   </ContentPage.Content>
 </ContentPage>

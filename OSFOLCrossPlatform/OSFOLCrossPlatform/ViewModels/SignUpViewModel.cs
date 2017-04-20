@@ -15,11 +15,22 @@ namespace OSFOLCrossPlatform.ViewModels
         ExpenseDatabase database;
 
         public ICommand SaveButtonTapped { protected set; get; }
-
+        int _MaxLoginID;
+        int _MaxLoginIDPlusOne;
         string _FirstName;
         string _LastName;
         string _UserName;
         string _Password;
+
+        public int LoginID
+        {
+            get { return _MaxLoginIDPlusOne; }
+            set
+            {
+                _MaxLoginIDPlusOne = value;
+                RaisePropertyChanged();
+            }
+        }
 
         public string FirstName
         {
@@ -65,10 +76,12 @@ namespace OSFOLCrossPlatform.ViewModels
             // save expense 
             SaveButtonTapped = new Command(() =>
             {
-
+                _MaxLoginID = App.Database.GetMaxLoginID();
+                _MaxLoginIDPlusOne = _MaxLoginID + 1;
                 // Task to call database and save expense with values from model 
                 Task.Run(() => App.Database.SignUp(new Login
                 {
+                    LoginID = _MaxLoginIDPlusOne,
                     UserName = _UserName,
                     Password = _Password,
                     FirstName = _FirstName,

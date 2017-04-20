@@ -106,6 +106,10 @@ C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform
 C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform.Droid\obj\Debug\res\drawable-xhdpi\lighthouselogo.png
 C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform.Droid\obj\Debug\res\drawable-xxhdpi\lighthouselogo.png
 C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform.Droid\obj\Debug\res\drawable-xxxhdpi\lighthouselogo.png
-C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform.Droid\bin\Debug\OSFOLCrossPlatform.dll.mdb
+C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform.Droid\obj\Debug\res\drawable-hdpi\settings.png
+C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform.Droid\obj\Debug\res\drawable-mdpi\settings.png
+C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform.Droid\obj\Debug\res\drawable-xhdpi\settings.png
+C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform.Droid\obj\Debug\res\drawable-xxhdpi\settings.png
+C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform.Droid\obj\Debug\res\drawable-xxxhdpi\settings.png
 C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform.Droid\obj\Debug\OSFOLCrossPlatform.Droid.dll.mdb
 C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform.Droid\bin\Debug\OSFOLCrossPlatform.Droid.dll.mdb

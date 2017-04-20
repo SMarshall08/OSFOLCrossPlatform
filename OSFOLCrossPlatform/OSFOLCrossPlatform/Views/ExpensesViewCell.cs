@@ -9,12 +9,18 @@ namespace OSFOLCrossPlatform.Views
         public ExpensesViewCell()
         {
             #region Create Image
+            //var lighthouseImage = new Image
+            //{
+            //    Source  = "lighthouseicon",
+            //    Scale   = 0.5
+
+            //};
+
             var lighthouseImage = new Image
             {
-                Source  = "lighthouseicon",
-                Scale   = 0.5
-               
+                Scale = 0.75
             };
+            lighthouseImage.SetBinding(Image.SourceProperty, "ReceiptImageUri");
             #endregion
 
             #region Create Expense Stack
@@ -103,15 +109,14 @@ namespace OSFOLCrossPlatform.Views
                 {
                     HorizontalOptions = LayoutOptions.Fill,
                     Padding = 10,
-                    Spacing = 20,
+                    Spacing = 40,
                     Orientation = StackOrientation.Horizontal,
                     Children = {
                         lighthouseImage,
                         expenseStack,
-                        //customerStack,
-                        amountStack,
-                        dateStack
-                        
+                        dateStack,
+                        amountStack
+
                     }
                 };
             }
@@ -124,15 +129,14 @@ namespace OSFOLCrossPlatform.Views
                 {
                     HorizontalOptions = LayoutOptions.Fill,
                     Padding = 10,
-                    Spacing = 20,
+                    Spacing = 40,
                     Orientation = StackOrientation.Horizontal,
                     Children = {
                         lighthouseImage,
                         expenseStack,
-                        //customerStack,
-                        amountStack,
-                        dateStack
-                        
+                        dateStack,
+                        amountStack
+
                     }
                 };
             }

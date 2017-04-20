@@ -146,6 +146,8 @@ namespace OSFOLCrossPlatform.Views
         public AddExpense(ExpenseSummary editExpense)
         {
             InitializeComponent();
+
+            _loginID = editExpense.LoginID;
             
             Title = "Edit Expense";
 
@@ -189,6 +191,7 @@ namespace OSFOLCrossPlatform.Views
         public AddExpense(Expense ExpenseReceiptCapture)
         {
             InitializeComponent();
+            _loginID = ExpenseReceiptCapture.LoginID;
 
             _expense = ExpenseReceiptCapture;
 
@@ -218,7 +221,7 @@ namespace OSFOLCrossPlatform.Views
                     AddPicture.Text = "Add Receipt Image";
                 }
                     
-                viewModel = new AddExpenseViewModel(_expense.LoginID,_expense.ExpenseSetID);
+                viewModel = new AddExpenseViewModel(_expense);
             }
             else
             {
@@ -320,6 +323,9 @@ namespace OSFOLCrossPlatform.Views
         protected override void OnAppearing()
         {
             base.OnAppearing();
+            customerListView.Items.Clear();
+            opportunityListView.Items.Clear();
+            contactListView.Items.Clear();
 
             // Get all list view data on appearing so user can quickly choose expense options. 
             customerListView.ItemsSource        = App.Database.GetCustomers();
@@ -379,16 +385,25 @@ namespace OSFOLCrossPlatform.Views
 
         void onCustomerSelected(object sender, EventArgs e)
         {
-            Customers selectedCustomer = customerListView.SelectedItem as Customers;
-            int customerID = selectedCustomer.CustomerID;
+            
+            if(customerListView.SelectedIndex != -1)
+            {
+                Customers selectedCustomer      = customerListView.SelectedItem as Customers;
+                int customerID                  = selectedCustomer.CustomerID;
+                // Load the customer opportunities and refresh
+                opportunityListView.Items.Clear();
+                opportunityListView.ItemsSource = App.Database.GetDependencyOpportunity(customerID);
 
-            // Load the customer opportunities and refresh
-            opportunityListView.Items.Clear();
-            opportunityListView.ItemsSource = App.Database.GetDependencyOpportunity(customerID);
+                // load customer contacts and refresh
+                contactListView.Items.Clear();
+                contactListView.ItemsSource     = App.Database.GetDependencyContact(customerID);
+            }
 
-            // load customer contacts and refresh
-            contactListView.Items.Clear();
-            contactListView.ItemsSource = App.Database.GetDependencyContact(customerID);
+            else
+            {
+                opportunityListView.ItemsSource     = App.Database.GetOpportunities();
+                contactListView.ItemsSource         = App.Database.GetContact();
+            }
 
         }
 

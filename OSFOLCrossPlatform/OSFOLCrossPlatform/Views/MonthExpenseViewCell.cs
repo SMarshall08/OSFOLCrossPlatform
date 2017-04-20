@@ -42,7 +42,7 @@ namespace OSFOLCrossPlatform.Views
                 {
                     HorizontalOptions = LayoutOptions.Fill,
                     Padding = 10,
-                    Spacing = 20,
+                    Spacing = 50,
                     Orientation = StackOrientation.Horizontal,
                     Children = {
                         lighthouseImage,

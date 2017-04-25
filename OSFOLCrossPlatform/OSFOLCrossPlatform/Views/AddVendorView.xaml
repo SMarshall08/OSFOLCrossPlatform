@@ -22,7 +22,9 @@
         <Entry Grid.Column="1"
                x:Name="VendorEntry"
                Placeholder="Vendor"
-               Text="{Binding Vendor}"/>
+               Text="{Binding Vendor}"
+               VerticalOptions="CenterAndExpand"
+               HorizontalOptions="CenterAndExpand"/>
       </Grid>
     </StackLayout>
   </ScrollView>

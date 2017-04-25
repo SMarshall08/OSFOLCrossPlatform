@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OSFOLCrossPlatform.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,14 +12,14 @@ namespace OSFOLCrossPlatform.Views
     public partial class AddSalesOpportunityView : ContentPage
     {
         int _loginID;
-        AddContactView viewModel;
+        AddSalesOpportunityViewModel viewModel;
 
         public AddSalesOpportunityView(int loginID)
         {
             InitializeComponent();
 
             _loginID = loginID;
-            viewModel = new AddContactView(_loginID);
+            viewModel = new AddSalesOpportunityViewModel(_loginID);
             BindingContext = viewModel;
                
         }
@@ -49,6 +50,12 @@ namespace OSFOLCrossPlatform.Views
         {
             customerListView.SelectedIndex = -1;
             SalesOpportunityEntry.Text = "";
+        }
+
+        // Get all data from database on page appearing
+        protected override void OnAppearing()
+        {
+            customerListView.ItemsSource = App.Database.GetCustomers();
         }
     }
 }

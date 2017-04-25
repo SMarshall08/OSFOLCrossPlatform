@@ -50,6 +50,27 @@ namespace OSFOLCrossPlatform.Model
         public string ExpenseSetName    { get; set; }
     }
 
+    public class ExpenseCsv
+    {
+        public DateTime CreatedDT { get; set; }
+        public string Customer { get; set; }
+        public string Contact { get; set; }
+        public string Opportunity { get; set; }
+        public string LocationFrom { get; set; }
+        public string LocationTo { get; set; }
+        public string rfExpenseType { get; set; }
+        public string rfExpenseMethod { get; set; }
+        public string ExpenseDetails { get; set; }
+        public string Vendor { get; set; }
+        public string rfCurrency { get; set; }
+        public decimal ExchangeRate { get; set; }
+        public decimal ExpenseAmountCur { get; set; }
+        public decimal ExpenseAmount { get; set; }
+        public string ReceiptImageUri { get; set; }
+        public string ExpenseSetName { get; set; }
+    }
+
+
     /// <summary>
     /// Customer details to whom expenses may relate
     /// </summary>
@@ -147,6 +168,21 @@ namespace OSFOLCrossPlatform.Model
         public int IsRetired       { get; set; }
         public DateTime CreatedDT   { get; set; }
         public DateTime ModifiedDT  { get; set; }
+    }
+
+    /// <summary>
+    /// View to concaternate the contact full name
+    /// </summary>
+    public class ContactFullName
+    {
+        public ContactFullName() { }
+
+        [PrimaryKey,Unique]
+        public int ContactID { get; set; }
+        public int CustomerID { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string FullName { get; set; }
     }
 
     /// <summary>

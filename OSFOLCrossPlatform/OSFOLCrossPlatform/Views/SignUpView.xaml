@@ -38,7 +38,7 @@
         <Label Text="UserName"/>
         <Entry Grid.Column="1"
                x:Name="userNameEntry"
-               Placeholder="E.g: johndo_lighthouse"
+               Placeholder="E.g: john_lighthouse"
                Text="{Binding UserName}"
                />
       </Grid>
@@ -53,12 +53,27 @@
                x:Name="passwordEntry"
                Placeholder="Password"
                Text="{Binding Password}"
+               IsPassword="True"
+               />
+      </Grid>
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="150" />
+          <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Label Text="Security Pin"/>
+        <Entry Grid.Column="1"
+               x:Name="securityPinEntry"
+               Placeholder="Security Pin"
+               Keyboard="Numeric"
+               IsPassword="True"
                />
       </Grid>
       <Button x:Name="SignUp"
-        Clicked="SignUpButton_OnClicked"
+        Clicked="SignUpSaveButton_OnClicked"
         Command="{Binding Path=SaveButtonTapped}"
         Text="Sign Up" />
+      <Label x:Name="messageLabel" />
       
     </StackLayout>
   </ContentPage.Content>

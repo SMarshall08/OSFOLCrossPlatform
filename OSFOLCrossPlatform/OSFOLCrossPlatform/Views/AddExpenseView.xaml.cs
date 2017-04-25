@@ -295,8 +295,6 @@ namespace OSFOLCrossPlatform.Views
         // On button click, clear all values to add new expense
         public void OnNextButtonClicked(Object sender, EventArgs e)
         {
-            
-            
             customerListView.SelectedIndex      = -1;
             opportunityListView.SelectedIndex   = -1;
             expenseTypeListView.SelectedIndex   = -1;
@@ -308,7 +306,6 @@ namespace OSFOLCrossPlatform.Views
             locationFromEntry.Text              = string.Empty;
             locationToEntry.Text                = string.Empty;
             expenseDetailsEntry.Text            = string.Empty;
-            //expenseAmountEntry.Text             = "0";
             expenseAmountCurEntry.Text          = "0";
             exchangeRateEntry.Text              = "1";
             ReceiptImageUri.Text                = string.Empty;
@@ -329,17 +326,19 @@ namespace OSFOLCrossPlatform.Views
 
             // Get all list view data on appearing so user can quickly choose expense options. 
             customerListView.ItemsSource        = App.Database.GetCustomers();
-            //opportunityListView.ItemsSource     = App.Database.GetOpportunities();
             expenseTypeListView.ItemsSource     = App.Database.GetExpenseTypes();
             vendorListView.ItemsSource          = App.Database.GetVendor();
-            //contactListView.ItemsSource         = App.Database.GetContact();
             expenseMethodListView.ItemsSource   = App.Database.GetExpenseMethods();
             currencyListView.ItemsSource        = App.Database.GetCurrency();
 
             //expenseSetListView.ItemsSource      = App.Database.GetExpenseSets(_loginID);
 
-            // We want to fill exchange rate to a standard rate of 1 incase the user uses Sterling 
-            exchangeRateEntry.Text = "1";
+            // We want to set exchange rate to 1 default in case the user uses Sterling 
+            if(_expense == null)
+            {
+                exchangeRateEntry.Text = "1.00";
+            }
+            
 
             // If expense does not equal null fill fields with data.
             if (_expense != null)
@@ -354,7 +353,6 @@ namespace OSFOLCrossPlatform.Views
                 locationFromEntry.Text              = _expense.LocationFrom;
                 locationToEntry.Text                = _expense.LocationTo;
                 expenseDetailsEntry.Text            = _expense.ExpenseDetails;
-                //expenseAmountEntry.Text             = _expense.ExpenseAmount.ToString();
                 expenseAmountCurEntry.Text          = _expense.ExpenseAmountCur.ToString();
                 exchangeRateEntry.Text              = _expense.ExchangeRate.ToString();
                 ReceiptImageUri.Text                = _expense.ReceiptImageUri;
@@ -402,7 +400,7 @@ namespace OSFOLCrossPlatform.Views
             else
             {
                 opportunityListView.ItemsSource     = App.Database.GetOpportunities();
-                contactListView.ItemsSource         = App.Database.GetContact();
+                contactListView.ItemsSource         = App.Database.GetFullNameContact();
             }
 
         }

@@ -53,7 +53,7 @@ namespace OSFOLCrossPlatform.Views
         // On button click go to add customer page
         async void AddVendorButton_OnClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new AddSalesOpportunityView(_loginID));
+            await Navigation.PushAsync(new AddVendorView(_loginID));
         }
     }
 }

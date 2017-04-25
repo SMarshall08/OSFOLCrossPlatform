@@ -30,7 +30,6 @@ namespace OSFOLCrossPlatform.Data
         {
             lock (locker)
             {
-                //return (from i in database.Table<Customer>() select i).ToList();
                 return database.Query<Customers>("SELECT * FROM [Customers] WHERE IsRetired = 0 ORDER BY Customer ASC");
             }
         }
@@ -39,16 +38,33 @@ namespace OSFOLCrossPlatform.Data
         {
             lock (locker)
             {
-                //return (from i in database.Table<Customer>() select i).ToList();
-                //return database.Query<int>("SELECT MAX(LoginID) As LoginID FROM [Login]").Max();
                 return database.ExecuteScalar<int>("SELECT MAX(LoginID) As LoginID FROM [Login]");
             }
         }
 
-        //public int GetMAXLoginID()
-        //{
-        //    return database.Table<Login>().Max(x => x.LoginID);
-        //}
+        public int GetMaxContactID()
+        {
+            lock (locker)
+            {
+                return database.ExecuteScalar<int>("SELECT MAX(ContactID) As ContactID FROM [Contact]");
+            }
+        }
+
+        public int GetMaxSalesOpportunityID()
+        {
+            lock (locker)
+            {
+                return database.ExecuteScalar<int>("SELECT MAX(SalesOpportunityID) As SalesOpportunityID FROM [SalesOpportunity]");
+            }
+        }
+
+        public int GetMaxVendorID()
+        {
+            lock (locker)
+            {
+                return database.ExecuteScalar<int>("SELECT MAX(VendorID) As VendorID FROM [rfVendor]");
+            }
+        }
 
         public IEnumerable<Login> GetUserNames()
         {
@@ -121,6 +137,15 @@ namespace OSFOLCrossPlatform.Data
             }
         }
 
+        public IEnumerable<ContactFullName> GetFullNameContact()
+        {
+            lock (locker)
+            {
+                //return (from i in database.Table<Contact>() select i).ToList();
+                return database.Query<ContactFullName>("SELECT * FROM [ContactFullName] ORDER BY FullName ASC");
+            }
+        }
+
         public IEnumerable<Currency> GetCurrency()
         {
             lock (locker)
@@ -130,14 +155,15 @@ namespace OSFOLCrossPlatform.Data
             }
         }
 
-        //public IEnumerable<ExpenseMonth> GetMonths(int threeMonthsBack)
-        //{
-        //    lock (locker)
-        //    {
-        //        //return (from i in database.Table<Contact>() select i).ToList();
-        //        return database.Query<ExpenseMonth>("SELECT * FROM [ExpenseMonth] ORDER BY MonthID ASC");
-        //    }
-        //}
+
+        public IEnumerable<ExpenseSummary> GetExpenseSummary(int expenseID)
+        {
+            lock (locker)
+            {
+                return database.Table<ExpenseSummary>().Where(x => x.ExpenseID == expenseID);
+            }
+        }
+
 
         public IEnumerable<SalesOpportunity> GetDependencyOpportunity(int customerID)
         {
@@ -147,11 +173,11 @@ namespace OSFOLCrossPlatform.Data
             }
         }
 
-        public IEnumerable<Contact> GetDependencyContact(int customerID)
+        public IEnumerable<ContactFullName> GetDependencyContact(int customerID)
         {
             lock (locker)
             {
-                return database.Table<Contact>().Where(x => x.CustomerID == customerID);
+                return database.Table<ContactFullName>().Where(x => x.CustomerID == customerID);
             }
         }
 

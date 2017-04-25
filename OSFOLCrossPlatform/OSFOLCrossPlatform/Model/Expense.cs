@@ -35,9 +35,9 @@ namespace OSFOLCrossPlatform.Model
         public string ExpenseDetails        { get; set; }
         public int ContactID                { get; set; }
         public int rfCurrencyID             { get; set; }
-        public decimal ExchangeRate         { get; set; }
-        public decimal ExpenseAmountCur     { get; set; }
-        public decimal ExpenseAmount        { get; set; }
+        public float ExchangeRate         { get; set; }
+        public float ExpenseAmountCur     { get; set; }
+        public float ExpenseAmount        { get; set; }
         public int rfExpenseTypeID          { get; set; }
         public int rfExpenseMethodID        { get; set; }
         public bool IsRechargeable          { get; set; }

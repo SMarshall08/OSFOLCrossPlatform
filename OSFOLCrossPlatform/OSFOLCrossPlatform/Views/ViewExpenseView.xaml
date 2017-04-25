@@ -12,6 +12,9 @@
       <Button x:Name="EditExpense"
               Text="Edit Expense"
              Clicked="ExpenseLabel_Clicked" />
+      <Button x:Name="SendCSV"
+              Text="Send Expense as CSV"
+             Clicked="CSVButton_Clicked" />
       <Grid>
         <Grid.ColumnDefinitions>
           <ColumnDefinition Width="85" />

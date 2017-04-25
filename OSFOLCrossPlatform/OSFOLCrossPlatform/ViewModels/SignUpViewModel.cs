@@ -21,6 +21,7 @@ namespace OSFOLCrossPlatform.ViewModels
         string _LastName;
         string _UserName;
         string _Password;
+        string _SecurityPin;
 
         public int LoginID
         {
@@ -66,6 +67,16 @@ namespace OSFOLCrossPlatform.ViewModels
             set
             {
                 _Password = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        public string SecurityPin
+        {
+            get { return _SecurityPin; }
+            set
+            {
+                _SecurityPin = value;
                 RaisePropertyChanged();
             }
         }

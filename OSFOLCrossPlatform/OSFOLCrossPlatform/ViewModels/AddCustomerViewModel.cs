@@ -17,6 +17,7 @@ namespace OSFOLCrossPlatform.ViewModels
 
         public Command SaveButtonTapped { get; private set; }
 
+        int _maxCustomerID; 
         int _CustomerID;
         int _LoginID;
         string _Customer;
@@ -153,20 +154,22 @@ namespace OSFOLCrossPlatform.ViewModels
             // save expense 
             SaveButtonTapped = new Command(() =>
             {
-
+                //_CustomerID = App.Database.GetMaxContactID();
+                //_maxCustomerID = _CustomerID + 1;
                 // Task to call database and save expense with values from model 
                 Task.Run(() => App.Database.SaveCustomer(new Customers
                 {
-                    LoginID = _LoginID,
-                    rfBusinessOwnerID = 1,
-                    Customer = _Customer,
-                    Location = "",
-                    Country = _Country,
-                    IsRetired = 0,
-                    TelephoneNum = "",
-                    Website = "",
-                    ModifiedDT = _ModifiedDT,
-                    RevisionNo = 0
+                    //CustomerID          = _maxCustomerID,
+                    LoginID             = _LoginID,
+                    rfBusinessOwnerID   = 1,
+                    Customer            = _Customer,
+                    Location            = "",
+                    Country             = _Country,
+                    IsRetired           = 0,
+                    TelephoneNum        = "",
+                    Website             = "",
+                    ModifiedDT          = _ModifiedDT,
+                    RevisionNo          = 0
 
 
                 }));

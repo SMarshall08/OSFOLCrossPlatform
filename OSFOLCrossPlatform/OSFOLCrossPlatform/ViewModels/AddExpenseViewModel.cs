@@ -44,9 +44,9 @@ namespace OSFOLCrossPlatform.ViewModels
         int _rfCurrencyID;
         int _VendorID;
 
-        decimal _ExpenseAmountCur;
-        decimal _ExpenseAmount;
-        decimal _ExchangeRate;
+        float _ExpenseAmountCur;
+        float _ExpenseAmount;
+        float _ExchangeRate;
 
         bool _IsRechargeable;
 
@@ -165,7 +165,7 @@ namespace OSFOLCrossPlatform.ViewModels
             }
         }
 
-        public decimal ExchangeRate
+        public float ExchangeRate
         {
             get { return _ExchangeRate; }
             set
@@ -174,7 +174,7 @@ namespace OSFOLCrossPlatform.ViewModels
                 RaisePropertyChanged();
             }
         }
-        public decimal ExpenseAmountCur
+        public float ExpenseAmountCur
         {
             get { return _ExpenseAmountCur; }
             set
@@ -184,12 +184,12 @@ namespace OSFOLCrossPlatform.ViewModels
             }
         }
 
-        public decimal ExpenseAmount
+        public float ExpenseAmount
         {
             get { return _ExpenseAmount; }
             set
             {
-                _ExpenseAmount = _ExpenseAmountCur * _ExchangeRate;
+                _ExpenseAmount = value;
                 RaisePropertyChanged();
             }
         }
@@ -320,7 +320,7 @@ namespace OSFOLCrossPlatform.ViewModels
             ExpenseDetails          = expense.ExpenseDetails;
             ContactID               = expense.ContactID;
             rfCurrencyID            = expense.rfCurrencyID;
-            ExchangeRate            = expense.ExchangeRate;
+            ExchangeRate            = expense.ExchangeRate; 
             ExpenseAmountCur        = expense.ExpenseAmountCur;
             ExpenseAmount           = expense.ExpenseAmount;
             rfExpenseTypeID         = expense.rfExpenseTypeID;

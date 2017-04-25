@@ -13,6 +13,8 @@ namespace OSFOLCrossPlatform.ViewModels
         ExpenseDatabase _database;
         SalesOpportunity _opportunity;
 
+        int _opportunityID;
+        int _maxOpportunityID;
         string _Opportunity;
         int _rfBusinessOwnerID;
         int _PersonnelOwnerID;
@@ -81,7 +83,7 @@ namespace OSFOLCrossPlatform.ViewModels
 
 
 
-        public AddSalesOpportunityViewModel()
+        public AddSalesOpportunityViewModel(int loginID)
         {
             _database = new ExpenseDatabase();
             _ModifiedDT = DateTime.Now;
@@ -89,16 +91,18 @@ namespace OSFOLCrossPlatform.ViewModels
             // save expense 
             SaveButtonTapped = new Command(() =>
             {
-
+                _opportunityID = App.Database.GetMaxSalesOpportunityID();
+                _maxOpportunityID = _opportunityID + 1;
                 // Task to call database and save expense with values from model 
                 Task.Run(() => App.Database.SaveSalesOpportunity(new SalesOpportunity
                 {
-                    rfBusinessOwnerID = 1,
-                    PersonnelOwnerID = 0,
-                    CustomerID = _CustomerID,
-                    Opportunity = _Opportunity,
-                    BusinessOwnercurrency = "",
-                    ModifiedDT = _ModifiedDT
+                    SalesOpportunityID      = _maxOpportunityID,
+                    rfBusinessOwnerID       = 1,
+                    PersonnelOwnerID        = loginID,
+                    CustomerID              = _CustomerID,
+                    Opportunity             = _Opportunity,
+                    BusinessOwnercurrency   = "",
+                    ModifiedDT              = _ModifiedDT
 
                 }));
 

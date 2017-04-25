@@ -2565,9 +2565,10 @@ containing a value of this type.
         public static int mr_ic_play_dark=0x7f0200a4;
         public static int mr_ic_play_light=0x7f0200a5;
         public static int mytrips=0x7f0200a6;
-        public static int notification_template_icon_bg=0x7f0200a9;
+        public static int notification_template_icon_bg=0x7f0200aa;
         public static int photo=0x7f0200a7;
         public static int receiptcapture=0x7f0200a8;
+        public static int settings=0x7f0200a9;
     }
     public static final class id {
         public static int action0=0x7f08008c;

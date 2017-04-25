@@ -35,9 +35,6 @@
                  IsPassword="true" />
         </Grid>
         
-        <!--<Entry x:Name="usernameEntry" Placeholder="Username" />-
-        <Label Text="Password" />
-        <Entry x:Name="passwordEntry" Placeholder="Password" IsPassword="true" />-->
         <Button Text="Login" Clicked="OnLoginButtonClicked" />
         <Button x:Name="SignUp" Clicked="SignUpButton_OnClicked" Text="Sign Up" />
         <Label x:Name="messageLabel" />

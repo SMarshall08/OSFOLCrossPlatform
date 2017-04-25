@@ -20,6 +20,9 @@ namespace OSFOLCrossPlatform.Views {
         private global::Xamarin.Forms.Button EditExpense;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.Button SendCSV;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private global::Xamarin.Forms.Label expenseSetNameLabel;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
@@ -119,6 +122,7 @@ namespace OSFOLCrossPlatform.Views {
         private void InitializeComponent() {
             this.LoadFromXaml(typeof(ViewExpenseView));
             EditExpense = this.FindByName<global::Xamarin.Forms.Button>("EditExpense");
+            SendCSV = this.FindByName<global::Xamarin.Forms.Button>("SendCSV");
             expenseSetNameLabel = this.FindByName<global::Xamarin.Forms.Label>("expenseSetNameLabel");
             expenseSetNameData = this.FindByName<global::Xamarin.Forms.Label>("expenseSetNameData");
             expenseDateLabel = this.FindByName<global::Xamarin.Forms.Label>("expenseDateLabel");

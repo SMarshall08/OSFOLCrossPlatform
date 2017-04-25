@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OSFOLCrossPlatform.ViewModels;
+using System;
 using Xamarin.Forms;
 
 namespace OSFOLCrossPlatform.Views
@@ -6,14 +7,15 @@ namespace OSFOLCrossPlatform.Views
     public partial class AddContactView : ContentPage
     {
         int _loginID;
-        AddContactView viewModel;
+        AddContactViewModel viewModel;
 
 
         public AddContactView(int loginID)
         {
             InitializeComponent();
+            _loginID = loginID;
 
-            viewModel = new AddContactView(_loginID);
+            viewModel = new AddContactViewModel();
             BindingContext = viewModel;
         }
 
@@ -44,6 +46,12 @@ namespace OSFOLCrossPlatform.Views
             customerListView.SelectedIndex = -1;
             FirstNameEntry.Text = "";
             LastNameEntry.Text = "";
+        }
+
+        // Get all data from database on page appearing
+        protected override void OnAppearing()
+        {
+            customerListView.ItemsSource = App.Database.GetCustomers();
         }
     }
 }

@@ -29,7 +29,13 @@ namespace OSFOLCrossPlatform.Views {
         private global::Xamarin.Forms.Entry passwordEntry;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.Entry securityPinEntry;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private global::Xamarin.Forms.Button SignUp;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.Label messageLabel;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private void InitializeComponent() {
@@ -38,7 +44,9 @@ namespace OSFOLCrossPlatform.Views {
             lastNameEntry = this.FindByName<global::Xamarin.Forms.Entry>("lastNameEntry");
             userNameEntry = this.FindByName<global::Xamarin.Forms.Entry>("userNameEntry");
             passwordEntry = this.FindByName<global::Xamarin.Forms.Entry>("passwordEntry");
+            securityPinEntry = this.FindByName<global::Xamarin.Forms.Entry>("securityPinEntry");
             SignUp = this.FindByName<global::Xamarin.Forms.Button>("SignUp");
+            messageLabel = this.FindByName<global::Xamarin.Forms.Label>("messageLabel");
         }
     }
 }

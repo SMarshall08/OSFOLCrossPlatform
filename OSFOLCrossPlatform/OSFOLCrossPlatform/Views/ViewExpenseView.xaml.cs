@@ -1,17 +1,23 @@
-﻿using OSFOLCrossPlatform.Model;
+﻿using CsvHelper;
+using OSFOLCrossPlatform.Model;
 using OSFOLCrossPlatform.ViewModels;
+using SQLite;
 using System;
-
+using System.IO;
+using System.Collections.Generic;
 using Xamarin.Forms;
+using Plugin.Messaging;
 
 namespace OSFOLCrossPlatform.Views
 {
+
     public partial class ViewExpenseView : ContentPage
     {
         int _selectedExpenseId;
         int _loginID;
         Expense _expense;
         ExpenseInnerView viewModel;
+       
 
         public ViewExpenseView(int selectedExpenseID)
         {
@@ -27,6 +33,13 @@ namespace OSFOLCrossPlatform.Views
             BindingContext = viewModel;
 
             InitializeComponent();
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            viewModel.FillExpenseDetails(_selectedExpenseId);
+
         }
         async void ExpenseLabel_Clicked(object sender, EventArgs e)
         {
@@ -50,11 +63,37 @@ namespace OSFOLCrossPlatform.Views
             await Navigation.PopAsync();
         }
 
-        protected override void OnAppearing()
+        public static IEnumerable<ExpenseSummary> QueryExpense( int expenseId)
         {
-            base.OnAppearing();
-            viewModel.FillExpenseDetails(_selectedExpenseId);
+           return App.Database.GetExpenseSummary(expenseId);
+        }
+
+        async void CSVButton_Clicked(object sender, EventArgs e)
+        {
+            // initialize expense string empty
+            string allExpenses = string.Empty;
+            // go through each expense
+            foreach (ExpenseSummary expense in QueryExpense(_selectedExpenseId))
+            {
+                // compile a CSV string for this entry
+                string expenseText = string.Format("{ 0},{ 1},{ 2},{ 3},{ 4},{ 5},{ 6},{ 7},{ 8},{ 9},{ 10},{ 11},{ 12},{ 13}", 
+                    expense.CreatedDT, expense.Customer,expense.Contact,expense.Opportunity,expense.LocationFrom,expense.LocationTo,
+                    expense.rfExpenseType,expense.rfExpenseMethod,expense.ExpenseDetails,expense.Vendor,expense.rfCurrency,expense.ExchangeRate,
+                    expense.ExpenseAmountCur,expense.ExpenseAmount);
+                // append it to the list of all expenses with a carriage return/linefeed (new line)
+                allExpenses = string.Format("{ 0}\r\n{ 1}", allExpenses, expenseText);
+            }
+
+            
+            DependencyService.Get<ISaveAndLoad>().SaveText("Expense.csv", allExpenses);
+
 
         }
+
+
+
+        
+
+
     }
 }

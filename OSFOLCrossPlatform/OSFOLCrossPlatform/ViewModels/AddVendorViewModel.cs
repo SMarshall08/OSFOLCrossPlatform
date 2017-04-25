@@ -13,6 +13,7 @@ namespace OSFOLCrossPlatform.ViewModels
         ExpenseDatabase _database;
         rfVendor _vendor;
 
+        int _maxVendorID;
         int _VendorID;
         string _Vendor;
 
@@ -34,11 +35,13 @@ namespace OSFOLCrossPlatform.ViewModels
             // save expense 
             SaveButtonTapped = new Command(() =>
             {
-
+                _VendorID = App.Database.GetMaxVendorID();
+                _maxVendorID = _VendorID + 1;
                 // Task to call database and save expense with values from model 
                 Task.Run(() => App.Database.SaveVendor(new rfVendor
                 {
-                    Vendor = _Vendor
+                    VendorID    = _maxVendorID,
+                    Vendor      = _Vendor
 
                 }));
 

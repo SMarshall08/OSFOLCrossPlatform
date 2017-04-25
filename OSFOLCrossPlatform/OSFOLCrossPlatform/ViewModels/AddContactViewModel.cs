@@ -14,6 +14,8 @@ namespace OSFOLCrossPlatform.ViewModels
         ExpenseDatabase _database;
         Contact _contact;
 
+        int _contactID;
+        int _maxContactID;
         int _CustomerID;
 
         string _Title;
@@ -148,23 +150,24 @@ namespace OSFOLCrossPlatform.ViewModels
             // save expense 
             SaveButtonTapped = new Command(() =>
             {
-
+                _contactID = App.Database.GetMaxContactID();
+                _maxContactID = _contactID + 1;
                 // Task to call database and save expense with values from model 
                 Task.Run(() => App.Database.SaveContact(new Contact
                 {
-
-                    CustomerID = _CustomerID,
-                    Title = "",
-                    FirstName = _FirstName,
-                    LastName = _LastName,
-                    Email = "",
-                    Telephone = "",
+                    ContactID   = _maxContactID,
+                    CustomerID  = _CustomerID,
+                    Title       = "",
+                    FirstName   = _FirstName,
+                    LastName    = _LastName,
+                    Email       = "",
+                    Telephone   = "",
                     MobilePhone = "",
-                    JobTitle = "",
-                    Department = "",
-                    IsRetired = 0,
-                    CreatedDT = _CreatedDT,
-                    ModifiedDT = _ModifiedDT
+                    JobTitle    = "",
+                    Department  = "",
+                    IsRetired   = 0,
+                    CreatedDT   = _CreatedDT,
+                    ModifiedDT  = _ModifiedDT
 
                 }));
 

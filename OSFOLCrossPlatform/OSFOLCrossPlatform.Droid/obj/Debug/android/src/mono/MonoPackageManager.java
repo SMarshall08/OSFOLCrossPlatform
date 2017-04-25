@@ -80,11 +80,14 @@ public class MonoPackageManager {
 class MonoPackageManager_Resources {
 	public static final String[] Assemblies = new String[]{
 		"OSFOLCrossPlatform.Droid.dll",
+		"CsvHelper.dll",
 		"FormsViewGroup.dll",
 		"OSFOLCrossPlatform.dll",
 		"Plugin.CurrentActivity.dll",
 		"Plugin.Media.Abstractions.dll",
 		"Plugin.Media.dll",
+		"Plugin.Messaging.Abstractions.dll",
+		"Plugin.Messaging.dll",
 		"Plugin.Permissions.Abstractions.dll",
 		"Plugin.Permissions.dll",
 		"SQLite-net.dll",

@@ -164,9 +164,9 @@
         <Label Text="Contact" />
         <controls:BindablePicker Grid.Column="1"
                                  x:Name="contactListView"
-                                 DisplayMemberPath="FirstName"
+                                 DisplayMemberPath="FullName"
                                  SelectedValuePath="ContactID"
-                                 SelectedValue="{Binding Path=Contact.ContactID, Mode=TwoWay}" />
+                                 SelectedValue="{Binding Path=ContactFullName.ContactID, Mode=TwoWay}" />
       </Grid>
 
       <Grid>
@@ -231,7 +231,7 @@
         <Entry Grid.Column="1"
                x:Name="exchangeRateEntry"
                Placeholder="Exchange Rate"
-               Text="{Binding ExchangeRate}"
+               Text="{Binding ExchangeRate, StringFormat='{}{0:f2}'}"
                Keyboard="Numeric"
                
                />
@@ -246,8 +246,9 @@
         <Entry Grid.Column="1"
                x:Name="expenseAmountCurEntry"
                Placeholder="Currency Amount"
-               Text="{Binding ExpenseAmountCur}"
+               Text="{Binding ExpenseAmountCur, StringFormat='{}{0:f2}'}"
                Keyboard="Numeric"
+               
                />
       </Grid>
     
@@ -277,7 +278,7 @@
         <Entry Grid.Column="1"
                x:Name="expenseAmountEntry"
                Placeholder="Amount"
-               Text="{Binding ExpenseAmount}"
+               Text="{Binding ExpenseAmount, StringFormat='{}{0:f2}'}"
                Keyboard="Numeric"
                IsVisible="false"
                />

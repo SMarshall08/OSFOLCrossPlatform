@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OSFOLCrossPlatform.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,13 +11,17 @@ namespace OSFOLCrossPlatform.Views
 {
     public partial class AddVendorView : ContentPage
     {
-        int _loginID; 
+        int _loginID;
+        AddVendorViewModel viewModel;
 
         public AddVendorView(int loginID)
         {
             InitializeComponent();
 
             _loginID = loginID;
+
+            viewModel = new AddVendorViewModel();
+            BindingContext = viewModel;
         }
 
         // On button click logout

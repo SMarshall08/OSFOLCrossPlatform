@@ -8,6 +8,6 @@ namespace OSFOLCrossPlatform
 {
     public interface ISaveAndLoad
     {
-        void SaveText(string filename, string text);
+        string SaveText(string filename, string text);
     }
 }

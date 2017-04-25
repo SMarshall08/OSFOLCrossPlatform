@@ -93,6 +93,9 @@ namespace OSFOLCrossPlatform.Pages
 
         }
 
+        /// <summary>
+        /// Checks to see if event handlers are subscribed to a button
+        /// </summary>
         void SubscribeEventHandlers()
         {
             if (_areEventHandlersSubscribed)
@@ -106,12 +109,22 @@ namespace OSFOLCrossPlatform.Pages
 
         }
 
+        /// <summary>
+        /// On home button clicked navigate to main page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         async void OnHomeButtonClicked(object sender, EventArgs e)
         {
             Navigation.InsertPageBefore(new MainPage(_loginID), this);
             await Navigation.PopAsync();
         }
 
+        /// <summary>
+        /// On add button clicked navigate to add expense set
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void HandleAddButtonClicked(object sender, EventArgs e)
         {
             Navigation.PushModalAsync(new NavigationPage(new AddExpenseSet(_loginID)));

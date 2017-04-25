@@ -19,11 +19,13 @@ namespace OSFOLCrossPlatform.Droid
 {
     public class csvSave : ISaveAndLoad
     {
-        public void SaveText(string filename, string text)
+        public string SaveText(string filename, string text)
         {
-            var documentsPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
+            var documentsPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData);
             var filePath = Path.Combine(documentsPath, filename);
             System.IO.File.WriteAllText(filePath, text);
+
+            return filePath;
         }
     }
 }

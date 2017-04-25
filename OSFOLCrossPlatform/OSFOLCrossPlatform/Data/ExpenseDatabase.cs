@@ -155,7 +155,6 @@ namespace OSFOLCrossPlatform.Data
             }
         }
 
-
         public IEnumerable<ExpenseSummary> GetExpenseSummary(int expenseID)
         {
             lock (locker)
@@ -163,6 +162,24 @@ namespace OSFOLCrossPlatform.Data
                 return database.Table<ExpenseSummary>().Where(x => x.ExpenseID == expenseID);
             }
         }
+
+        public IEnumerable<ExpenseSummary> GetExpenseSetSummary(string expenseSetName)
+        {
+            lock (locker)
+            {
+                return database.Table<ExpenseSummary>().Where(x => x.ExpenseSetName == expenseSetName);
+            }
+        }
+
+        // Get exoense set name that equal to expensesetID passed in
+        public string GetExpenseSetName(int expenseSetID)
+        {
+            lock (locker)
+            {
+                return database.ExecuteScalar<string>(String.Format("SELECT ExpenseSetName FROM [ExpenseSet] WHERE ExpenseSetID = {0}",expenseSetID));
+            }
+        }
+
 
 
         public IEnumerable<SalesOpportunity> GetDependencyOpportunity(int customerID)

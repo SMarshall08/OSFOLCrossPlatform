@@ -6,6 +6,8 @@ C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform
 C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform\bin\Debug\Plugin.Media.Abstractions.dll
 C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform\bin\Debug\Plugin.Media.dll
+C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform\bin\Debug\Plugin.Messaging.Abstractions.dll
+C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform\bin\Debug\Plugin.Messaging.dll
 C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform\bin\Debug\SQLite-net.dll
 C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform\bin\Debug\SQLitePCL.batteries.dll
 C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform\bin\Debug\SQLitePCL.raw.dll
@@ -24,6 +26,10 @@ C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform
 C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform\bin\Debug\Plugin.Media.xml
 C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform\bin\Debug\Plugin.Media.Abstractions.pdb
 C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform\bin\Debug\Plugin.Media.Abstractions.xml
+C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform\bin\Debug\Plugin.Messaging.pdb
+C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform\bin\Debug\Plugin.Messaging.xml
+C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform\bin\Debug\Plugin.Messaging.Abstractions.pdb
+C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform\bin\Debug\Plugin.Messaging.Abstractions.xml
 C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform\bin\Debug\SQLite-net.xml
 C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform\bin\Debug\System.Data.Generic.xml
 C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform\bin\Debug\Xamarin.Forms.Core.pdb
@@ -36,6 +42,7 @@ C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform
 C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform\bin\Debug\XLabs.Ioc.xml
 C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform\bin\Debug\XLabs.Platform.xml
 C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform\bin\Debug\XLabs.Serialization.xml
+C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform\obj\Debug\OSFOLCrossPlatform.csprojResolveAssemblyReference.cache
 C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform\obj\Debug\OSFOLCrossPlatform.Views.LoginPage.xaml.g.cs
 C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform\obj\Debug\OSFOLCrossPlatform.Views.MainPage.xaml.g.cs
 C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform\obj\Debug\OSFOLCrossPlatform.Views.AddExpenseView.xaml.g.cs
@@ -50,17 +57,6 @@ C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform
 C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform\obj\Debug\OSFOLCrossPlatform.Views.SignUpView.xaml.g.cs
 C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform\obj\Debug\OSFOLCrossPlatform.dll
 C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform\obj\Debug\OSFOLCrossPlatform.pdb
-C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform\bin\Debug\Plugin.Messaging.Abstractions.dll
-C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform\bin\Debug\Plugin.Messaging.dll
-C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform\bin\Debug\Plugin.Messaging.pdb
-C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform\bin\Debug\Plugin.Messaging.xml
-C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform\bin\Debug\Plugin.Messaging.Abstractions.pdb
-C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform\bin\Debug\Plugin.Messaging.Abstractions.xml
-C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform\obj\Debug\OSFOLCrossPlatform.csprojResolveAssemblyReference.cache
-C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform\obj\Debug\OSFOLCrossPlatform.dll.mdb
-C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform\bin\Debug\OSFOLCrossPlatform.dll.mdb
-C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform\obj\Debug\OSFOLCrossPlatform.dll.mdb
-C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform\bin\Debug\OSFOLCrossPlatform.dll.mdb
 C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform\obj\Debug\OSFOLCrossPlatform.dll.mdb
 C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform\bin\Debug\OSFOLCrossPlatform.dll.mdb
 C:\Users\Scott Marshall\Documents\Visual Studio 2015\Projects\OSFOLCrossPlatform\OSFOLCrossPlatform\OSFOLCrossPlatform\obj\Debug\OSFOLCrossPlatform.dll.mdb

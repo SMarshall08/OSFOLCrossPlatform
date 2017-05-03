@@ -12,7 +12,7 @@ using Plugin.Permissions;
 
 namespace OSFOLCrossPlatform.Droid
 {
-	[Activity (Theme = "@android:style/Theme.Holo.Light",Label = "Lighthouse Office Expense Tracker", MainLauncher = true, Icon = "@drawable/lighthouseicon")]
+	[Activity (Theme = "@android:style/Theme.Holo.Light",Label = "OSFOL", MainLauncher = true, Icon = "@drawable/lighthouseicon")]
 	public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsApplicationActivity
 	{
         protected override async void OnCreate(Bundle bundle)

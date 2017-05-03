@@ -57,6 +57,11 @@ namespace OSFOLCrossPlatform.Views
             }
         }
 
+        /// <summary>
+        /// Checks to see if the login credentials are correct
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
         bool AreCredentialsCorrect(Login user)
         {
             if (user.IsRetired == false && user.UserName == usernameListView.SelectedValue.ToString() && user.Password == passwordEntry.Text)
@@ -74,7 +79,12 @@ namespace OSFOLCrossPlatform.Views
 
         }
 
-        async void SignUpButton_OnClicked(object sender, EventArgs e)
+        /// <summary>
+        /// Navigates the user to the Sign Up PAge
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        async void GoToSignUpButton_OnClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new SignUpView());
         }

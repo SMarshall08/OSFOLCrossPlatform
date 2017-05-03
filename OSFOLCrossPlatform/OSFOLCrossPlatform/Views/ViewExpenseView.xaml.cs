@@ -70,7 +70,7 @@ namespace OSFOLCrossPlatform.Views
 
         async void CSVButton_Clicked(object sender, EventArgs e)
         {
-            // initialize expense string empty
+            // initialize expense string with headings
             string allExpenses = @" 
 Created Date, Customer, Contact, Opportunity, Location From, Location To, Expense Type, Expense Method, Expense Details, Vendor, Currency, Exchange Rate, Expense Amount Currency, Expense Amount";
             // go through each expense

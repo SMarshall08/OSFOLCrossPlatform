@@ -1,6 +1,6 @@
 package mono.android.app;
 
-public class Application extends android.app.Application {
+public class Application extends android.support.multidex.MultiDexApplication {
 
 	public Application ()
 	{

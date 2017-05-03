@@ -83,26 +83,29 @@ namespace OSFOLCrossPlatform.ViewModels
 
         public SignUpViewModel()
         {
-
-            // save expense 
-            SaveButtonTapped = new Command(() =>
-            {
-                _MaxLoginID = App.Database.GetMaxLoginID();
-                _MaxLoginIDPlusOne = _MaxLoginID + 1;
-                // Task to call database and save expense with values from model 
-                Task.Run(() => App.Database.SignUp(new Login
+            
+                // save expense 
+                SaveButtonTapped = new Command(() =>
                 {
-                    LoginID = _MaxLoginIDPlusOne,
-                    UserName = _UserName,
-                    Password = _Password,
-                    FirstName = _FirstName,
-                    LastName = _LastName,
-                    IsRetired = false
+                    if (SecurityPin == DateTime.Now.Year.ToString())
+                    {
+                        _MaxLoginID = App.Database.GetMaxLoginID();
+                        _MaxLoginIDPlusOne = _MaxLoginID + 1;
+                        // Task to call database and save expense with values from model 
+                        Task.Run(() => App.Database.SignUp(new Login
+                        {
+                            LoginID = _MaxLoginIDPlusOne,
+                            UserName = _UserName,
+                            Password = _Password,
+                            FirstName = _FirstName,
+                            LastName = _LastName,
+                            IsRetired = false
 
-                }));
+                        }));
+                    }
+     
+                });
 
-
-            });
         }
     }
 }

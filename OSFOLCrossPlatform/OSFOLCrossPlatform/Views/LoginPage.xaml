@@ -36,7 +36,7 @@
         </Grid>
         
         <Button Text="Login" Clicked="OnLoginButtonClicked" />
-        <Button x:Name="SignUp" Clicked="SignUpButton_OnClicked" Text="Sign Up" />
+        <Button x:Name="SignUp" Clicked="GoToSignUpButton_OnClicked" Text="Sign Up" />
         <Label x:Name="messageLabel" />
         
       </StackLayout>

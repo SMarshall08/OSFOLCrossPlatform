@@ -67,6 +67,7 @@
                Placeholder="Security Pin"
                Keyboard="Numeric"
                IsPassword="True"
+               Text="{Binding SecurityPin}"
                />
       </Grid>
       <Button x:Name="SignUp"

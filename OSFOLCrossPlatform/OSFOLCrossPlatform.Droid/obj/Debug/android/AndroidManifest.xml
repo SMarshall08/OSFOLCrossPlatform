@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="OSFOLCrossPlatform.Droid" android:installLocation="auto" android:versionCode="1" android:versionName="1.0">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="OSFOLCrossPlatform.Droid" android:installLocation="auto" android:versionName="OSFOL" android:versionCode="3">
   <!--suppress UsesMinSdkAttributes-->
   <uses-sdk android:minSdkVersion="19" />
   <uses-permission android:name="android.permission.CAMERA" />
@@ -12,8 +12,8 @@
   <uses-permission android:name="android.permission.READ_OWNER_DATA" />
   <uses-feature android:name="android.hardware.camera" android:required="false" />
   <uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />
-  <application android:icon="@drawable/lighthouseicon" android:label="OSFOL" android:name="md56c9b6899f46359f363c6d6ceba6e333a.MainApplication" android:allowBackup="true" android:debuggable="true">
-    <activity android:icon="@drawable/lighthouseicon" android:label="Lighthouse Office Expense Tracker" android:theme="@android:style/Theme.Holo.Light" android:name="md56c9b6899f46359f363c6d6ceba6e333a.MainActivity">
+  <application android:icon="@drawable/lighthouseicon" android:label="OSFOL" android:debuggable="true" android:name="mono.android.app.Application" android:allowBackup="true">
+    <activity android:icon="@drawable/lighthouseicon" android:label="OSFOL" android:theme="@android:style/Theme.Holo.Light" android:name="md56c9b6899f46359f363c6d6ceba6e333a.MainActivity">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
         <category android:name="android.intent.category.LAUNCHER" />

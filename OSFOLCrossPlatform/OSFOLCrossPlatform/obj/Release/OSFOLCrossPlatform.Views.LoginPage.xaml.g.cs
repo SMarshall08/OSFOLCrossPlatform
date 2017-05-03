@@ -17,10 +17,16 @@ namespace OSFOLCrossPlatform.Views {
     public partial class LoginPage : global::Xamarin.Forms.ContentPage {
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
-        private global::Xamarin.Forms.Entry usernameEntry;
+        private global::Xamarin.Forms.Label UserNameLabel;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::OSFOLCrossPlatform.Controls.BindablePicker usernameListView;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private global::Xamarin.Forms.Entry passwordEntry;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.Button SignUp;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private global::Xamarin.Forms.Label messageLabel;
@@ -28,8 +34,10 @@ namespace OSFOLCrossPlatform.Views {
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private void InitializeComponent() {
             this.LoadFromXaml(typeof(LoginPage));
-            usernameEntry = this.FindByName<global::Xamarin.Forms.Entry>("usernameEntry");
+            UserNameLabel = this.FindByName<global::Xamarin.Forms.Label>("UserNameLabel");
+            usernameListView = this.FindByName<global::OSFOLCrossPlatform.Controls.BindablePicker>("usernameListView");
             passwordEntry = this.FindByName<global::Xamarin.Forms.Entry>("passwordEntry");
+            SignUp = this.FindByName<global::Xamarin.Forms.Button>("SignUp");
             messageLabel = this.FindByName<global::Xamarin.Forms.Label>("messageLabel");
         }
     }

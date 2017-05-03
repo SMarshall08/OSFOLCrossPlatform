@@ -61,6 +61,16 @@ namespace OSFOLCrossPlatform.ViewModels
             }
         }
 
+        public string LastName
+        {
+            get { return _LastName; }
+            set
+            {
+                _LastName = value;
+                RaisePropertyChanged();
+            }
+        }
+
         public string Email
         {
             get { return _Email; }
@@ -158,8 +168,8 @@ namespace OSFOLCrossPlatform.ViewModels
                     ContactID   = _maxContactID,
                     CustomerID  = _CustomerID,
                     Title       = "",
-                    FirstName   = _FirstName,
-                    LastName    = _LastName,
+                    FirstName   = FirstName,
+                    LastName    = LastName,
                     Email       = "",
                     Telephone   = "",
                     MobilePhone = "",

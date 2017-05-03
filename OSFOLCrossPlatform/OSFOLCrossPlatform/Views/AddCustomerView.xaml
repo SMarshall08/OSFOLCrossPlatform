@@ -22,9 +22,7 @@
         <Entry Grid.Column="1"
                x:Name="CustomerEntry"
                Placeholder="Customer"
-               Text="{Binding Customer}"
-               HorizontalOptions="CenterAndExpand"
-               VerticalOptions="CenterAndExpand"/>
+               Text="{Binding Customer}"/>
       </Grid>
       <Grid>
         <Grid.ColumnDefinitions>
@@ -35,9 +33,7 @@
         <Entry Grid.Column="1"
                x:Name="CountryEntry"
                Placeholder="Country"
-               Text="{Binding Country}"
-               HorizontalOptions="CenterAndExpand"
-               VerticalOptions="CenterAndExpand"/>
+               Text="{Binding Country}"/>
       </Grid>
     </StackLayout>
   </ScrollView>

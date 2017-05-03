@@ -22,10 +22,9 @@
         <Entry Grid.Column="1"
                x:Name="VendorEntry"
                Placeholder="Vendor"
-               Text="{Binding Vendor}"
-               VerticalOptions="CenterAndExpand"
-               HorizontalOptions="CenterAndExpand"/>
+               Text="{Binding Vendor}"/>
       </Grid>
+
     </StackLayout>
   </ScrollView>
 </ContentPage>

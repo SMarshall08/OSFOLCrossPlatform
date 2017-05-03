@@ -22,12 +22,6 @@ public class MainApplication
 			"";
 	}
 
-
-	public MainApplication () throws java.lang.Throwable
-	{
-		super ();
-	}
-
 	public void onCreate ()
 	{
 		mono.android.Runtime.register ("OSFOLCrossPlatform.Droid.MainApplication, OSFOLCrossPlatform.Droid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", MainApplication.class, __md_methods);

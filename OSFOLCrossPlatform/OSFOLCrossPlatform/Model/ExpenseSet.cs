@@ -142,7 +142,7 @@ namespace OSFOLCrossPlatform.Model
     {
         public rfVendor() { }
 
-        [PrimaryKey, AutoIncrement, Unique]
+        [PrimaryKey, Unique]
         public int VendorID  { get; set; }
         public string Vendor { get; set; }
     }
@@ -154,7 +154,7 @@ namespace OSFOLCrossPlatform.Model
     {
         public Contact() { }
 
-        [PrimaryKey, AutoIncrement, Unique]
+        [PrimaryKey, Unique]
         public int ContactID        { get; set; }
         public int CustomerID       { get; set; }
         public string Title         { get; set; }
